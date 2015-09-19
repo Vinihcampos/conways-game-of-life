@@ -13,7 +13,7 @@ class Field {
 	private:		
 		bool **data;
 		int rows, cols;
-		int _stable;
+		int stable;
 	
 	public:
 
@@ -22,6 +22,8 @@ class Field {
 			STABLE,
 			NORMAL
 		};
+
+
 
 		/* Constructor
 		 *
@@ -38,11 +40,15 @@ class Field {
 		
 		/* Verify if the field is stable
 		 * */		
-		int stable() const{ return _stable; };
+		int isStable() const{ return stable; };
 		
+		/* Count how many neighbors the cell has
+		**/
+		int countNeighbors(const int & row, const int & col);
+
 		/* Update field's state.
 		 * */		
-		void update();
+		bool update();
 		
 		/* Print field.
 		 * */

@@ -11,7 +11,7 @@ using namespace std;
 * Takes the size of the field (rows x cols)
 * and allocates memory for it.
 * */
-Field::Field( const int & _rows, const int & _cols ) : rows { _rows}, cols { _cols}, _stable { Field::NORMAL }{
+Field::Field( const int & _rows, const int & _cols ) : rows { _rows}, cols { _cols}, stable { Field::NORMAL }{
 	if(_cols < 0 || _rows < 0){
 		throw out_of_range( "Index provided out of valid range!" );
 	}else{
@@ -32,12 +32,11 @@ Field::Field( const int & _rows, const int & _cols ) : rows { _rows}, cols { _co
 	}
 }
 
-Field::Field( const int & _rows, const int & _cols, const vector< pair< int, int > > & pointsAlive ) : _stable { Field::NORMAL }{
+Field::Field( const int & _rows, const int & _cols, const vector< pair< int, int > > & pointsAlive ) : stable { Field::NORMAL }{
 
 	if(_cols < 0 || _rows < 0){
 		throw out_of_range( "Index provided out of valid range!" );
 	}else{
-		_stable = false;
 		rows += 2; // Increment 2 rows to apply fence technique 
 		cols += 2; // Increment 2 cols to apply fence technique
 
@@ -86,8 +85,64 @@ void Field::setAlive(const int & _row, const int & _col){
 	   _col < 0 || _col > cols - 2){
 			throw out_of_range( "Index provided out of valid range!" );
 	}else{
-		data[_row][_col] = true;
+		data[_row + 1][_col + 1] = true;
 	}
+}
+
+/* Count how many neighbors the cell has
+**/
+int Field::countNeighbors(const int & _row, const int & _col){
+	int _neighbors = 0;
+
+	for(auto i (-1); i < 2; ++i)
+	for(auto j (-1); j < 2; ++j){
+		if(data[_row + i][_col + j] && (i != 0 || j != 0))
+			++_neighbors;
+	}
+
+	return _neighbors;
+}
+
+/* Update field's state.
+* */		
+bool Field::update(){
+	bool **aux_field = new bool *[rows];
+	for(auto i (0); i < rows; ++i){
+		aux_field[i] = new bool[cols];
+	}
+
+	//Fill fence field
+	for(auto i (0); i < rows; i += rows - 1)
+	for(auto j (0); j < cols; ++j)
+		aux_field[i][j] = false;
+
+	bool changed = false;
+
+	for(auto i (1); i < rows - 1; ++i){
+		for(auto j (1); j < cols - 1; ++j){
+			int neighbors = Field::countNeighbors(i, j);
+			if(data[i][j] && (neighbors <= 1 || neighbors >= 4)){ //Applying rule 1 and 2
+				aux_field[i][j] = false;
+				changed = true;
+			}else if(data[i][j]){ // Applying rule 3
+				aux_field[i][j] = true;
+			}else if(!data[i][j] && neighbors == 3){ //Applying rule 4 (Part 1 - Doing a cell live)
+				aux_field[i][j] = true;
+				changed = true;
+			}else{ //Applying rule 4 (Part 2 - Keeping state of cell)
+				aux_field[i][j] = false;
+			}
+		}
+	}
+
+	for(auto i (0); i < rows; ++i){
+		delete [] data[i];
+	}
+	delete [] data;
+
+	data = aux_field;
+
+	return changed;
 }
 
 /* Print field.
@@ -97,19 +152,35 @@ void Field::print() const{
 		cout<<"[ ";
 		for(auto j (1); j < cols - 1; ++j){
 			if(data[i][j])
-				cout<<"V ";
+				cout<<"* ";
 			else
-				cout<<"M ";
+				cout<<"- ";
 		}
 		cout<<"]"<<endl;
 	}
 }
 
 /*MAIN ONLY FOR TESTS
-int main(){
+*/int main(){
 
-	Field f(5,2);
+	Field f(8,8);
+	f.setAlive(2,2);
+	f.setAlive(2,4);
+	f.setAlive(3,2);
+	f.setAlive(3,3);
+	f.setAlive(3,4);
+	f.setAlive(4,2);
+	f.setAlive(4,4);
+	int count = 0;
 	f.print();
+	
+	while(f.update()){
+		f.print();
+		cout<<"\n\n";
+		count++;
+	}
 
+	f.print();
+	cout<<"Number of iterations: "<<count<<endl;
 	return 0;
-}*/
+}
