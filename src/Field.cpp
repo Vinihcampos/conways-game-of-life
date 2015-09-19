@@ -96,8 +96,9 @@ int Field::countNeighbors(const int & _row, const int & _col){
 
 	for(auto i (-1); i < 2; ++i)
 	for(auto j (-1); j < 2; ++j){
-		if(data[_row + i][_col + j] && (i != 0 || j != 0))
-			++_neighbors;
+		if(i != 0 || j != 0)
+			if(data[_row + i][_col + j] == true)
+				++_neighbors;
 	}
 
 	return _neighbors;
@@ -111,17 +112,28 @@ bool Field::update(){
 		aux_field[i] = new bool[cols];
 	}
 
-	//Fill fence field
-	for(auto i (0); i < rows; i += rows - 1)
-	for(auto j (0); j < cols; ++j)
-		aux_field[i][j] = false;
+	//Fill fence field with 'false'
+	for(auto i (0); i < rows; ++i){
+		if(i == 0 || i == rows - 1){
+			for(auto j (0); j < cols; ++j)
+				aux_field[i][j] = false;
+		}else{
+			aux_field[i][0] = false;
+			aux_field[i][cols - 1] = false;
+		}
+		
+	}
+
 
 	bool changed = false;
 
 	for(auto i (1); i < rows - 1; ++i){
 		for(auto j (1); j < cols - 1; ++j){
 			int neighbors = Field::countNeighbors(i, j);
-			if(data[i][j] && (neighbors <= 1 || neighbors >= 4)){ //Applying rule 1 and 2
+			if(data[i][j] && neighbors <= 1){ //Applying rule 1
+				aux_field[i][j] = false;
+				changed = true;
+			}else if(data[i][j] && neighbors >= 4){ // Applying rule 2
 				aux_field[i][j] = false;
 				changed = true;
 			}else if(data[i][j]){ // Applying rule 3
@@ -164,23 +176,24 @@ void Field::print() const{
 */int main(){
 
 	Field f(8,8);
-	f.setAlive(2,2);
-	f.setAlive(2,4);
-	f.setAlive(3,2);
+	f.setAlive(2,3);
+	f.setAlive(2,5);
 	f.setAlive(3,3);
 	f.setAlive(3,4);
-	f.setAlive(4,2);
-	f.setAlive(4,4);
+	f.setAlive(3,5);
+	f.setAlive(4,3);
+	f.setAlive(4,5);
 	int count = 0;
 	f.print();
-	
+
 	while(f.update()){
+		int x;
+		cin>>x;
+		cout<<endl;
 		f.print();
 		cout<<"\n\n";
 		count++;
 	}
-
-	f.print();
 	cout<<"Number of iterations: "<<count<<endl;
 	return 0;
 }
