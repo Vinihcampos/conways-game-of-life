@@ -9,65 +9,40 @@
 
 using namespace std;
 
-	//int main(int argsize, char *args[]) {
-/*void writeInFile(Field & field, ofstream & outfile, int & generation, string & arg){
-	outfile.open(arg, ios::ate);
-	if (!outfile.is_open())
-		throw ios_base::failure("Unable to open output file.");
-	else{
-		outfile<<"\nGeneration: "<<generation<<endl;
-		for(auto i (1); i < field.getRows() - 1; ++i){
-			outfile<<"[";
-			for(auto j (1); j < field.getCols() - 1; ++j){
-				if(field.getStatePos(i,j))
-					outfile<<"•";
-				else
-					outfile<<" ";
-			}
-			outfile<<"]"<<endl;	
-		}
-		outfile.close();	
-	}
-}*/
-
 int main(int argsize, char *argsi[]) {
 
-	cout << "oi";
-
-	int m, n;
-	char alive;
+	int m, n;	// field's dimensions
+	char alive;	// char to indicate an living cell
 	
 	//check argument
 	if (argsize < 2)
 	       cerr << "Wrong sintaxe: please provide an input file." << endl;	
-		//throw invalid_argument("Wrong sintaxe!\nUse...");
 	
-	cout << "oioi" << endl;
-	//if it's ok
 	ifstream infile;
 
-	infile.open(argsi[1]);	
+	infile.open(argsi[1]); // open input file	
 	
 	if (!infile.is_open())
 		throw ios_base::failure("Unable to open input file.");
 
-	string line;
+	string line; // get each line of input
 
 	getline(infile, line);
 
-	std::stringstream stm (line);
+	std::stringstream stm1 (line); // stringstream to read each number
 
-	stm >> m;
-	stm >> n;
+	stm1 >> m;
+	stm1 >> n;
 
 	getline(infile, line);
-	
-	std::stringstream stm2 (line);
+
+	std::stringstream stm2 (line); // stringtream to read the character
 	
 	stm2 >> alive;
 
 	vector< pair<int, int> > aliveCollection;
-	
+
+	// seek for living cells	
 	int i = 0;
 	while (true) {
 		if(!getline(infile, line)) break;
@@ -81,11 +56,12 @@ int main(int argsize, char *argsi[]) {
 	infile.close();
 
 	//finally build the field
-	Field life (m, n, aliveCollection);
+	Field life {m, n, aliveCollection};
 	
 	int generation = 1;
 	char userKeep = 'y';
 
+	// keeping track of game's state
 	while (userKeep == 'y' && life.stateField() != Field::STABLE) {
 
 		cout << "Generation " << generation << endl;
@@ -101,7 +77,8 @@ int main(int argsize, char *argsi[]) {
 			++generation;
 		}
 	}	
-		
+	
+	// tells whether the game ended
 	if (life.stateField() == Field::STABLE) 
 		cout << "The game is stable." << endl;
 	else if (life.stateField() == Field::EXTINCT)
