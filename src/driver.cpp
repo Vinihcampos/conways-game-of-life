@@ -1,10 +1,12 @@
 #include "Field.h"
 #include <iostream>
 #include <algorithm>
+#include <stdexcept>
+#include <fstream>
 
 using namespace std;
 
-int main(int argsize, char *argsi[]) {
+int main(int argsize, char *args[]) {
 
 	int m, n;
 	char alive;
@@ -47,7 +49,7 @@ int main(int argsize, char *argsi[]) {
 	int generation = 1;
 	char userKeep = 'y';
 
-	while (userKeep == 'y' && !life.stable()) {
+	while (userKeep == 'y' && life.stable() != Field::EXTINCT && life.stable() != Field::STABLE) {
 
 		cout << "Generation " << generation << endl;
 
@@ -63,9 +65,9 @@ int main(int argsize, char *argsi[]) {
 		}
 	}	
 		
-	if (life.stable()) 
+	if (life.isStable() == Field::STABLE) 
 		cout << "The game is stable." << endl;
-	else if (life.extinct())
+		else if (life.stable() == Field::EXTINCT)
 		cout << "Life is extinct." << endl;
 	else 
 		cout << "User ended the game without stability." << endl;
