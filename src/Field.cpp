@@ -24,11 +24,10 @@ Field::Field( const int & _rows, const int & _cols ) : rows { _rows}, cols { _co
 			data[i] = new bool[cols];
 		}
 
-
 		// Set each position of data with 'false'
 		for(auto i (0); i < rows; ++i)
-		for(auto j (0); j < cols; ++j)
-			data[i][j] = false;
+			for(auto j (0); j < cols; ++j)
+				data[i][j] = false;
 	}
 }
 
@@ -49,8 +48,8 @@ Field::Field( const int & _rows, const int & _cols, const vector< pair< int, int
 
 		// Set each position of data with 'false'
 		for(auto i (0); i < rows; ++i)
-		for(auto j (0); j < cols; ++j)
-			data[i][j] = false;
+			for(auto j (0); j < cols; ++j)
+				data[i][j] = false;
 
 		Field::setAlive(pointsAlive);
 	}
@@ -94,11 +93,13 @@ void Field::setAlive(const int & _row, const int & _col){
 int Field::countNeighbors(const int & _row, const int & _col){
 	int _neighbors = 0;
 
-	for(auto i (-1); i < 2; ++i)
-	for(auto j (-1); j < 2; ++j){
-		if(i != 0 || j != 0)
-			if(data[_row + i][_col + j] == true)
-				++_neighbors;
+	int d[8][2] = {{1, 1}, {1, 0}, {0, 1}, {-1, -1}, 
+		         {-1, 0}, {0, -1}, {1, -1}, {-1, 1}};
+	
+	for (auto i(0); i < 8; ++i) {
+		int rr = _row + d[i][0];
+		int cc = _col + d[i][1];
+		_neighbors += data[rr][cc] ? 1 : 0;
 	}
 
 	return _neighbors;
