@@ -47,7 +47,7 @@ int main(int argsize, char *argsi[]) {
 	while (true) {
 		if(!getline(infile, line)) break;
 
-		for (int j = 0; j < line.length(); ++j)
+		for (auto j (0ul); j < line.length(); ++j)
 			if (line[j] == alive)
 				aliveCollection.push_back(make_pair(i, j));
 		i++;
@@ -62,7 +62,7 @@ int main(int argsize, char *argsi[]) {
 	char userKeep = 'y';
 
 	// keeping track of game's state
-	while (userKeep == 'y' && life.stateField() != Field::STABLE) {
+	while (userKeep == 'y' && life.stateField() == Field::NORMAL) {
 
 		cout << "Generation " << generation << endl;
 
@@ -79,6 +79,7 @@ int main(int argsize, char *argsi[]) {
 	}	
 	
 	// tells whether the game ended
+	life.print();
 	if (life.stateField() == Field::STABLE) 
 		cout << "The game is stable." << endl;
 	else if (life.stateField() == Field::EXTINCT)

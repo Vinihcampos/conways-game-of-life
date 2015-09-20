@@ -70,16 +70,15 @@ Field::~Field(){
 
 /* Pass a vector of pair with points to set each cell alive
 */
-void Field::setAlive(const vector< pair< int, int > > & pointsAlive){ 
-       cout << "inciio set alive" << endl;	
-	for(auto i(0); i < pointsAlive.size(); ++i){ 
-		if(pointsAlive[i].first < 0 || pointsAlive[i].first > rows - 2 || pointsAlive[i].second < 0 || pointsAlive[i].second > cols - 2){ 
-			throw out_of_range( "Index provided out of valid range!" ); 
-		}else{ 
-			data[pointsAlive[i].first][pointsAlive[i].second] = true; 
-		} 
+void Field::setAlive(const vector< pair< int, int > > & pointsAlive){
+	for(auto i(0ul); i < pointsAlive.size(); ++i){
+		if(pointsAlive[i].first < 0 || pointsAlive[i].first > rows - 2 || 
+		   pointsAlive[i].second < 0 || pointsAlive[i].second > cols - 2){
+			throw out_of_range( "Index provided out of valid range!" );
+		}else{
+			data[pointsAlive[i].first + 1][pointsAlive[i].second + 1] = true;
+		}
 	}
-       cout << "fim set alive" << endl;	
 }
 
 /* Set manually a cell to alive.
@@ -112,7 +111,7 @@ int Field::countNeighbors(const int & _row, const int & _col){
 
 /* Update field's state.
 * */		
-bool Field::update(){
+void Field::update(){
 	bool **aux_field = new bool *[rows];
 	for(auto i (0); i < rows; ++i){
 		aux_field[i] = new bool[cols];
@@ -132,6 +131,7 @@ bool Field::update(){
 
 
 	bool changed = false;
+	bool hasLife = false;
 
 	for(auto i (1); i < rows - 1; ++i){
 		for(auto j (1); j < cols - 1; ++j){
@@ -144,9 +144,11 @@ bool Field::update(){
 				changed = true;
 			}else if(data[i][j]){ // Applying rule 3
 				aux_field[i][j] = true;
+				hasLife = true;
 			}else if(!data[i][j] && neighbors == 3){ //Applying rule 4 (Part 1 - Doing a cell live)
 				aux_field[i][j] = true;
 				changed = true;
+				hasLife = true;
 			}else{ //Applying rule 4 (Part 2 - Keeping state of cell)
 				aux_field[i][j] = false;
 			}
@@ -160,7 +162,12 @@ bool Field::update(){
 
 	data = aux_field;
 
-	return changed;
+	if(!hasLife)
+		stable = Field::EXTINCT;
+	else if(changed)
+		stable = Field::NORMAL;
+	else
+		stable = Field::STABLE;
 }
 
 /* Get data method

@@ -48,7 +48,7 @@ class Field {
 
 		/* Update field's state.
 		 * */		
-		bool update();
+		void update();
 		
 		/* Print field.
 		 * */
