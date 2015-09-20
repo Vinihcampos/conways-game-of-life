@@ -40,8 +40,8 @@ Field::Field( const int & _rows, const int & _cols, const vector< pair< int, int
 	if(_cols < 0 || _rows < 0){
 		throw out_of_range( "Index provided out of valid range!" );
 	}else{
-		rows += 2; // Increment 2 rows to apply fence technique 
-		cols += 2; // Increment 2 cols to apply fence technique
+		rows = _rows + 2; // Increment 2 rows to apply fence technique 
+		cols = _cols + 2; // Increment 2 cols to apply fence technique
 
 		// Aloccate memory for data (rows x cols)
 		data = new bool * [rows];
@@ -70,15 +70,16 @@ Field::~Field(){
 
 /* Pass a vector of pair with points to set each cell alive
 */
-void Field::setAlive(const vector< pair< int, int > > & pointsAlive){
-	for(pair<int,int> v : pointsAlive){
-		if(v.first < 0 || v.first > rows - 2 || 
-		   v.second < 0 || v.second > cols - 2){
-			throw out_of_range( "Index provided out of valid range!" );
-		}else{
-			data[v.first][v.second] = true;
-		}
+void Field::setAlive(const vector< pair< int, int > > & pointsAlive){ 
+       cout << "inciio set alive" << endl;	
+	for(auto i(0); i < pointsAlive.size(); ++i){ 
+		if(pointsAlive[i].first < 0 || pointsAlive[i].first > rows - 2 || pointsAlive[i].second < 0 || pointsAlive[i].second > cols - 2){ 
+			throw out_of_range( "Index provided out of valid range!" ); 
+		}else{ 
+			data[pointsAlive[i].first][pointsAlive[i].second] = true; 
+		} 
 	}
+       cout << "fim set alive" << endl;	
 }
 
 /* Set manually a cell to alive.

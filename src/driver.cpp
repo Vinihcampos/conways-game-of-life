@@ -1,15 +1,15 @@
 #include "Field.h"
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <algorithm>
 #include <stdexcept>
 #include <fstream>
+#include <vector>
 
 using namespace std;
 
-<<<<<<< HEAD
-int main(int argsize, char *args[]) {
-=======
+	//int main(int argsize, char *args[]) {
 /*void writeInFile(Field & field, ofstream & outfile, int & generation, string & arg){
 	outfile.open(arg, ios::ate);
 	if (!outfile.is_open())
@@ -31,40 +31,43 @@ int main(int argsize, char *args[]) {
 }*/
 
 int main(int argsize, char *argsi[]) {
->>>>>>> 3da1ae5426c968e6b46b2c0b23d37afc7f4c6704
+
+	cout << "oi";
 
 	int m, n;
 	char alive;
 	
 	//check argument
-	if (argsize < 1) 
-		throw invalid_argument("Wrong sintaxe!\nUse...");
+	if (argsize < 2)
+	       cerr << "Wrong sintaxe: please provide an input file." << endl;	
+		//throw invalid_argument("Wrong sintaxe!\nUse...");
 	
+	cout << "oioi" << endl;
 	//if it's ok
 	ifstream infile;
 
-	infile.open(argsi[0]);	
+	infile.open(argsi[1]);	
 	
 	if (!infile.is_open())
 		throw ios_base::failure("Unable to open input file.");
 
-	//OUTFILE
-	//if(argsize == 2){
-	//	ofstream outfile;		
-	//}
-
 	string line;
 
 	getline(infile, line);
-	// takes field size
-	m = line[0]; n = line[2];	
-	
+
+	std::stringstream stm (line);
+
+	stm >> m;
+	stm >> n;
+
 	getline(infile, line);
-
-	alive = line[0];
 	
-	vector< pair<int, int> > aliveCollection;
+	std::stringstream stm2 (line);
+	
+	stm2 >> alive;
 
+	vector< pair<int, int> > aliveCollection;
+	
 	int i = 0;
 	while (true) {
 		if(!getline(infile, line)) break;
@@ -78,16 +81,12 @@ int main(int argsize, char *argsi[]) {
 	infile.close();
 
 	//finally build the field
-	Field life {m, n, aliveCollection};
+	Field life (m, n, aliveCollection);
 	
 	int generation = 1;
 	char userKeep = 'y';
 
-<<<<<<< HEAD
-	while (userKeep == 'y' && life.stable() != Field::EXTINCT && life.stable() != Field::STABLE) {
-=======
 	while (userKeep == 'y' && life.stateField() != Field::STABLE) {
->>>>>>> 3da1ae5426c968e6b46b2c0b23d37afc7f4c6704
 
 		cout << "Generation " << generation << endl;
 
@@ -103,15 +102,9 @@ int main(int argsize, char *argsi[]) {
 		}
 	}	
 		
-<<<<<<< HEAD
-	if (life.isStable() == Field::STABLE) 
-		cout << "The game is stable." << endl;
-		else if (life.stable() == Field::EXTINCT)
-=======
 	if (life.stateField() == Field::STABLE) 
 		cout << "The game is stable." << endl;
 	else if (life.stateField() == Field::EXTINCT)
->>>>>>> 3da1ae5426c968e6b46b2c0b23d37afc7f4c6704
 		cout << "Life is extinct." << endl;
 	else 
 		cout << "User ended the game without stability." << endl;
