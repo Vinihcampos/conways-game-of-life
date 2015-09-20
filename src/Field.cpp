@@ -4,6 +4,10 @@
 #include <vector>
 #include <iostream>
 
+/*
+*	Compilation: g++ -Wall -std=c++11 -I include/ src/Field.cpp -o bin/test
+*/
+
 using namespace std; 
 
 /* Constructor
@@ -158,6 +162,17 @@ bool Field::update(){
 	return changed;
 }
 
+/* Get data method
+**/
+bool Field::getStatePos(const int & _row, const int & _col){
+	if(_row < 0 || _row > rows - 2 || 
+	   _col < 0 || _col > cols - 2){
+			throw out_of_range( "Index provided out of valid range!" );
+	}else{
+		return data[_row + 1][_col + 1];
+	}
+}
+
 /* Print field.
 * */
 void Field::print() const{
@@ -165,17 +180,18 @@ void Field::print() const{
 		cout<<"[ ";
 		for(auto j (1); j < cols - 1; ++j){
 			if(data[i][j])
-				cout<<"* ";
+				cout<<"• ";
 			else
-				cout<<"- ";
+				cout<<"  ";
 		}
 		cout<<"]"<<endl;
 	}
 }
 
 /*MAIN ONLY FOR TESTS
-*/int main(){
-
+int main(){
+	
+	// Test 1
 	Field f(8,8);
 	f.setAlive(2,3);
 	f.setAlive(2,5);
@@ -187,9 +203,22 @@ void Field::print() const{
 	int count = 0;
 	f.print();
 
+	//Test 2
+	Field f(10,10);
+	f.setAlive(3,3);
+	f.setAlive(4,5);
+	f.setAlive(5,2);
+	f.setAlive(5,3);
+	f.setAlive(5,6);
+	f.setAlive(5,7);
+	f.setAlive(5,8);
+
+	int count = 0;
+	f.print();
+
 	while(f.update()){
-		int x;
-		cin>>x;
+		//int x;
+		//cin>>x;
 		cout<<endl;
 		f.print();
 		cout<<"\n\n";
@@ -197,4 +226,4 @@ void Field::print() const{
 	}
 	cout<<"Number of iterations: "<<count<<endl;
 	return 0;
-}
+}*/

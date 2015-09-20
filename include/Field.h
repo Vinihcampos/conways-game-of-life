@@ -38,9 +38,9 @@ class Field {
 		void setAlive(const vector< pair< int, int > > & pointsAlive );
 		void setAlive(const int & _row, const int & _col);
 		
-		/* Verify if the field is stable
+		/* Verify the state of the field
 		 * */		
-		int isStable() const{ return stable; };
+		int stateField() const{ return stable; };
 		
 		/* Count how many neighbors the cell has
 		**/
@@ -54,7 +54,22 @@ class Field {
 		 * */
 		void print() const;
 
+		/* Destructor of class Field
+		**/
 		~Field();
+
+		/* Get rows method
+		**/
+		int getRows() const{ return rows; };
+
+		/* Get cols method
+		**/
+		int getCols() const{ return cols; };
+
+		/* Get data method
+		**/
+		bool getStatePos(const int & _row, const int & _col);
+
 };
 
 #endif
