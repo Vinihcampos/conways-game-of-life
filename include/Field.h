@@ -3,6 +3,8 @@
 
 #include <vector>
 #include <utility>
+#include <unordered_map>
+#include <functional>
 
 using namespace std;
 
@@ -14,6 +16,8 @@ class Field {
 		bool **data;
 		int rows, cols;
 		int stable;
+		int generation;
+		unordered_map<size_t, int> historical;
 	
 	public:
 
@@ -41,6 +45,10 @@ class Field {
 		/* Verify the state of the field
 		 * */		
 		int stateField() const{ return stable; };
+
+		/* Verify if an array had been created before
+		**/
+		bool isInside(size_t pivot);
 		
 		/* Count how many neighbors the cell has
 		**/
@@ -65,6 +73,10 @@ class Field {
 		/* Get cols method
 		**/
 		int getCols() const{ return cols; };
+
+		/* Get generation
+		**/
+		int getGeneration() const { return generation; };
 
 		/* Get data method
 		**/

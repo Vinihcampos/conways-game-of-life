@@ -3,6 +3,8 @@
 #include <utility>
 #include <vector>
 #include <iostream>
+#include <unordered_map>
+#include <functional>
 
 /*
 *	Compilation: g++ -Wall -std=c++11 -I include/ src/Field.cpp -o bin/test
@@ -15,12 +17,14 @@ using namespace std;
 * Takes the size of the field (rows x cols)
 * and allocates memory for it.
 * */
-Field::Field( const int & _rows, const int & _cols ) : rows { _rows}, cols { _cols}, stable { Field::NORMAL }{
+Field::Field( const int & _rows, const int & _cols ) : rows { _rows}, cols { _cols}, 
+		 	  stable { Field::NORMAL }, generation { 1 } {
 	if(_cols < 0 || _rows < 0){
 		throw out_of_range( "Index provided out of valid range!" );
 	}else{
 		rows += 2; // Increment 2 rows to apply fence technique 
 		cols += 2; // Increment 2 cols to apply fence technique
+		string matrixCode = "";
 
 		// Aloccate memory for data (rows x cols)
 		data = new bool * [rows];
@@ -32,16 +36,25 @@ Field::Field( const int & _rows, const int & _cols ) : rows { _rows}, cols { _co
 		for(auto i (0); i < rows; ++i)
 			for(auto j (0); j < cols; ++j)
 				data[i][j] = false;
+
+		for(auto i (1); i < rows - 1; ++i)
+			for(auto j (1); j < cols - 1; ++j)
+				matrixCode += data[i][j] ? "V" : "M";
+
+		size_t pivot = hash<string>()(matrixCode);
+		historical.insert({pivot, generation});
 	}
 }
 
-Field::Field( const int & _rows, const int & _cols, const vector< pair< int, int > > & pointsAlive ) : stable { Field::NORMAL }{
+Field::Field( const int & _rows, const int & _cols, const vector< pair< int, int > > & pointsAlive ) : 
+			  stable { Field::NORMAL }, generation { 1 } {
 
 	if(_cols < 0 || _rows < 0){
 		throw out_of_range( "Index provided out of valid range!" );
 	}else{
 		rows = _rows + 2; // Increment 2 rows to apply fence technique 
 		cols = _cols + 2; // Increment 2 cols to apply fence technique
+		string matrixCode = "";
 
 		// Aloccate memory for data (rows x cols)
 		data = new bool * [rows];
@@ -56,6 +69,13 @@ Field::Field( const int & _rows, const int & _cols, const vector< pair< int, int
 				data[i][j] = false;
 
 		Field::setAlive(pointsAlive);
+
+		for(auto i (1); i < rows - 1; ++i)
+			for(auto j (1); j < cols - 1; ++j)
+				matrixCode += data[i][j] ? "V" : "M";
+
+		size_t pivot = hash<string>()(matrixCode);
+		historical.insert({pivot, generation});
 	}
 }
 
@@ -130,28 +150,26 @@ void Field::update(){
 	}
 
 
-	bool changed = false;
 	bool hasLife = false;
+	string matrixCode = "";
 
 	for(auto i (1); i < rows - 1; ++i){
 		for(auto j (1); j < cols - 1; ++j){
 			int neighbors = Field::countNeighbors(i, j);
 			if(data[i][j] && neighbors <= 1){ //Applying rule 1
 				aux_field[i][j] = false;
-				changed = true;
 			}else if(data[i][j] && neighbors >= 4){ // Applying rule 2
 				aux_field[i][j] = false;
-				changed = true;
 			}else if(data[i][j]){ // Applying rule 3
 				aux_field[i][j] = true;
 				hasLife = true;
 			}else if(!data[i][j] && neighbors == 3){ //Applying rule 4 (Part 1 - Doing a cell live)
 				aux_field[i][j] = true;
-				changed = true;
 				hasLife = true;
 			}else{ //Applying rule 4 (Part 2 - Keeping state of cell)
 				aux_field[i][j] = false;
 			}
+			matrixCode += aux_field[i][j] ? "V" : "M";
 		}
 	}
 
@@ -162,12 +180,23 @@ void Field::update(){
 
 	data = aux_field;
 
-	if(!hasLife)
-		stable = Field::EXTINCT;
-	else if(changed)
-		stable = Field::NORMAL;
-	else
+	size_t pivot = hash<string>()(matrixCode);
+	if(Field::isInside(pivot)){
 		stable = Field::STABLE;
+	}else{
+		if(hasLife){
+			historical.insert({pivot, ++generation});
+			stable = Field::NORMAL;
+		}else{
+			stable = Field::EXTINCT;
+		}		
+	}
+}
+
+/* Verify if an array had been created before
+**/
+bool Field::isInside(size_t pivot){
+	return (historical.find(pivot) != historical.end()); 
 }
 
 /* Get data method

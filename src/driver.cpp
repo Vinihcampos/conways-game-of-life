@@ -58,13 +58,12 @@ int main(int argsize, char *argsi[]) {
 	//finally build the field
 	Field life {m, n, aliveCollection};
 	
-	int generation = 1;
 	char userKeep = 'y';
 
 	// keeping track of game's state
 	while (userKeep == 'y' && life.stateField() == Field::NORMAL) {
 
-		cout << "Generation " << generation << endl;
+		cout << "Generation " << life.getGeneration() << endl;
 
 		life.print();
 		
@@ -74,12 +73,10 @@ int main(int argsize, char *argsi[]) {
 		
 		if (userKeep == 'y') {
 			life.update();
-			++generation;
 		}
 	}	
 	
 	// tells whether the game ended
-	life.print();
 	if (life.stateField() == Field::STABLE) 
 		cout << "The game is stable." << endl;
 	else if (life.stateField() == Field::EXTINCT)
