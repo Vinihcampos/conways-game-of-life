@@ -217,7 +217,7 @@ void Field::print() const{
 		cout<<"[ ";
 		for(auto j (1); j < cols - 1; ++j){
 			if(data[i][j])
-				cout<<"• ";
+				cout<<"■ ";
 			else
 				cout<<"  ";
 		}
