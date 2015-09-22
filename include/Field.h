@@ -64,7 +64,6 @@ class Field {
 
 		/* Return a string with the configution of matrix
 		**/
-
 		string toString();
 
 		/* Destructor of class Field
