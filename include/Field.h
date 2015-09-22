@@ -62,6 +62,11 @@ class Field {
 		 * */
 		void print() const;
 
+		/* Return a string with the configution of matrix
+		**/
+
+		string toString();
+
 		/* Destructor of class Field
 		**/
 		~Field();
@@ -81,6 +86,8 @@ class Field {
 		/* Get data method
 		**/
 		bool getStatePos(const int & _row, const int & _col);
+
+
 
 };
 

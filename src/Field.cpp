@@ -18,7 +18,7 @@ using namespace std;
 * and allocates memory for it.
 * */
 Field::Field( const int & _rows, const int & _cols ) : rows { _rows}, cols { _cols}, 
-		 	  stable { Field::NORMAL }, generation { 1 } {
+		 	  stable { Field::NORMAL }, generation { 0 } {
 	if(_cols < 0 || _rows < 0){
 		throw out_of_range( "Index provided out of valid range!" );
 	}else{
@@ -47,7 +47,7 @@ Field::Field( const int & _rows, const int & _cols ) : rows { _rows}, cols { _co
 }
 
 Field::Field( const int & _rows, const int & _cols, const vector< pair< int, int > > & pointsAlive ) : 
-			  stable { Field::NORMAL }, generation { 1 } {
+			  stable { Field::NORMAL }, generation { 0 } {
 
 	if(_cols < 0 || _rows < 0){
 		throw out_of_range( "Index provided out of valid range!" );
@@ -223,6 +223,22 @@ void Field::print() const{
 		}
 		cout<<"]"<<endl;
 	}
+}
+
+string Field::toString(){
+	string matrix = "";
+	for(auto i (1); i < rows - 1; ++i){
+		matrix += "[ ";
+		for(auto j (1); j < cols - 1; ++j){
+			if(data[i][j])
+				matrix += "■ ";
+			else
+				matrix += "  ";
+		}
+		matrix += "]\n";
+	}
+
+	return matrix;
 }
 
 /*MAIN ONLY FOR TESTS
