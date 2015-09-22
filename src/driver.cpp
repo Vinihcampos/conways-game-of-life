@@ -15,15 +15,19 @@ int main(int argsize, char *argsi[]) {
 	char alive;	// char to indicate an living cell
 	
 	//check argument
-	if (argsize < 2)
-	       cerr << "Wrong sintaxe: please provide an input file." << endl;	
+	if (argsize < 2) {
+		cerr << "Wrong sintaxe: please provide an input file." << endl;	
+		return 0;
+	}
 	
 	ifstream infile;
 
 	infile.open(argsi[1]); // open input file	
 	
-	if (!infile.is_open())
+	if (!infile.is_open()) {
 		throw ios_base::failure("Unable to open input file.");
+		return 0;
+	}
 
 	string line; // get each line of input
 
@@ -57,7 +61,16 @@ int main(int argsize, char *argsi[]) {
 
 	//finally build the field
 	Field life {m, n, aliveCollection};
+
+
+	ofstream ofs;
+	if (argsize == 3) {
+		ofs.open(argsi[2]);
 	
+		if (!ofs.is_open())
+			cerr << "Error on opening output file.";
+	}
+
 	char userKeep = 'y';
 
 	// keeping track of game's state
@@ -66,6 +79,12 @@ int main(int argsize, char *argsi[]) {
 		cout << "Generation " << life.getGeneration() << endl;
 
 		life.print();
+
+		if (ofs.is_open()) {
+			ofs << "Generation " << life.getGeneration() << endl;
+			ofs << life.toString();
+			ofs << "\n";
+		}
 		
 		cout << "Continue? " << endl;
 
@@ -75,7 +94,9 @@ int main(int argsize, char *argsi[]) {
 			life.update();
 		}
 	}	
-	
+
+	ofs.close();
+
 	// tells whether the game ended
 	if (life.stateField() == Field::STABLE) 
 		cout << "The game is stable." << endl;
