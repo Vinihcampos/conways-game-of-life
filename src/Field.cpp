@@ -18,7 +18,7 @@ using namespace std;
 * and allocates memory for it.
 * */
 Field::Field( const int & _rows, const int & _cols ) : rows { _rows}, cols { _cols}, 
-		 	  stable { Field::NORMAL }, generation { 0 } {
+		 	  stable { Field::NORMAL }, generation { 1 } {
 	if(_cols < 0 || _rows < 0){
 		throw out_of_range( "Index provided out of valid range!" );
 	}else{
@@ -47,7 +47,7 @@ Field::Field( const int & _rows, const int & _cols ) : rows { _rows}, cols { _co
 }
 
 Field::Field( const int & _rows, const int & _cols, const vector< pair< int, int > > & pointsAlive ) : 
-			  stable { Field::NORMAL }, generation { 0 } {
+			  stable { Field::NORMAL }, generation { 1 } {
 
 	if(_cols < 0 || _rows < 0){
 		throw out_of_range( "Index provided out of valid range!" );

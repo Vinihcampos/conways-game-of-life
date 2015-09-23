@@ -95,6 +95,8 @@ int main(int argsize, char *argsi[]) {
 		}
 	}	
 
+	cout << "Generation " << life.getGeneration() + 1 << endl;
+	life.print();
 	ofs.close();
 
 	// tells whether the game ended
