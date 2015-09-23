@@ -1,0 +1,146 @@
+\hypertarget{classField}{}\section{Field Class Reference}
+\label{classField}\index{Field@{Field}}
+
+
+{\ttfamily \#include $<$Field.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \hyperlink{classField_aa6d508a405365e5a6c0414885e525f0ca56fae498f50c63150db6f0a62f5e1fca}{E\+X\+T\+I\+N\+CT} = 0, 
+\hyperlink{classField_aa6d508a405365e5a6c0414885e525f0cabbd2d19da019f8f32b0996513f0a3bf6}{S\+T\+A\+B\+LE}, 
+\hyperlink{classField_aa6d508a405365e5a6c0414885e525f0ca4b7abbee7590e23286d7583cb23e24ee}{N\+O\+R\+M\+AL}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classField_a9db14b333489e7cb486b1d06631aa3ea}{Field} (const int \&\+\_\+rows=\hyperlink{classField_add3cd7850a250739b0eb08caf41427da}{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM}, const int \&\+\_\+cols=\hyperlink{classField_add3cd7850a250739b0eb08caf41427da}{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM})
+\item 
+{\bfseries Field} (const int \&\+\_\+rows, const int \&\+\_\+cols, const vector$<$ pair$<$ int, int $>$ $>$ \&points\+Alive)\hypertarget{classField_aa87243f12c97d3a861cbeeee9ad6d8c7}{}\label{classField_aa87243f12c97d3a861cbeeee9ad6d8c7}
+
+\item 
+void {\bfseries set\+Alive} (const vector$<$ pair$<$ int, int $>$ $>$ \&points\+Alive)\hypertarget{classField_abb2ec476cd400e9c2e3fea4c502738de}{}\label{classField_abb2ec476cd400e9c2e3fea4c502738de}
+
+\item 
+void {\bfseries set\+Alive} (const int \&\+\_\+row, const int \&\+\_\+col)\hypertarget{classField_ae7feca864aadf6aceba260cc6aee64b0}{}\label{classField_ae7feca864aadf6aceba260cc6aee64b0}
+
+\item 
+int {\bfseries state\+Field} () const \hypertarget{classField_ab4bf046987359d627f8583c3d4ae3c62}{}\label{classField_ab4bf046987359d627f8583c3d4ae3c62}
+
+\item 
+bool {\bfseries is\+Inside} (size\+\_\+t pivot)\hypertarget{classField_a404555b889668199df5e5aa52270a3b1}{}\label{classField_a404555b889668199df5e5aa52270a3b1}
+
+\item 
+int {\bfseries count\+Neighbors} (const int \&row, const int \&col)\hypertarget{classField_a8cf89a674edccb691fb3a61375fe7c68}{}\label{classField_a8cf89a674edccb691fb3a61375fe7c68}
+
+\item 
+void {\bfseries update} ()\hypertarget{classField_af48801e4d3d1b92ba7c094132fb56cb3}{}\label{classField_af48801e4d3d1b92ba7c094132fb56cb3}
+
+\item 
+void {\bfseries print} () const \hypertarget{classField_ae1faecba43b9fb78e8662ec589ee00aa}{}\label{classField_ae1faecba43b9fb78e8662ec589ee00aa}
+
+\item 
+string {\bfseries to\+String} ()\hypertarget{classField_aefecec2cf434f89b09d584cff80c8951}{}\label{classField_aefecec2cf434f89b09d584cff80c8951}
+
+\item 
+\hyperlink{classField_a45d6e6d09b8f8e46de62b40119d62c60}{$\sim$\+Field} ()
+\item 
+int {\bfseries get\+Rows} () const \hypertarget{classField_ae585f252de1b8fb4b90fd3424faa8e62}{}\label{classField_ae585f252de1b8fb4b90fd3424faa8e62}
+
+\item 
+int {\bfseries get\+Cols} () const \hypertarget{classField_a453287eda20027f08bf0f47033e13423}{}\label{classField_a453287eda20027f08bf0f47033e13423}
+
+\item 
+int {\bfseries get\+Generation} () const \hypertarget{classField_aba0ae2354fad38ef65ba45dd63c0f788}{}\label{classField_aba0ae2354fad38ef65ba45dd63c0f788}
+
+\item 
+bool {\bfseries get\+State\+Pos} (const int \&\+\_\+row, const int \&\+\_\+col)\hypertarget{classField_ae96f8883d511c998bdb984ffee5dafa5}{}\label{classField_ae96f8883d511c998bdb984ffee5dafa5}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool $\ast$$\ast$ \hyperlink{classField_a887a35d633c25fb24bb5a1d77b5e129c}{data}
+\item 
+int \hyperlink{classField_a2a605fd2464725d8bd67b7cd4adfeb38}{rows}
+\item 
+int \hyperlink{classField_a61aa18e6c351c3d70bc815056ef81751}{cols}
+\item 
+int \hyperlink{classField_a7ffef1a2d4f61e0d7bc628a6183530e1}{stable}
+\item 
+int \hyperlink{classField_abf1358100ec5a7746c0467f25db50eac}{generation}
+\item 
+unordered\+\_\+map$<$ size\+\_\+t, int $>$ \hyperlink{classField_aef4dbb5a7a3eceee6a2fff882ab787df}{historical}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{classField_add3cd7850a250739b0eb08caf41427da}{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM} = 10
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class that represents the Game of Life. 
+
+\subsection{Member Enumeration Documentation}
+\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\hypertarget{classField_aa6d508a405365e5a6c0414885e525f0c}{}\label{classField_aa6d508a405365e5a6c0414885e525f0c}
+This enum stores the three possible states of the game. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{E\+X\+T\+I\+N\+CT@{E\+X\+T\+I\+N\+CT}!Field@{Field}}\index{Field@{Field}!E\+X\+T\+I\+N\+CT@{E\+X\+T\+I\+N\+CT}}\item[{\em 
+E\+X\+T\+I\+N\+CT\hypertarget{classField_aa6d508a405365e5a6c0414885e525f0ca56fae498f50c63150db6f0a62f5e1fca}{}\label{classField_aa6d508a405365e5a6c0414885e525f0ca56fae498f50c63150db6f0a62f5e1fca}
+}]Every cell died. \index{S\+T\+A\+B\+LE@{S\+T\+A\+B\+LE}!Field@{Field}}\index{Field@{Field}!S\+T\+A\+B\+LE@{S\+T\+A\+B\+LE}}\item[{\em 
+S\+T\+A\+B\+LE\hypertarget{classField_aa6d508a405365e5a6c0414885e525f0cabbd2d19da019f8f32b0996513f0a3bf6}{}\label{classField_aa6d508a405365e5a6c0414885e525f0cabbd2d19da019f8f32b0996513f0a3bf6}
+}]The game doesn\textquotesingle{}t change for a given frequency of updates. \index{N\+O\+R\+M\+AL@{N\+O\+R\+M\+AL}!Field@{Field}}\index{Field@{Field}!N\+O\+R\+M\+AL@{N\+O\+R\+M\+AL}}\item[{\em 
+N\+O\+R\+M\+AL\hypertarget{classField_aa6d508a405365e5a6c0414885e525f0ca4b7abbee7590e23286d7583cb23e24ee}{}\label{classField_aa6d508a405365e5a6c0414885e525f0ca4b7abbee7590e23286d7583cb23e24ee}
+}]The game keeps going. \end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Field@{Field}!Field@{Field}}
+\index{Field@{Field}!Field@{Field}}
+\subsubsection[{Field(const int \&\+\_\+rows=\+D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+I\+M, const int \&\+\_\+cols=\+D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+I\+M)}]{\setlength{\rightskip}{0pt plus 5cm}Field\+::\+Field (
+\begin{DoxyParamCaption}
+\item[{const int \&}]{\+\_\+rows = {\ttfamily {\bf D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM}}, }
+\item[{const int \&}]{\+\_\+cols = {\ttfamily {\bf D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classField_a9db14b333489e7cb486b1d06631aa3ea}{}\label{classField_a9db14b333489e7cb486b1d06631aa3ea}
+That takes the size of the field (rows x cols) and allocates memory for it. \index{Field@{Field}!````~Field@{$\sim$\+Field}}
+\index{````~Field@{$\sim$\+Field}!Field@{Field}}
+\subsubsection[{$\sim$\+Field()}]{\setlength{\rightskip}{0pt plus 5cm}Field\+::$\sim$\+Field (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classField_a45d6e6d09b8f8e46de62b40119d62c60}{}\label{classField_a45d6e6d09b8f8e46de62b40119d62c60}
+Destroy the field. 
+
+\subsection{Member Data Documentation}
+\index{Field@{Field}!cols@{cols}}
+\index{cols@{cols}!Field@{Field}}
+\subsubsection[{cols}]{\setlength{\rightskip}{0pt plus 5cm}int Field\+::cols\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classField_a61aa18e6c351c3d70bc815056ef81751}{}\label{classField_a61aa18e6c351c3d70bc815056ef81751}
+Number of columns of the field. \index{Field@{Field}!data@{data}}
+\index{data@{data}!Field@{Field}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}bool$\ast$$\ast$ Field\+::data\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classField_a887a35d633c25fb24bb5a1d77b5e129c}{}\label{classField_a887a35d633c25fb24bb5a1d77b5e129c}
+Represents the matrix of cells, which can have values true or false (alive or dead). \index{Field@{Field}!D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM@{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM}}
+\index{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM@{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM}!Field@{Field}}
+\subsubsection[{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM}]{\setlength{\rightskip}{0pt plus 5cm}const int Field\+::\+D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM = 10\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{classField_add3cd7850a250739b0eb08caf41427da}{}\label{classField_add3cd7850a250739b0eb08caf41427da}
+If the size is not passed to the constructor, field is built from this size. \index{Field@{Field}!generation@{generation}}
+\index{generation@{generation}!Field@{Field}}
+\subsubsection[{generation}]{\setlength{\rightskip}{0pt plus 5cm}int Field\+::generation\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classField_abf1358100ec5a7746c0467f25db50eac}{}\label{classField_abf1358100ec5a7746c0467f25db50eac}
+Current generation. \index{Field@{Field}!historical@{historical}}
+\index{historical@{historical}!Field@{Field}}
+\subsubsection[{historical}]{\setlength{\rightskip}{0pt plus 5cm}unordered\+\_\+map$<$size\+\_\+t, int$>$ Field\+::historical\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classField_aef4dbb5a7a3eceee6a2fff882ab787df}{}\label{classField_aef4dbb5a7a3eceee6a2fff882ab787df}
+Keep the game history in terms of generations and fields. \index{Field@{Field}!rows@{rows}}
+\index{rows@{rows}!Field@{Field}}
+\subsubsection[{rows}]{\setlength{\rightskip}{0pt plus 5cm}int Field\+::rows\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classField_a2a605fd2464725d8bd67b7cd4adfeb38}{}\label{classField_a2a605fd2464725d8bd67b7cd4adfeb38}
+Number of rows of the field. \index{Field@{Field}!stable@{stable}}
+\index{stable@{stable}!Field@{Field}}
+\subsubsection[{stable}]{\setlength{\rightskip}{0pt plus 5cm}int Field\+::stable\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classField_a7ffef1a2d4f61e0d7bc628a6183530e1}{}\label{classField_a7ffef1a2d4f61e0d7bc628a6183530e1}
+Store the game state. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Field.\+h\item 
+src/Field.\+cpp\end{DoxyCompactItemize}
