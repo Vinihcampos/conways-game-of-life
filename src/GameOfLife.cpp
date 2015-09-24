@@ -3,7 +3,7 @@
 #include <utility>
 #include <vector>
 #include <iostream>
-#include <unordered_map>
+#include <map>
 #include <functional>
 
 /*
@@ -42,7 +42,7 @@ GameOfLife::GameOfLife( const int & _rows, const int & _cols ) : rows { _rows}, 
 				matrixCode += data[i][j] ? "V" : "M";
 
 		size_t pivot = hash<string>()(matrixCode);
-		historical.insert({pivot, generation});
+		historical.insert({pivot, {generation, matrixCode}});
 	}
 }
 
@@ -75,7 +75,7 @@ GameOfLife::GameOfLife( const int & _rows, const int & _cols, const vector< pair
 				matrixCode += data[i][j] ? "V" : "M";
 
 		size_t pivot = hash<string>()(matrixCode);
-		historical.insert({pivot, generation});
+		historical.insert({pivot, {generation, matrixCode}});
 	}
 }
 
@@ -181,11 +181,11 @@ void GameOfLife::update(){
 	data = aux_field;
 
 	size_t pivot = hash<string>()(matrixCode);
-	if(GameOfLife::isInside(pivot)){
+	if(GameOfLife::isInside(pivot, matrixCode)){
 		stable = GameOfLife::STABLE;
 	}else{
 		if(hasLife){
-			historical.insert({pivot, ++generation});
+			historical.insert({pivot, {++generation, matrixCode}});
 			stable = GameOfLife::NORMAL;
 		}else{
 			stable = GameOfLife::EXTINCT;
@@ -195,8 +195,22 @@ void GameOfLife::update(){
 
 /* Verify if an array had been created before
 **/
-bool GameOfLife::isInside(size_t pivot){
-	return (historical.find(pivot) != historical.end()); 
+bool GameOfLife::isInside(size_t & pivot, string & matrixCode){
+
+	if(historical.find(pivot) == historical.end()){
+		return false;
+	}else{
+		auto range = historical.equal_range(pivot);
+		for(auto i = range.first; i != range.second; ++i){
+			if(matrixCode.compare(i->second.second) == 0){
+				generation = i->second.first;
+				return true;
+			}
+		}
+	}
+
+	return false;
+
 }
 
 /* Get data method

@@ -117,14 +117,14 @@ int main(int argsize, char *argsi[]) {
 		}
 	}	
 
-	cout << "Generation " << life.getGeneration() + 1 << endl;
-	life.print();
+	//cout << "Generation " << life.getGeneration() + 1 << endl;
+	//life.print();
 	ofs.close();
 
 	// tells why the game ended
 	if (life.stateField() == GameOfLife::STABLE) { 
 		cout << "The game is stable." << endl;
-		//cout << "Since " << 
+		cout << "The game started to be stable in generation " << life.getGeneration() << endl;
 	} else if (life.stateField() == GameOfLife::EXTINCT)
 		cout << "Life is extinct." << endl;
 	else 

@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <utility>
-#include <unordered_map>
+#include <map>
 #include <functional>
 #include <string>
 
@@ -30,7 +30,7 @@ class GameOfLife {
 		int cols; /**< Number of columns of the field. */
 		int stable; /**< Store the game state. */
 		int generation; /**< Current generation. */
-		unordered_map<size_t, int> historical; /**< Keep the game history in terms of generations and fields. */
+		map<size_t, pair< int, string > > historical; /**< Keep the game history in terms of generations and fields. */
 		static const int DEFAULT_DIM = 10; /**< If the size is not passed to the constructor, field is built from this size.*/
 
 	public:
@@ -80,7 +80,7 @@ class GameOfLife {
 		/** Visits the history to check the stability of the game.
 		*   \return If that state has already been reached.
 		*/
-		bool isInside(size_t pivot);
+		bool isInside(size_t & pivot, string & matrixCode);
 		
 		/** Count how many alive cells is around the
 		*   cell located at the position passed as arguments.
