@@ -9,7 +9,17 @@
 using namespace std;
 
 /** 
- *  Class that represents the Game of Life.
+ *  \brief Class that represents the Game of Life.
+ *  \details It contains a bidimentional array of booleans,
+ *  where each position represents a cell, that
+ *  can be alive (true) or dead (false). Besides that,
+ *  the class encapsulates all actions related to
+ *  the game, including update, history storage
+ *  and print methods.
+ *  \version 1.0
+ *  \date 2015
+ *  \copyright Open Source
+ *  \authors Vinicius Campos Tinoco Ribeiro, Vitor Rodrigues Greati
  */
 class Field {
 	
@@ -25,7 +35,7 @@ class Field {
 	public:
 
 		/** 
-		*  This enum stores the three possible states of the game.
+		*  \brief This enum stores the three possible states of the game.
 		*/
 		enum{
 			EXTINCT = 0, /**< Every cell died.  */
@@ -33,62 +43,81 @@ class Field {
 			NORMAL	   /**< The game keeps going. */
 		};
 
-		/** That takes the size of the field (rows x cols)
-		 * and allocates memory for it.
+		/**Takes the size of the field (rows and columns)
+		 * and allocates memory for it, setting all cells
+		 * to dead (false).
 		 * */
 		explicit Field(const int & _rows = DEFAULT_DIM, const int & _cols = DEFAULT_DIM);
+		
+		/** Takes the size of the field (rows and columns) and a list of
+		 *  cells to be setted as alive. 
+		 * */
 		Field(const int & _rows, const int & _cols, const vector< pair< int, int > > & pointsAlive);
 		
-		/** Set manually a cell to alive.
+		/** Set manually a cell to alive, taking
+		 * a list of cells from a vector of pairs, where
+		 * 'pair.first' is the x value and 'pair.second'
+		 * is the y value.
 		 * */
 		void setAlive(const vector< pair< int, int > > & pointsAlive );
+		
+		/** Set manually a cell to alive,
+		 *  simply taking the row and the column value
+		 *  of the cell.
+		 * */
 		void setAlive(const int & _row, const int & _col);
 		
-		/* Verify the state of the field
+		/** Verify the state of the field.
+		 *  \return A state: STABLE, EXTINCT, NORMAL
 		 * */		
 		int stateField() const{ return stable; };
 
-		/* Verify if an array had been created before
-		**/
+		/** Visits the history to check the stability of the game.
+		*   \return If that state has already been reached.
+		*/
 		bool isInside(size_t pivot);
 		
-		/* Count how many neighbors the cell has
-		**/
+		/** Count how many alive cells is around the
+		*   cell located at the position passed as arguments.
+		*   
+		*   \return The number of alive cells around data[row][col].
+		*/
 		int countNeighbors(const int & row, const int & col);
 
-		/* Update field's state.
+		/** Update the field's state, based on
+		 *  Game of Life's rules.
+		 *
 		 * */		
 		void update();
 		
-		/* Print field.
+		/** Prints the field.
 		 * */
 		void print() const;
 
-		/* Return a string with the configution of matrix
+		/** Makes a string representation of the game.
+		 * \returns String that represents the game.
 		**/
 		string toString();
 
-		/** Destroy the field.
+		/** Destroys the allocated memory for the game.
 		*/
 		~Field();
 
-		/* Get rows method
-		**/
+		/** \return Number of rows.
+		*/
 		int getRows() const{ return rows; };
 
-		/* Get cols method
+		/** \return Number of columns.
 		**/
 		int getCols() const{ return cols; };
 
-		/* Get generation
+		/** \return The current generation.
 		**/
 		int getGeneration() const { return generation; };
 
-		/* Get data method
+		/** \return True if the cell is alive, false if it's dead.
 		**/
 		bool getStatePos(const int & _row, const int & _col);
-
-
 
 };
 

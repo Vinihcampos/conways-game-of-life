@@ -94,6 +94,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Class that represents the Game of Life.  
+ <a href="classField.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Field_8h_source.html">Field.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -101,53 +104,41 @@ Public Types</h2></td></tr>
 <tr class="memitem:aa6d508a405365e5a6c0414885e525f0c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="classField.html#aa6d508a405365e5a6c0414885e525f0ca56fae498f50c63150db6f0a62f5e1fca">EXTINCT</a> = 0, 
 <a class="el" href="classField.html#aa6d508a405365e5a6c0414885e525f0cabbd2d19da019f8f32b0996513f0a3bf6">STABLE</a>, 
 <a class="el" href="classField.html#aa6d508a405365e5a6c0414885e525f0ca4b7abbee7590e23286d7583cb23e24ee">NORMAL</a>
- }</td></tr>
+ }<tr class="memdesc:aa6d508a405365e5a6c0414885e525f0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This enum stores the three possible states of the game.  <a href="classField.html#aa6d508a405365e5a6c0414885e525f0c">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:aa6d508a405365e5a6c0414885e525f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9db14b333489e7cb486b1d06631aa3ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#a9db14b333489e7cb486b1d06631aa3ea">Field</a> (const int &amp;_rows=<a class="el" href="classField.html#add3cd7850a250739b0eb08caf41427da">DEFAULT_DIM</a>, const int &amp;_cols=<a class="el" href="classField.html#add3cd7850a250739b0eb08caf41427da">DEFAULT_DIM</a>)</td></tr>
 <tr class="separator:a9db14b333489e7cb486b1d06631aa3ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa87243f12c97d3a861cbeeee9ad6d8c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa87243f12c97d3a861cbeeee9ad6d8c7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Field</b> (const int &amp;_rows, const int &amp;_cols, const vector&lt; pair&lt; int, int &gt; &gt; &amp;pointsAlive)</td></tr>
+<tr class="memitem:aa87243f12c97d3a861cbeeee9ad6d8c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#aa87243f12c97d3a861cbeeee9ad6d8c7">Field</a> (const int &amp;_rows, const int &amp;_cols, const vector&lt; pair&lt; int, int &gt; &gt; &amp;pointsAlive)</td></tr>
 <tr class="separator:aa87243f12c97d3a861cbeeee9ad6d8c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb2ec476cd400e9c2e3fea4c502738de"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb2ec476cd400e9c2e3fea4c502738de"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setAlive</b> (const vector&lt; pair&lt; int, int &gt; &gt; &amp;pointsAlive)</td></tr>
+<tr class="memitem:abb2ec476cd400e9c2e3fea4c502738de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#abb2ec476cd400e9c2e3fea4c502738de">setAlive</a> (const vector&lt; pair&lt; int, int &gt; &gt; &amp;pointsAlive)</td></tr>
 <tr class="separator:abb2ec476cd400e9c2e3fea4c502738de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7feca864aadf6aceba260cc6aee64b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7feca864aadf6aceba260cc6aee64b0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setAlive</b> (const int &amp;_row, const int &amp;_col)</td></tr>
+<tr class="memitem:ae7feca864aadf6aceba260cc6aee64b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#ae7feca864aadf6aceba260cc6aee64b0">setAlive</a> (const int &amp;_row, const int &amp;_col)</td></tr>
 <tr class="separator:ae7feca864aadf6aceba260cc6aee64b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4bf046987359d627f8583c3d4ae3c62"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4bf046987359d627f8583c3d4ae3c62"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>stateField</b> () const </td></tr>
+<tr class="memitem:ab4bf046987359d627f8583c3d4ae3c62"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#ab4bf046987359d627f8583c3d4ae3c62">stateField</a> () const </td></tr>
 <tr class="separator:ab4bf046987359d627f8583c3d4ae3c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a404555b889668199df5e5aa52270a3b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a404555b889668199df5e5aa52270a3b1"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isInside</b> (size_t pivot)</td></tr>
+<tr class="memitem:a404555b889668199df5e5aa52270a3b1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#a404555b889668199df5e5aa52270a3b1">isInside</a> (size_t pivot)</td></tr>
 <tr class="separator:a404555b889668199df5e5aa52270a3b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cf89a674edccb691fb3a61375fe7c68"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8cf89a674edccb691fb3a61375fe7c68"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>countNeighbors</b> (const int &amp;row, const int &amp;col)</td></tr>
+<tr class="memitem:a8cf89a674edccb691fb3a61375fe7c68"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#a8cf89a674edccb691fb3a61375fe7c68">countNeighbors</a> (const int &amp;row, const int &amp;col)</td></tr>
 <tr class="separator:a8cf89a674edccb691fb3a61375fe7c68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af48801e4d3d1b92ba7c094132fb56cb3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af48801e4d3d1b92ba7c094132fb56cb3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="memitem:af48801e4d3d1b92ba7c094132fb56cb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#af48801e4d3d1b92ba7c094132fb56cb3">update</a> ()</td></tr>
 <tr class="separator:af48801e4d3d1b92ba7c094132fb56cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1faecba43b9fb78e8662ec589ee00aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1faecba43b9fb78e8662ec589ee00aa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> () const </td></tr>
+<tr class="memitem:ae1faecba43b9fb78e8662ec589ee00aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#ae1faecba43b9fb78e8662ec589ee00aa">print</a> () const </td></tr>
 <tr class="separator:ae1faecba43b9fb78e8662ec589ee00aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefecec2cf434f89b09d584cff80c8951"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aefecec2cf434f89b09d584cff80c8951"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> ()</td></tr>
+<tr class="memitem:aefecec2cf434f89b09d584cff80c8951"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#aefecec2cf434f89b09d584cff80c8951">toString</a> ()</td></tr>
 <tr class="separator:aefecec2cf434f89b09d584cff80c8951"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45d6e6d09b8f8e46de62b40119d62c60"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#a45d6e6d09b8f8e46de62b40119d62c60">~Field</a> ()</td></tr>
 <tr class="separator:a45d6e6d09b8f8e46de62b40119d62c60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae585f252de1b8fb4b90fd3424faa8e62"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae585f252de1b8fb4b90fd3424faa8e62"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getRows</b> () const </td></tr>
+<tr class="memitem:ae585f252de1b8fb4b90fd3424faa8e62"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#ae585f252de1b8fb4b90fd3424faa8e62">getRows</a> () const </td></tr>
 <tr class="separator:ae585f252de1b8fb4b90fd3424faa8e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a453287eda20027f08bf0f47033e13423"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a453287eda20027f08bf0f47033e13423"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getCols</b> () const </td></tr>
+<tr class="memitem:a453287eda20027f08bf0f47033e13423"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#a453287eda20027f08bf0f47033e13423">getCols</a> () const </td></tr>
 <tr class="separator:a453287eda20027f08bf0f47033e13423"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba0ae2354fad38ef65ba45dd63c0f788"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba0ae2354fad38ef65ba45dd63c0f788"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getGeneration</b> () const </td></tr>
+<tr class="memitem:aba0ae2354fad38ef65ba45dd63c0f788"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#aba0ae2354fad38ef65ba45dd63c0f788">getGeneration</a> () const </td></tr>
 <tr class="separator:aba0ae2354fad38ef65ba45dd63c0f788"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae96f8883d511c998bdb984ffee5dafa5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae96f8883d511c998bdb984ffee5dafa5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getStatePos</b> (const int &amp;_row, const int &amp;_col)</td></tr>
+<tr class="memitem:ae96f8883d511c998bdb984ffee5dafa5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#ae96f8883d511c998bdb984ffee5dafa5">getStatePos</a> (const int &amp;_row, const int &amp;_col)</td></tr>
 <tr class="separator:ae96f8883d511c998bdb984ffee5dafa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -172,6 +163,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class that represents the Game of Life. </p>
+<p>It contains a bidimentional array of booleans, where each position represents a cell, that can be alive (true) or dead (false). Besides that, the class encapsulates all actions related to the game, including update, history storage and print methods. </p><dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2015 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Open Source </dd></dl>
+<dl class="section author"><dt>Authors</dt><dd>Vinicius Campos Tinoco Ribeiro, Vitor Rodrigues Greati </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a class="anchor" id="aa6d508a405365e5a6c0414885e525f0c"></a>
 <div class="memitem">
@@ -182,6 +177,7 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>This enum stores the three possible states of the game. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="aa6d508a405365e5a6c0414885e525f0ca56fae498f50c63150db6f0a62f5e1fca"></a>EXTINCT&#160;</td><td class="fielddoc">
@@ -229,7 +225,40 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>That takes the size of the field (rows x cols) and allocates memory for it. </p>
+<p>Takes the size of the field (rows and columns) and allocates memory for it, setting all cells to dead (false). </p>
+
+</div>
+</div>
+<a class="anchor" id="aa87243f12c97d3a861cbeeee9ad6d8c7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Field::Field </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>_rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>_cols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const vector&lt; pair&lt; int, int &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pointsAlive</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Takes the size of the field (rows and columns) and a list of cells to be setted as alive. </p>
 
 </div>
 </div>
@@ -245,7 +274,268 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Destroy the field. </p>
+<p>Destroys the allocated memory for the game. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a8cf89a674edccb691fb3a61375fe7c68"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Field::countNeighbors </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Count how many alive cells is around the cell located at the position passed as arguments.</p>
+<dl class="section return"><dt>Returns</dt><dd>The number of alive cells around data[row][col]. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a453287eda20027f08bf0f47033e13423"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Field::getCols </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Number of columns. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aba0ae2354fad38ef65ba45dd63c0f788"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Field::getGeneration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The current generation. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae585f252de1b8fb4b90fd3424faa8e62"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Field::getRows </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Number of rows. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae96f8883d511c998bdb984ffee5dafa5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Field::getStatePos </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>_row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>_col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>True if the cell is alive, false if it's dead. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a404555b889668199df5e5aa52270a3b1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Field::isInside </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pivot</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Visits the history to check the stability of the game. </p><dl class="section return"><dt>Returns</dt><dd>If that state has already been reached. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae1faecba43b9fb78e8662ec589ee00aa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Field::print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Prints the field. </p>
+
+</div>
+</div>
+<a class="anchor" id="abb2ec476cd400e9c2e3fea4c502738de"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Field::setAlive </td>
+          <td>(</td>
+          <td class="paramtype">const vector&lt; pair&lt; int, int &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pointsAlive</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set manually a cell to alive, taking a list of cells from a vector of pairs, where 'pair.first' is the x value and 'pair.second' is the y value. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae7feca864aadf6aceba260cc6aee64b0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Field::setAlive </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>_row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>_col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set manually a cell to alive, simply taking the row and the column value of the cell. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab4bf046987359d627f8583c3d4ae3c62"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Field::stateField </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Verify the state of the field. </p><dl class="section return"><dt>Returns</dt><dd>A state: STABLE, EXTINCT, NORMAL </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aefecec2cf434f89b09d584cff80c8951"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Field::toString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Makes a string representation of the game. </p><dl class="section return"><dt>Returns</dt><dd>String that represents the game. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af48801e4d3d1b92ba7c094132fb56cb3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Field::update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Update the field's state, based on Game of Life's rules. </p>
 
 </div>
 </div>

@@ -29,6 +29,8 @@ int main(int argsize, char *argsi[]) {
 		return 0;
 	}
 
+	cout << ">>> Input file opened!" << endl;
+
 	string line; // get each line of input
 
 	getline(infile, line);
@@ -62,13 +64,18 @@ int main(int argsize, char *argsi[]) {
 	//finally build the field
 	Field life {m, n, aliveCollection};
 
-
+	cout << ">>> Data processed." << endl;
+	cout << ">>> Size of the game: " << m << " by " << n << endl;
+	cout << ">>> Character " << alive << " indicates an alive cell." << endl;
+	
 	ofstream ofs;
 	if (argsize == 3) {
 		ofs.open(argsi[2]);
 	
-		if (!ofs.is_open())
+		if (!ofs.is_open()) {
 			cerr << "Error on opening output file.";
+			return 0;
+		}
 	}
 
 	char userKeep = 'y';
@@ -86,7 +93,7 @@ int main(int argsize, char *argsi[]) {
 			ofs << "\n";
 		}
 		
-		cout << "Continue? " << endl;
+		cout << "Continue? (y/n)  " << endl;
 
 		cin >> userKeep;
 		

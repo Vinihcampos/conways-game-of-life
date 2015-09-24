@@ -2,6 +2,11 @@
 \label{classField}\index{Field@{Field}}
 
 
+Class that represents the Game of Life.  
+
+
+
+
 {\ttfamily \#include $<$Field.\+h$>$}
 
 \subsection*{Public Types}
@@ -10,53 +15,40 @@
 enum \{ \hyperlink{classField_aa6d508a405365e5a6c0414885e525f0ca56fae498f50c63150db6f0a62f5e1fca}{E\+X\+T\+I\+N\+CT} = 0, 
 \hyperlink{classField_aa6d508a405365e5a6c0414885e525f0cabbd2d19da019f8f32b0996513f0a3bf6}{S\+T\+A\+B\+LE}, 
 \hyperlink{classField_aa6d508a405365e5a6c0414885e525f0ca4b7abbee7590e23286d7583cb23e24ee}{N\+O\+R\+M\+AL}
- \}
+ \}\begin{DoxyCompactList}\small\item\em This enum stores the three possible states of the game. \end{DoxyCompactList}
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classField_a9db14b333489e7cb486b1d06631aa3ea}{Field} (const int \&\+\_\+rows=\hyperlink{classField_add3cd7850a250739b0eb08caf41427da}{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM}, const int \&\+\_\+cols=\hyperlink{classField_add3cd7850a250739b0eb08caf41427da}{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM})
 \item 
-{\bfseries Field} (const int \&\+\_\+rows, const int \&\+\_\+cols, const vector$<$ pair$<$ int, int $>$ $>$ \&points\+Alive)\hypertarget{classField_aa87243f12c97d3a861cbeeee9ad6d8c7}{}\label{classField_aa87243f12c97d3a861cbeeee9ad6d8c7}
-
+\hyperlink{classField_aa87243f12c97d3a861cbeeee9ad6d8c7}{Field} (const int \&\+\_\+rows, const int \&\+\_\+cols, const vector$<$ pair$<$ int, int $>$ $>$ \&points\+Alive)
 \item 
-void {\bfseries set\+Alive} (const vector$<$ pair$<$ int, int $>$ $>$ \&points\+Alive)\hypertarget{classField_abb2ec476cd400e9c2e3fea4c502738de}{}\label{classField_abb2ec476cd400e9c2e3fea4c502738de}
-
+void \hyperlink{classField_abb2ec476cd400e9c2e3fea4c502738de}{set\+Alive} (const vector$<$ pair$<$ int, int $>$ $>$ \&points\+Alive)
 \item 
-void {\bfseries set\+Alive} (const int \&\+\_\+row, const int \&\+\_\+col)\hypertarget{classField_ae7feca864aadf6aceba260cc6aee64b0}{}\label{classField_ae7feca864aadf6aceba260cc6aee64b0}
-
+void \hyperlink{classField_ae7feca864aadf6aceba260cc6aee64b0}{set\+Alive} (const int \&\+\_\+row, const int \&\+\_\+col)
 \item 
-int {\bfseries state\+Field} () const \hypertarget{classField_ab4bf046987359d627f8583c3d4ae3c62}{}\label{classField_ab4bf046987359d627f8583c3d4ae3c62}
-
+int \hyperlink{classField_ab4bf046987359d627f8583c3d4ae3c62}{state\+Field} () const 
 \item 
-bool {\bfseries is\+Inside} (size\+\_\+t pivot)\hypertarget{classField_a404555b889668199df5e5aa52270a3b1}{}\label{classField_a404555b889668199df5e5aa52270a3b1}
-
+bool \hyperlink{classField_a404555b889668199df5e5aa52270a3b1}{is\+Inside} (size\+\_\+t pivot)
 \item 
-int {\bfseries count\+Neighbors} (const int \&row, const int \&col)\hypertarget{classField_a8cf89a674edccb691fb3a61375fe7c68}{}\label{classField_a8cf89a674edccb691fb3a61375fe7c68}
-
+int \hyperlink{classField_a8cf89a674edccb691fb3a61375fe7c68}{count\+Neighbors} (const int \&row, const int \&col)
 \item 
-void {\bfseries update} ()\hypertarget{classField_af48801e4d3d1b92ba7c094132fb56cb3}{}\label{classField_af48801e4d3d1b92ba7c094132fb56cb3}
-
+void \hyperlink{classField_af48801e4d3d1b92ba7c094132fb56cb3}{update} ()
 \item 
-void {\bfseries print} () const \hypertarget{classField_ae1faecba43b9fb78e8662ec589ee00aa}{}\label{classField_ae1faecba43b9fb78e8662ec589ee00aa}
-
+void \hyperlink{classField_ae1faecba43b9fb78e8662ec589ee00aa}{print} () const 
 \item 
-string {\bfseries to\+String} ()\hypertarget{classField_aefecec2cf434f89b09d584cff80c8951}{}\label{classField_aefecec2cf434f89b09d584cff80c8951}
-
+string \hyperlink{classField_aefecec2cf434f89b09d584cff80c8951}{to\+String} ()
 \item 
 \hyperlink{classField_a45d6e6d09b8f8e46de62b40119d62c60}{$\sim$\+Field} ()
 \item 
-int {\bfseries get\+Rows} () const \hypertarget{classField_ae585f252de1b8fb4b90fd3424faa8e62}{}\label{classField_ae585f252de1b8fb4b90fd3424faa8e62}
-
+int \hyperlink{classField_ae585f252de1b8fb4b90fd3424faa8e62}{get\+Rows} () const 
 \item 
-int {\bfseries get\+Cols} () const \hypertarget{classField_a453287eda20027f08bf0f47033e13423}{}\label{classField_a453287eda20027f08bf0f47033e13423}
-
+int \hyperlink{classField_a453287eda20027f08bf0f47033e13423}{get\+Cols} () const 
 \item 
-int {\bfseries get\+Generation} () const \hypertarget{classField_aba0ae2354fad38ef65ba45dd63c0f788}{}\label{classField_aba0ae2354fad38ef65ba45dd63c0f788}
-
+int \hyperlink{classField_aba0ae2354fad38ef65ba45dd63c0f788}{get\+Generation} () const 
 \item 
-bool {\bfseries get\+State\+Pos} (const int \&\+\_\+row, const int \&\+\_\+col)\hypertarget{classField_ae96f8883d511c998bdb984ffee5dafa5}{}\label{classField_ae96f8883d511c998bdb984ffee5dafa5}
-
+bool \hyperlink{classField_ae96f8883d511c998bdb984ffee5dafa5}{get\+State\+Pos} (const int \&\+\_\+row, const int \&\+\_\+col)
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -83,9 +75,27 @@ static const int \hyperlink{classField_add3cd7850a250739b0eb08caf41427da}{D\+E\+
 \subsection{Detailed Description}
 Class that represents the Game of Life. 
 
+It contains a bidimentional array of booleans, where each position represents a cell, that can be alive (true) or dead (false). Besides that, the class encapsulates all actions related to the game, including update, history storage and print methods. \begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2015 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Open Source 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Authors}
+Vinicius Campos Tinoco Ribeiro, Vitor Rodrigues Greati 
+\end{DoxyAuthor}
+
+
 \subsection{Member Enumeration Documentation}
 \subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\hypertarget{classField_aa6d508a405365e5a6c0414885e525f0c}{}\label{classField_aa6d508a405365e5a6c0414885e525f0c}
-This enum stores the three possible states of the game. \begin{Desc}
+
+
+This enum stores the three possible states of the game. 
+
+\begin{Desc}
 \item[Enumerator]\par
 \begin{description}
 \index{E\+X\+T\+I\+N\+CT@{E\+X\+T\+I\+N\+CT}!Field@{Field}}\index{Field@{Field}!E\+X\+T\+I\+N\+CT@{E\+X\+T\+I\+N\+CT}}\item[{\em 
@@ -107,14 +117,139 @@ N\+O\+R\+M\+AL\hypertarget{classField_aa6d508a405365e5a6c0414885e525f0ca4b7abbee
 \item[{const int \&}]{\+\_\+cols = {\ttfamily {\bf D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM}}}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classField_a9db14b333489e7cb486b1d06631aa3ea}{}\label{classField_a9db14b333489e7cb486b1d06631aa3ea}
-That takes the size of the field (rows x cols) and allocates memory for it. \index{Field@{Field}!````~Field@{$\sim$\+Field}}
+Takes the size of the field (rows and columns) and allocates memory for it, setting all cells to dead (false). \index{Field@{Field}!Field@{Field}}
+\index{Field@{Field}!Field@{Field}}
+\subsubsection[{Field(const int \&\+\_\+rows, const int \&\+\_\+cols, const vector$<$ pair$<$ int, int $>$ $>$ \&points\+Alive)}]{\setlength{\rightskip}{0pt plus 5cm}Field\+::\+Field (
+\begin{DoxyParamCaption}
+\item[{const int \&}]{\+\_\+rows, }
+\item[{const int \&}]{\+\_\+cols, }
+\item[{const vector$<$ pair$<$ int, int $>$ $>$ \&}]{points\+Alive}
+\end{DoxyParamCaption}
+)}\hypertarget{classField_aa87243f12c97d3a861cbeeee9ad6d8c7}{}\label{classField_aa87243f12c97d3a861cbeeee9ad6d8c7}
+Takes the size of the field (rows and columns) and a list of cells to be setted as alive. \index{Field@{Field}!````~Field@{$\sim$\+Field}}
 \index{````~Field@{$\sim$\+Field}!Field@{Field}}
 \subsubsection[{$\sim$\+Field()}]{\setlength{\rightskip}{0pt plus 5cm}Field\+::$\sim$\+Field (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{classField_a45d6e6d09b8f8e46de62b40119d62c60}{}\label{classField_a45d6e6d09b8f8e46de62b40119d62c60}
-Destroy the field. 
+Destroys the allocated memory for the game. 
+
+\subsection{Member Function Documentation}
+\index{Field@{Field}!count\+Neighbors@{count\+Neighbors}}
+\index{count\+Neighbors@{count\+Neighbors}!Field@{Field}}
+\subsubsection[{count\+Neighbors(const int \&row, const int \&col)}]{\setlength{\rightskip}{0pt plus 5cm}int Field\+::count\+Neighbors (
+\begin{DoxyParamCaption}
+\item[{const int \&}]{row, }
+\item[{const int \&}]{col}
+\end{DoxyParamCaption}
+)}\hypertarget{classField_a8cf89a674edccb691fb3a61375fe7c68}{}\label{classField_a8cf89a674edccb691fb3a61375fe7c68}
+Count how many alive cells is around the cell located at the position passed as arguments.
+
+\begin{DoxyReturn}{Returns}
+The number of alive cells around data\mbox{[}row\mbox{]}\mbox{[}col\mbox{]}. 
+\end{DoxyReturn}
+\index{Field@{Field}!get\+Cols@{get\+Cols}}
+\index{get\+Cols@{get\+Cols}!Field@{Field}}
+\subsubsection[{get\+Cols() const }]{\setlength{\rightskip}{0pt plus 5cm}int Field\+::get\+Cols (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classField_a453287eda20027f08bf0f47033e13423}{}\label{classField_a453287eda20027f08bf0f47033e13423}
+\begin{DoxyReturn}{Returns}
+Number of columns. 
+\end{DoxyReturn}
+\index{Field@{Field}!get\+Generation@{get\+Generation}}
+\index{get\+Generation@{get\+Generation}!Field@{Field}}
+\subsubsection[{get\+Generation() const }]{\setlength{\rightskip}{0pt plus 5cm}int Field\+::get\+Generation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classField_aba0ae2354fad38ef65ba45dd63c0f788}{}\label{classField_aba0ae2354fad38ef65ba45dd63c0f788}
+\begin{DoxyReturn}{Returns}
+The current generation. 
+\end{DoxyReturn}
+\index{Field@{Field}!get\+Rows@{get\+Rows}}
+\index{get\+Rows@{get\+Rows}!Field@{Field}}
+\subsubsection[{get\+Rows() const }]{\setlength{\rightskip}{0pt plus 5cm}int Field\+::get\+Rows (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classField_ae585f252de1b8fb4b90fd3424faa8e62}{}\label{classField_ae585f252de1b8fb4b90fd3424faa8e62}
+\begin{DoxyReturn}{Returns}
+Number of rows. 
+\end{DoxyReturn}
+\index{Field@{Field}!get\+State\+Pos@{get\+State\+Pos}}
+\index{get\+State\+Pos@{get\+State\+Pos}!Field@{Field}}
+\subsubsection[{get\+State\+Pos(const int \&\+\_\+row, const int \&\+\_\+col)}]{\setlength{\rightskip}{0pt plus 5cm}bool Field\+::get\+State\+Pos (
+\begin{DoxyParamCaption}
+\item[{const int \&}]{\+\_\+row, }
+\item[{const int \&}]{\+\_\+col}
+\end{DoxyParamCaption}
+)}\hypertarget{classField_ae96f8883d511c998bdb984ffee5dafa5}{}\label{classField_ae96f8883d511c998bdb984ffee5dafa5}
+\begin{DoxyReturn}{Returns}
+True if the cell is alive, false if it\textquotesingle{}s dead. 
+\end{DoxyReturn}
+\index{Field@{Field}!is\+Inside@{is\+Inside}}
+\index{is\+Inside@{is\+Inside}!Field@{Field}}
+\subsubsection[{is\+Inside(size\+\_\+t pivot)}]{\setlength{\rightskip}{0pt plus 5cm}bool Field\+::is\+Inside (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{pivot}
+\end{DoxyParamCaption}
+)}\hypertarget{classField_a404555b889668199df5e5aa52270a3b1}{}\label{classField_a404555b889668199df5e5aa52270a3b1}
+Visits the history to check the stability of the game. \begin{DoxyReturn}{Returns}
+If that state has already been reached. 
+\end{DoxyReturn}
+\index{Field@{Field}!print@{print}}
+\index{print@{print}!Field@{Field}}
+\subsubsection[{print() const }]{\setlength{\rightskip}{0pt plus 5cm}void Field\+::print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classField_ae1faecba43b9fb78e8662ec589ee00aa}{}\label{classField_ae1faecba43b9fb78e8662ec589ee00aa}
+Prints the field. \index{Field@{Field}!set\+Alive@{set\+Alive}}
+\index{set\+Alive@{set\+Alive}!Field@{Field}}
+\subsubsection[{set\+Alive(const vector$<$ pair$<$ int, int $>$ $>$ \&points\+Alive)}]{\setlength{\rightskip}{0pt plus 5cm}void Field\+::set\+Alive (
+\begin{DoxyParamCaption}
+\item[{const vector$<$ pair$<$ int, int $>$ $>$ \&}]{points\+Alive}
+\end{DoxyParamCaption}
+)}\hypertarget{classField_abb2ec476cd400e9c2e3fea4c502738de}{}\label{classField_abb2ec476cd400e9c2e3fea4c502738de}
+Set manually a cell to alive, taking a list of cells from a vector of pairs, where \textquotesingle{}pair.\+first\textquotesingle{} is the x value and \textquotesingle{}pair.\+second\textquotesingle{} is the y value. \index{Field@{Field}!set\+Alive@{set\+Alive}}
+\index{set\+Alive@{set\+Alive}!Field@{Field}}
+\subsubsection[{set\+Alive(const int \&\+\_\+row, const int \&\+\_\+col)}]{\setlength{\rightskip}{0pt plus 5cm}void Field\+::set\+Alive (
+\begin{DoxyParamCaption}
+\item[{const int \&}]{\+\_\+row, }
+\item[{const int \&}]{\+\_\+col}
+\end{DoxyParamCaption}
+)}\hypertarget{classField_ae7feca864aadf6aceba260cc6aee64b0}{}\label{classField_ae7feca864aadf6aceba260cc6aee64b0}
+Set manually a cell to alive, simply taking the row and the column value of the cell. \index{Field@{Field}!state\+Field@{state\+Field}}
+\index{state\+Field@{state\+Field}!Field@{Field}}
+\subsubsection[{state\+Field() const }]{\setlength{\rightskip}{0pt plus 5cm}int Field\+::state\+Field (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classField_ab4bf046987359d627f8583c3d4ae3c62}{}\label{classField_ab4bf046987359d627f8583c3d4ae3c62}
+Verify the state of the field. \begin{DoxyReturn}{Returns}
+A state\+: S\+T\+A\+B\+LE, E\+X\+T\+I\+N\+CT, N\+O\+R\+M\+AL 
+\end{DoxyReturn}
+\index{Field@{Field}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Field@{Field}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Field\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classField_aefecec2cf434f89b09d584cff80c8951}{}\label{classField_aefecec2cf434f89b09d584cff80c8951}
+Makes a string representation of the game. \begin{DoxyReturn}{Returns}
+String that represents the game. 
+\end{DoxyReturn}
+\index{Field@{Field}!update@{update}}
+\index{update@{update}!Field@{Field}}
+\subsubsection[{update()}]{\setlength{\rightskip}{0pt plus 5cm}void Field\+::update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classField_af48801e4d3d1b92ba7c094132fb56cb3}{}\label{classField_af48801e4d3d1b92ba7c094132fb56cb3}
+Update the field\textquotesingle{}s state, based on Game of Life\textquotesingle{}s rules. 
 
 \subsection{Member Data Documentation}
 \index{Field@{Field}!cols@{cols}}
