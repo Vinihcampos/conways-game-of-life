@@ -1,4 +1,4 @@
-#include "Field.h"
+#include "GameOfLife.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -62,7 +62,7 @@ int main(int argsize, char *argsi[]) {
 	infile.close();
 
 	//finally build the field
-	Field life {m, n, aliveCollection};
+	GameOfLife life {m, n, aliveCollection};
 
 	cout << ">>> Data processed." << endl;
 	cout << ">>> Size of the game: " << m << " by " << n << endl;
@@ -81,7 +81,7 @@ int main(int argsize, char *argsi[]) {
 	char userKeep = 'y';
 
 	// keeping track of game's state
-	while (userKeep == 'y' && life.stateField() == Field::NORMAL) {
+	while (userKeep == 'y' && life.stateField() == GameOfLife::NORMAL) {
 
 		cout << "Generation " << life.getGeneration() << endl;
 
@@ -106,10 +106,10 @@ int main(int argsize, char *argsi[]) {
 	life.print();
 	ofs.close();
 
-	// tells whether the game ended
-	if (life.stateField() == Field::STABLE) 
+	// tells why the game ended
+	if (life.stateField() == GameOfLife::STABLE) 
 		cout << "The game is stable." << endl;
-	else if (life.stateField() == Field::EXTINCT)
+	else if (life.stateField() == GameOfLife::EXTINCT)
 		cout << "Life is extinct." << endl;
 	else 
 		cout << "User ended the game without stability." << endl;
