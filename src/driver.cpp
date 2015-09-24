@@ -1,4 +1,4 @@
-#include "Field.h"
+#include "GameOfLife.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -14,33 +14,55 @@ int main(int argsize, char *argsi[]) {
 	int m, n;	// field's dimensions
 	char alive;	// char to indicate an living cell
 	
-	//check argument
-	if (argsize < 2) {
+	/*-------------------------------------
+	 * Preparing for reading the input file.
+	 * ------------------------------------*/	
+	// check execution
+	if (argsize == 1) {
 		cerr << "Wrong sintaxe: please provide an input file." << endl;	
 		return 0;
 	}
-	
-	ifstream infile;
-
-	infile.open(argsi[1]); // open input file	
-	
-	if (!infile.is_open()) {
-		throw ios_base::failure("Unable to open input file.");
+	// declaring input stream
+	ifstream ifs;
+	// opening input file
+	ifs.open(argsi[1]); 
+	if (!ifs.is_open()) {
+		cerr << "Unable to open input file." << endl;
 		return 0;
 	}
-
 	cout << ">>> Input file opened!" << endl;
+	
+	/*-------------------------------------
+	 * Preparing for writing an output file
+	 * with the history of the game.
+	 * ------------------------------------*/
+	// output stream
+	ofstream ofs; 		
+	// if user wants an output file
+	if (argsize == 3) {
+		ofs.open(argsi[2]);
+		if (!ofs.is_open()) {
+			cerr << "Error on opening output file." << endl;
+			return 0;
+		}
+	}
+	
+	/* ------------------------------------
+	 * Preparing the game.
+	 * ------------------------------------
+	 * */
 
-	string line; // get each line of input
+	string line; 
 
-	getline(infile, line);
+	// get each line of input
+	getline(ifs, line);
 
 	std::stringstream stm1 (line); // stringstream to read each number
 
 	stm1 >> m;
 	stm1 >> n;
 
-	getline(infile, line);
+	getline(ifs, line);
 
 	std::stringstream stm2 (line); // stringtream to read the character
 	
@@ -48,10 +70,10 @@ int main(int argsize, char *argsi[]) {
 
 	vector< pair<int, int> > aliveCollection;
 
-	// seek for living cells	
+	// reading living cells	
 	int i = 0;
 	while (true) {
-		if(!getline(infile, line)) break;
+		if(!getline(ifs, line)) break;
 
 		for (auto j (0ul); j < line.length(); ++j)
 			if (line[j] == alive)
@@ -59,29 +81,22 @@ int main(int argsize, char *argsi[]) {
 		i++;
 	}
 
-	infile.close();
+	ifs.close(); // close input stream
 
-	//finally build the field
-	Field life {m, n, aliveCollection};
+	//end of input, finally build the game
+	GameOfLife life {m, n, aliveCollection};
 
 	cout << ">>> Data processed." << endl;
-	cout << ">>> Size of the game: " << m << " by " << n << endl;
-	cout << ">>> Character " << alive << " indicates an alive cell." << endl;
+	cout << ">>> Size of the game: " << m << " x " << n << endl;
+	cout << ">>> Character " << alive << " indicates a living cell." << endl;
 	
-	ofstream ofs;
-	if (argsize == 3) {
-		ofs.open(argsi[2]);
-	
-		if (!ofs.is_open()) {
-			cerr << "Error on opening output file.";
-			return 0;
-		}
-	}
-
+	/*------------------------------------
+	 * Treating user's control.
+	 * ----------------------------------*/
 	char userKeep = 'y';
 
 	// keeping track of game's state
-	while (userKeep == 'y' && life.stateField() == Field::NORMAL) {
+	while (userKeep == 'y' && life.stateField() == GameOfLife::NORMAL) {
 
 		cout << "Generation " << life.getGeneration() << endl;
 
@@ -106,10 +121,11 @@ int main(int argsize, char *argsi[]) {
 	life.print();
 	ofs.close();
 
-	// tells whether the game ended
-	if (life.stateField() == Field::STABLE) 
+	// tells why the game ended
+	if (life.stateField() == GameOfLife::STABLE) { 
 		cout << "The game is stable." << endl;
-	else if (life.stateField() == Field::EXTINCT)
+		//cout << "Since " << 
+	} else if (life.stateField() == GameOfLife::EXTINCT)
 		cout << "Life is extinct." << endl;
 	else 
 		cout << "User ended the game without stability." << endl;

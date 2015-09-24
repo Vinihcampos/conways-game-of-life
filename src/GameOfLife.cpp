@@ -1,4 +1,4 @@
-#include "Field.h"
+#include "GameOfLife.h"
 #include <stdexcept> 
 #include <utility>
 #include <vector>
@@ -7,7 +7,7 @@
 #include <functional>
 
 /*
-*	Compilation: g++ -Wall -std=c++11 -I include/ src/Field.cpp -o bin/test
+*	Compilation: g++ -Wall -std=c++11 -I include/ src/GameOfLife.cpp -o bin/test
 */
 
 using namespace std; 
@@ -17,8 +17,8 @@ using namespace std;
 * Takes the size of the field (rows x cols)
 * and allocates memory for it.
 * */
-Field::Field( const int & _rows, const int & _cols ) : rows { _rows}, cols { _cols}, 
-		 	  stable { Field::NORMAL }, generation { 1 } {
+GameOfLife::GameOfLife( const int & _rows, const int & _cols ) : rows { _rows}, cols { _cols}, 
+		 	  stable { GameOfLife::NORMAL }, generation { 1 } {
 	if(_cols < 0 || _rows < 0){
 		throw out_of_range( "Index provided out of valid range!" );
 	}else{
@@ -46,8 +46,8 @@ Field::Field( const int & _rows, const int & _cols ) : rows { _rows}, cols { _co
 	}
 }
 
-Field::Field( const int & _rows, const int & _cols, const vector< pair< int, int > > & pointsAlive ) : 
-			  stable { Field::NORMAL }, generation { 1 } {
+GameOfLife::GameOfLife( const int & _rows, const int & _cols, const vector< pair< int, int > > & pointsAlive ) : 
+			  stable { GameOfLife::NORMAL }, generation { 1 } {
 
 	if(_cols < 0 || _rows < 0){
 		throw out_of_range( "Index provided out of valid range!" );
@@ -68,7 +68,7 @@ Field::Field( const int & _rows, const int & _cols, const vector< pair< int, int
 			for(auto j (0); j < cols; ++j)
 				data[i][j] = false;
 
-		Field::setAlive(pointsAlive);
+		GameOfLife::setAlive(pointsAlive);
 
 		for(auto i (1); i < rows - 1; ++i)
 			for(auto j (1); j < cols - 1; ++j)
@@ -81,7 +81,7 @@ Field::Field( const int & _rows, const int & _cols, const vector< pair< int, int
 
 /* Destructor of data
 **/
-Field::~Field(){
+GameOfLife::~GameOfLife(){
 	for(auto i (0); i < rows; ++i){
 		delete [] data[i];
 	}
@@ -90,7 +90,7 @@ Field::~Field(){
 
 /* Pass a vector of pair with points to set each cell alive
 */
-void Field::setAlive(const vector< pair< int, int > > & pointsAlive){
+void GameOfLife::setAlive(const vector< pair< int, int > > & pointsAlive){
 	for(auto i(0ul); i < pointsAlive.size(); ++i){
 		if(pointsAlive[i].first < 0 || pointsAlive[i].first > rows - 2 || 
 		   pointsAlive[i].second < 0 || pointsAlive[i].second > cols - 2){
@@ -103,7 +103,7 @@ void Field::setAlive(const vector< pair< int, int > > & pointsAlive){
 
 /* Set manually a cell to alive.
 * */
-void Field::setAlive(const int & _row, const int & _col){
+void GameOfLife::setAlive(const int & _row, const int & _col){
 	if(_row < 0 || _row > rows - 2 || 
 	   _col < 0 || _col > cols - 2){
 			throw out_of_range( "Index provided out of valid range!" );
@@ -114,7 +114,7 @@ void Field::setAlive(const int & _row, const int & _col){
 
 /* Count how many neighbors the cell has
 **/
-int Field::countNeighbors(const int & _row, const int & _col){
+int GameOfLife::countNeighbors(const int & _row, const int & _col){
 	int _neighbors = 0;
 
 	int d[8][2] = {{1, 1}, {1, 0}, {0, 1}, {-1, -1}, 
@@ -131,7 +131,7 @@ int Field::countNeighbors(const int & _row, const int & _col){
 
 /* Update field's state.
 * */		
-void Field::update(){
+void GameOfLife::update(){
 	bool **aux_field = new bool *[rows];
 	for(auto i (0); i < rows; ++i){
 		aux_field[i] = new bool[cols];
@@ -155,7 +155,7 @@ void Field::update(){
 
 	for(auto i (1); i < rows - 1; ++i){
 		for(auto j (1); j < cols - 1; ++j){
-			int neighbors = Field::countNeighbors(i, j);
+			int neighbors = GameOfLife::countNeighbors(i, j);
 			if(data[i][j] && neighbors <= 1){ //Applying rule 1
 				aux_field[i][j] = false;
 			}else if(data[i][j] && neighbors >= 4){ // Applying rule 2
@@ -181,27 +181,27 @@ void Field::update(){
 	data = aux_field;
 
 	size_t pivot = hash<string>()(matrixCode);
-	if(Field::isInside(pivot)){
-		stable = Field::STABLE;
+	if(GameOfLife::isInside(pivot)){
+		stable = GameOfLife::STABLE;
 	}else{
 		if(hasLife){
 			historical.insert({pivot, ++generation});
-			stable = Field::NORMAL;
+			stable = GameOfLife::NORMAL;
 		}else{
-			stable = Field::EXTINCT;
+			stable = GameOfLife::EXTINCT;
 		}		
 	}
 }
 
 /* Verify if an array had been created before
 **/
-bool Field::isInside(size_t pivot){
+bool GameOfLife::isInside(size_t pivot){
 	return (historical.find(pivot) != historical.end()); 
 }
 
 /* Get data method
 **/
-bool Field::getStatePos(const int & _row, const int & _col){
+bool GameOfLife::getStatePos(const int & _row, const int & _col){
 	if(_row < 0 || _row > rows - 2 || 
 	   _col < 0 || _col > cols - 2){
 			throw out_of_range( "Index provided out of valid range!" );
@@ -212,7 +212,7 @@ bool Field::getStatePos(const int & _row, const int & _col){
 
 /* Print field.
 * */
-void Field::print() const{
+void GameOfLife::print() const{
 	for(auto i (1); i < rows - 1; ++i){
 		cout<<"[ ";
 		for(auto j (1); j < cols - 1; ++j){
@@ -225,7 +225,7 @@ void Field::print() const{
 	}
 }
 
-string Field::toString(){
+string GameOfLife::toString(){
 	string matrix = "";
 	for(auto i (1); i < rows - 1; ++i){
 		matrix += "[ ";
@@ -245,7 +245,7 @@ string Field::toString(){
 int main(){
 	
 	// Test 1
-	Field f(8,8);
+	GameOfLife f(8,8);
 	f.setAlive(2,3);
 	f.setAlive(2,5);
 	f.setAlive(3,3);
@@ -257,7 +257,7 @@ int main(){
 	f.print();
 
 	//Test 2
-	Field f(10,10);
+	GameOfLife f(10,10);
 	f.setAlive(3,3);
 	f.setAlive(4,5);
 	f.setAlive(5,2);

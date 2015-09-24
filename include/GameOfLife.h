@@ -1,10 +1,11 @@
-#ifndef _FIELD_
-#define _FIELD_
+#ifndef _LIFE_
+#define _LIFE_
 
 #include <vector>
 #include <utility>
 #include <unordered_map>
 #include <functional>
+#include <string>
 
 using namespace std;
 
@@ -21,7 +22,7 @@ using namespace std;
  *  \copyright Open Source
  *  \authors Vinicius Campos Tinoco Ribeiro, Vitor Rodrigues Greati
  */
-class Field {
+class GameOfLife {
 	
 	private:		
 		bool **data; /**< Represents the matrix of cells, which can have values true or false (alive or dead). */
@@ -47,12 +48,16 @@ class Field {
 		 * and allocates memory for it, setting all cells
 		 * to dead (false).
 		 * */
-		explicit Field(const int & _rows = DEFAULT_DIM, const int & _cols = DEFAULT_DIM);
+		explicit GameOfLife(const int & _rows = DEFAULT_DIM, const int & _cols = DEFAULT_DIM);
 		
 		/** Takes the size of the field (rows and columns) and a list of
 		 *  cells to be setted as alive. 
 		 * */
-		Field(const int & _rows, const int & _cols, const vector< pair< int, int > > & pointsAlive);
+		GameOfLife(const int & _rows, const int & _cols, const vector< pair< int, int > > & pointsAlive);
+		
+		/** Destroys the allocated memory for the game.
+		*/
+		~GameOfLife();
 		
 		/** Set manually a cell to alive, taking
 		 * a list of cells from a vector of pairs, where
@@ -98,10 +103,6 @@ class Field {
 		 * \returns String that represents the game.
 		**/
 		string toString();
-
-		/** Destroys the allocated memory for the game.
-		*/
-		~Field();
 
 		/** \return Number of rows.
 		*/
