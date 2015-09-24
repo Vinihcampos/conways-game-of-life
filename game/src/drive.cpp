@@ -2,27 +2,35 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include "game.h"
 
-static const int WIDTH = 800;
-static const int HEIGHT = 600;
+/**	
+*	cd conwaygameoflife/game/lib
+*	g++ -I ../../include/ ../src/drive.cpp -c -std=c++11 -g
+*	g++ drive.o -o ../bin/drive -lsfml-graphics -lsfml-window -lsfml-system -std=c++11
+*	../bin/drive
+**/
 
-int loadCharacter(sf::Texture * texture, sf::Sprite * boys, std::string caminho, int size){
-	for(int i = 1; i < size; ++i){
-		std::stringstream sstm;
-		sstm << caminho << i << ".png";
-		std::string url = sstm.str();
-		if (!texture[i-1].loadFromFile(url))
-			return EXIT_FAILURE;
-
-		boys[i-1].setTexture(texture[i-1]);
-	}
-
-	return 0;
-}
+static const int WIDTH = 1000;
+static const int HEIGHT = 700;
+static const int DISCOUNT = 90;
 
 int main(){
 	
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Conway's Game of Life");
+	bool ** table;
+	table = new bool * [10];
+		for(int i = 0; i < 10; ++i){
+			table[i] = new bool [10];
+	}
+
+	for(int i = 0; i < 10; ++i){
+		for(int j = 0; j < 10; ++j){
+			table[i][j] = true;
+		}
+	}
+
+	Game game(WIDTH, HEIGHT - DISCOUNT, 10, 10, table);
 
 	/**
 	*	Menu
@@ -43,20 +51,8 @@ int main(){
 
 	//Moving the object
 	sf::Vector2f pos = menu.getPosition();
-	menu.setPosition((WIDTH - textureMenu.getSize().x * 0.35)/2 , HEIGHT - (textureMenu.getSize().y * 0.35));
+	menu.setPosition(WIDTH/2 - (textureMenu.getSize().x * 0.35)/2, HEIGHT - (textureMenu.getSize().y * 0.35));
 
-	//Sprites boy
-	sf::Texture textureBoy[9];
-	sf::Sprite boys[9];
-	loadCharacter(textureBoy, boys, "../img/boy_menor/boy", 9); 
-	float timerBoy = 0.f;
-
-
-	//Sprites zombie
-	sf::Texture textureZombie[16];
-	sf::Sprite zombies[16];
-	loadCharacter(textureZombie, zombies, "../img/zombie_menor/zombie", 16);
-	float timerZombie = 0.f;
 	
 
 	//Run the program while the window is open
@@ -82,17 +78,12 @@ int main(){
         window.clear(sf::Color::Black);
         window.draw(menu);
         
-        //Draw boy
-        window.draw(boys[(int)timerBoy/9]);
-        timerBoy += 1;
-        if(timerBoy >= 81)
-        	timerBoy = 1;
-
-        /*Draw zombie
-        window.draw(zombies[(int)timerZombie/16]);
-        timerZombie += 2;
-        if(timerZombie >= 256)
-        	timerZombie = 0;*/
+       	for(int i = 0; i < game.getCellsHorizontal(); ++i){
+       		for(int j = 0; j < game.getCellsVertical(); ++j){
+       			window.draw(game.field[i][j].getAvatar());
+       			//std::cout<<game.field[i][j].getActual()<<std::endl;
+       		}
+       	}
         
         window.display();
 
