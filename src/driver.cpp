@@ -30,7 +30,7 @@ int main(int argsize, char *argsi[]) {
 		cerr << "Unable to open input file." << endl;
 		return 0;
 	}
-	cout << ">>> Input file opened!" << endl;
+	cout << ">>> Input file (" << argsi[1] << ") opened!" << endl;
 	
 	/*-------------------------------------
 	 * Preparing for writing an output file
@@ -98,37 +98,53 @@ int main(int argsize, char *argsi[]) {
 	// keeping track of game's state
 	while (userKeep == 'y' && life.stateField() == GameOfLife::NORMAL) {
 
-		cout << "Generation " << life.getGeneration() << endl;
+		cout << "\nGeneration: " << life.getGeneration() << endl;
 
 		life.print();
 
 		if (ofs.is_open()) {
-			ofs << "Generation " << life.getGeneration() << endl;
+			ofs << "\nGeneration: " << life.getGeneration() << endl;
 			ofs << life.toString();
 			ofs << "\n";
 		}
 		
-		cout << "Continue? (y/n)  " << endl;
+		cout << "Continue seeing the next generations? \n(y/n) ";
 
 		cin >> userKeep;
+		cout << endl;
 		
 		if (userKeep == 'y') {
 			life.update();
 		}
 	}	
 
-	//cout << "Generation " << life.getGeneration() + 1 << endl;
-	//life.print();
+	
 	ofs.close();
 
 	// tells why the game ended
-	if (life.stateField() == GameOfLife::STABLE) { 
-		cout << "The game is stable." << endl;
-		cout << "The game started to be stable in generation " << life.getGeneration() << endl;
-	} else if (life.stateField() == GameOfLife::EXTINCT)
-		cout << "Life is extinct." << endl;
-	else 
-		cout << "User ended the game without stability." << endl;
+	if (life.stateField() == GameOfLife::STABLE) {
+		cout << "First repeat of generation: " << life.getGeneration() << endl;
+		life.print();
+		cout << "----------------------------------------------\n" << endl;
+		cout << ">>> The game was executed with successful!" << endl; 
+		cout << ">>> The life is stable." << endl;
+		cout << ">>> The life started to be stable in generation " << life.getLifeStability() << "." << endl;
+		cout << ">>> Point start of repeat: " << life.getGeneration() << "." << endl;
+		cout << "\n----------------------------------------------" << endl;
+	} else if (life.stateField() == GameOfLife::EXTINCT){
+		cout << "Extinct generation: " << life.getGeneration() << endl;
+		life.print();
+		cout << "----------------------------------------------\n" << endl;
+		cout << ">>> The game was executed with successful!" << endl; 
+		cout << ">>> Life is extinct." << endl;
+		cout << ">>> The life was extinct in generation " << life.getGeneration() << "." << endl;
+		cout << "\n----------------------------------------------" << endl;
+	}else {
+		cout << "----------------------------------------------\n" << endl;
+		cout << ">>> The game was interrupted!" << endl; 
+		cout << ">>> User ended the game without stability." << endl;
+		cout << "\n----------------------------------------------" << endl;
+	}
 
 	return 0;
 }

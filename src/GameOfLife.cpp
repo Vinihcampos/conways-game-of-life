@@ -18,7 +18,7 @@ using namespace std;
 * and allocates memory for it.
 * */
 GameOfLife::GameOfLife( const int & _rows, const int & _cols ) : rows { _rows}, cols { _cols}, 
-		 	  stable { GameOfLife::NORMAL }, generation { 1 } {
+		 	  stable { GameOfLife::NORMAL }, generation { 1 }, lifeStability { 1 } {
 	if(_cols < 0 || _rows < 0){
 		throw out_of_range( "Index provided out of valid range!" );
 	}else{
@@ -47,7 +47,7 @@ GameOfLife::GameOfLife( const int & _rows, const int & _cols ) : rows { _rows}, 
 }
 
 GameOfLife::GameOfLife( const int & _rows, const int & _cols, const vector< pair< int, int > > & pointsAlive ) : 
-			  stable { GameOfLife::NORMAL }, generation { 1 } {
+			  stable { GameOfLife::NORMAL }, generation { 1 }, lifeStability { 1 } {
 
 	if(_cols < 0 || _rows < 0){
 		throw out_of_range( "Index provided out of valid range!" );
@@ -184,13 +184,13 @@ void GameOfLife::update(){
 	if(GameOfLife::isInside(pivot, matrixCode)){
 		stable = GameOfLife::STABLE;
 	}else{
-		if(hasLife){
-			historical.insert({pivot, {++generation, matrixCode}});
+		if(hasLife){			
 			stable = GameOfLife::NORMAL;
 		}else{
 			stable = GameOfLife::EXTINCT;
 		}		
 	}
+	historical.insert({pivot, {++generation, matrixCode}});
 }
 
 /* Verify if an array had been created before
@@ -203,7 +203,7 @@ bool GameOfLife::isInside(size_t & pivot, string & matrixCode){
 		auto range = historical.equal_range(pivot);
 		for(auto i = range.first; i != range.second; ++i){
 			if(matrixCode.compare(i->second.second) == 0){
-				generation = i->second.first;
+				lifeStability = i->second.first;
 				return true;
 			}
 		}
@@ -227,6 +227,7 @@ bool GameOfLife::getStatePos(const int & _row, const int & _col){
 /* Print field.
 * */
 void GameOfLife::print() const{
+	cout<<endl;
 	for(auto i (1); i < rows - 1; ++i){
 		cout<<"[ ";
 		for(auto j (1); j < cols - 1; ++j){
@@ -237,6 +238,7 @@ void GameOfLife::print() const{
 		}
 		cout<<"]"<<endl;
 	}
+	cout<<endl;
 }
 
 string GameOfLife::toString(){

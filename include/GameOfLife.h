@@ -30,6 +30,7 @@ class GameOfLife {
 		int cols; /**< Number of columns of the field. */
 		int stable; /**< Store the game state. */
 		int generation; /**< Current generation. */
+		int lifeStability; /**< Stability generation. */
 		map<size_t, pair< int, string > > historical; /**< Keep the game history in terms of generations and fields. */
 		static const int DEFAULT_DIM = 10; /**< If the size is not passed to the constructor, field is built from this size.*/
 
@@ -115,6 +116,10 @@ class GameOfLife {
 		/** \return The current generation.
 		**/
 		int getGeneration() const { return generation; };
+
+		/** \return The stability generation.
+		**/
+		int getLifeStability() const { return lifeStability; };
 
 		/** \return True if the cell is alive, false if it's dead.
 		**/
