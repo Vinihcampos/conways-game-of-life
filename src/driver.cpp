@@ -116,14 +116,11 @@ int main(int argsize, char *argsi[]) {
 		if (userKeep == 'y') {
 			life.update();
 		}
-	}	
-
-	// close output stream	
-	ofs.close();
+	}		
 
 	// tells why the game ended
 	if (life.stateField() == GameOfLife::STABLE) {
-		cout << "First repeat of generation: " << life.getGeneration() << "." << endl;
+		cout << "First repeat of generation: " << life.getGeneration() << endl;		
 		life.print();
 		cout << "----------------------------------------------\n" << endl;
 		cout << ">>> The game was successfully executed!" << endl; 
@@ -131,20 +128,48 @@ int main(int argsize, char *argsi[]) {
 		cout << ">>> The life started to be stable in generation " << life.getLifeStability() << "." << endl;
 		cout << ">>> Started to repeat at generation " << life.getGeneration() << "." << endl;
 		cout << "\n----------------------------------------------" << endl;
+
+		//Archive
+		ofs << "First repeat of generation: " << life.getGeneration() << endl;
+		ofs << life.toString();
+		ofs << "----------------------------------------------\n" << endl;
+		ofs << ">>> The game was successfully executed!" << endl; 
+		ofs << ">>> The life is stable." << endl;
+		ofs << ">>> The life started to be stable in generation " << life.getLifeStability() << "." << endl;
+		ofs << ">>> Started to repeat at generation " << life.getGeneration() << "." << endl;
+		ofs << "\n----------------------------------------------" << endl;
 	} else if (life.stateField() == GameOfLife::EXTINCT){
-		cout << "Extinct generation: " << life.getGeneration() << "." << endl;
+		cout << "Extinct generation: " << life.getGeneration() << endl;
 		life.print();
 		cout << "----------------------------------------------\n" << endl;
 		cout << ">>> The game was executed successfully!" << endl; 
 		cout << ">>> Life is extinct." << endl;
 		cout << ">>> The life was extinct at generation " << life.getGeneration() << "." << endl;
 		cout << "\n----------------------------------------------" << endl;
+
+		//Archive
+		ofs << "Extinct generation: " << life.getGeneration() << endl;
+		ofs << life.toString();
+		ofs << "----------------------------------------------\n" << endl;
+		ofs << ">>> The game was executed successfully!" << endl; 
+		ofs << ">>> Life is extinct." << endl;
+		ofs << ">>> The life was extinct at generation " << life.getGeneration() << "." << endl;
+		ofs << "\n----------------------------------------------" << endl;
 	}else {
 		cout << "----------------------------------------------\n" << endl;
 		cout << ">>> The game was interrupted!" << endl; 
 		cout << ">>> User ended the game without stability." << endl;
 		cout << "\n----------------------------------------------" << endl;
+
+		//Archive
+		ofs << "----------------------------------------------\n" << endl;
+		ofs << ">>> The game was interrupted!" << endl; 
+		ofs << ">>> User ended the game without stability." << endl;
+		ofs << "\n----------------------------------------------" << endl;
 	}
+
+	// close output stream	
+	ofs.close();
 
 	return 0;
 }
