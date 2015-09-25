@@ -41,12 +41,12 @@ sobrevivência.
 
 O projeto está sub-dividido em 6 pastas:
 	
-	* bin: Possue os executáveis do projeto
-	* data: Possue arquivos que servem como entrada para a execução do programa
-	* documentation: Possue toda a documentação do projeto com doxygen
-	* include: Possue o arquivo de cabeçalho da classe GameOfLife.
-	* src: Possue o arquivo de implementação dos métodos da classe GameOfLife e o driver que é o teste do projeto. 
-	* saida: Possue os arquivos de histórico das gerações
+	* bin: Possui os executáveis do projeto
+	* data: Possui arquivos que servem como entrada para a execução do programa
+	* documentation: Possui toda a documentação do projeto com doxygen
+	* include: Possui o arquivo de cabeçalho da classe GameOfLife.
+	* src: Possui o arquivo de implementação dos métodos da classe GameOfLife e o driver que é o teste do projeto. 
+	* saida: Possui os arquivos de histórico das gerações
 
 # Guia de utilização - Linux #
 	
@@ -63,3 +63,7 @@ O projeto está sub-dividido em 6 pastas:
 
 		Obs: <arquivo_de_entrada> é um arquivo de texto com uma entrada da matriz
 			 <arquivo_de_saida> será o arquivo que armazenará o histórico de gerações
+
+# Erros tratados
+	* Quando não se informa o arquivo de entrada ou um caminho inválido para ele
+	* Quando não se informa um caminho válido para o arquivo de saída
