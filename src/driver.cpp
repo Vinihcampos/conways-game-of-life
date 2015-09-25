@@ -87,7 +87,7 @@ int main(int argsize, char *argsi[]) {
 	GameOfLife life {m, n, aliveCollection};
 
 	cout << ">>> Data processed." << endl;
-	cout << ">>> Size of the game: " << m << " x " << n << endl;
+	cout << ">>> Size of the grid: " << m << " x " << n << endl;
 	cout << ">>> Character " << alive << " indicates a living cell." << endl;
 	
 	/*------------------------------------
@@ -118,26 +118,26 @@ int main(int argsize, char *argsi[]) {
 		}
 	}	
 
-	
+	// close output stream	
 	ofs.close();
 
 	// tells why the game ended
 	if (life.stateField() == GameOfLife::STABLE) {
-		cout << "First repeat of generation: " << life.getGeneration() << endl;
+		cout << "First repeat of generation: " << life.getGeneration() << "." << endl;
 		life.print();
 		cout << "----------------------------------------------\n" << endl;
-		cout << ">>> The game was executed with successful!" << endl; 
+		cout << ">>> The game was successfully executed!" << endl; 
 		cout << ">>> The life is stable." << endl;
 		cout << ">>> The life started to be stable in generation " << life.getLifeStability() << "." << endl;
-		cout << ">>> Point start of repeat: " << life.getGeneration() << "." << endl;
+		cout << ">>> Started to repeat at generation " << life.getGeneration() << "." << endl;
 		cout << "\n----------------------------------------------" << endl;
 	} else if (life.stateField() == GameOfLife::EXTINCT){
-		cout << "Extinct generation: " << life.getGeneration() << endl;
+		cout << "Extinct generation: " << life.getGeneration() << "." << endl;
 		life.print();
 		cout << "----------------------------------------------\n" << endl;
-		cout << ">>> The game was executed with successful!" << endl; 
+		cout << ">>> The game was executed successfully!" << endl; 
 		cout << ">>> Life is extinct." << endl;
-		cout << ">>> The life was extinct in generation " << life.getGeneration() << "." << endl;
+		cout << ">>> The life was extinct at generation " << life.getGeneration() << "." << endl;
 		cout << "\n----------------------------------------------" << endl;
 	}else {
 		cout << "----------------------------------------------\n" << endl;
