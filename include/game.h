@@ -8,66 +8,62 @@ using namespace std;
 class Avatar{
 	
 	private:
-		sf::Texture * textures;
-		sf::Sprite * avatars;
+		sf::Texture texture;
+		sf::Sprite avatars;
+		sf::IntRect subRect;
 		int actual;
 
 		void setSize(float & size){
-			sf::Vector2f scale;
-			for(int i = 0; i < 3; ++i){
-				scale = avatars[i].getScale();
-				avatars[i].setScale(scale.x * (size/128), scale.y * (size/128));
-			}
+			sf::Vector2f scale = avatars.getScale();
+			auto sizeInX = size * 512 / 128; 
+			avatars.setScale((sizeInX/512), size/128);
 		}
 
 		void move(float startX, float startY, int & posx, int & posy, float & size){
-			for(int i = 0; i < 3; ++i)
-				avatars[i].setPosition(startX + size * posy, startY + size * posx);
-
-				//cout<<"["<<posx<<"]["<<posy<<"]: "<<avatars[0].getPosition().x<<", "<<avatars[0].getPosition().y<<endl;			
+			avatars.setPosition(startX + size * posy, startY + size * posx);
+			//cout<<"["<<posx<<"]["<<posy<<"]: "<<avatars.getPosition().x<<", "<<avatars.getPosition().y<<endl;			
 		}
 
 	public:
 		explicit Avatar(){}
-		int setAvatar(float size, int posx, int posy, int _actual, float startX, float startY){
-			textures = new sf::Texture[3];
-			avatars = new sf::Sprite[3];
 
-			//Set avatar zombie
-			if (!textures[0].loadFromFile("../img/zombie.png"))
-				return EXIT_FAILURE;
-			textures[0].setSmooth(true);
-			avatars[0].setTexture(textures[0]);
+		int initializeAvatar(float size, int posx, int posy, int _actual, float startX, float startY){
 
-			//Set avatar vinicius
-			if (!textures[1].loadFromFile("../img/vinicius.png"))
-				return EXIT_FAILURE;
-			textures[1].setSmooth(true);
-			avatars[1].setTexture(textures[1]);
-
-			//Set avatar vitor
-			if (!textures[2].loadFromFile("../img/vitor.png"))
-				return EXIT_FAILURE;
-			textures[2].setSmooth(true);
-			avatars[2].setTexture(textures[2]);
+			//Set avatars[zombie | vinicius | vitor ]
+			if (!texture.loadFromFile("../img/sprites_final.png"))
+				cout<<"fuuu";
+			texture.setSmooth(true);
+			avatars.setTexture(texture);
 
 			setSize(size);
 			move(startX, startY, posx, posy, size);
+
 			actual = _actual;
+			//cout<<texture.getSize().x<<","<<texture.getSize().y<<endl;
+			
+			subRect.left = size * actual;
+			subRect.top = 0;
+			subRect.width = size;
+			subRect.height = size;
+
+			avatars.setTextureRect(subRect);
 
 			return 0;
 		}
-		~Avatar(){
-			delete [] avatars;
-			delete [] textures;
-		}
 
-		void setActual(int _actual){ actual = _actual;}
-		int getActual(){ return actual; }
+		void setAvatar(int _actual, int _size){
+			actual = _actual;
+
+			subRect.left = _size * actual;
+
+			avatars.setTextureRect(subRect);
+		}
 
 		sf::Sprite getAvatar(){
-			return avatars[actual];
+			return avatars;
 		}
+
+		int getActual(){ return actual; }
 		
 };
 
@@ -104,9 +100,9 @@ class Game{
 			for(int i = 0; i < cellsHorizontal; ++i){
 				for(int j = 0; j < cellsVertical; ++j){
 					if(_field[i][j]){
-						field[i][j].setAvatar(sizeCell, i, j, VITOR, startX, startY);
+						field[i][j].initializeAvatar(sizeCell, i, j, VITOR, startX, startY);
 					}else{
-						field[i][j].setAvatar(sizeCell, i, j, BLANK, startX, startY);
+						field[i][j].initializeAvatar(sizeCell, i, j, BLANK, startX, startY);
 					}
 				}
 			}
@@ -129,12 +125,12 @@ class Game{
 					bool state = _field[i][j];
 					if(state){
 						if(field[i][j].getActual() == VITOR)
-							field[i][j].setActual(VINICIUS);
+							field[i][j].setAvatar(VINICIUS, sizeCell);
 						else
-							field[i][j].setActual(VITOR);
+							field[i][j].setAvatar(VITOR, sizeCell);
 					}else{
 						if(field[i][j].getActual() != BLANK)
-							field[i][j].setActual(ZOMBIE);
+							field[i][j].setAvatar(ZOMBIE, sizeCell);
 					}
 				}
 			}
