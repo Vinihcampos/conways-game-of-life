@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['extinct',['EXTINCT',['../classField.html#aa6d508a405365e5a6c0414885e525f0ca56fae498f50c63150db6f0a62f5e1fca',1,'Field']]]
+  ['extinct',['EXTINCT',['../classGameOfLife.html#ab9119586dc592398cd982530e3076831aa42b4c2d9a4b12ea3bf81060bc781e43',1,'GameOfLife']]]
 ];

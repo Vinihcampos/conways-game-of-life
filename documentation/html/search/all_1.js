@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['data',['data',['../classField.html#a887a35d633c25fb24bb5a1d77b5e129c',1,'Field']]],
-  ['default_5fdim',['DEFAULT_DIM',['../classField.html#add3cd7850a250739b0eb08caf41427da',1,'Field']]]
+  ['data',['data',['../classGameOfLife.html#a6e0a1d177ae3dd8c687ed766e57b3d36',1,'GameOfLife']]],
+  ['default_5fdim',['DEFAULT_DIM',['../classGameOfLife.html#a15976a2df224994b6fa2ca57242fd093',1,'GameOfLife']]]
 ];

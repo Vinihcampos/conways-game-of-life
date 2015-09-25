@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['historical',['historical',['../classField.html#aef4dbb5a7a3eceee6a2fff882ab787df',1,'Field']]]
+  ['isinside',['isInside',['../classGameOfLife.html#ae00b9ea2168515d8e397dcb0c46f1560',1,'GameOfLife']]]
 ];

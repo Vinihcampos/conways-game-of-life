@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stable',['STABLE',['../classField.html#aa6d508a405365e5a6c0414885e525f0cabbd2d19da019f8f32b0996513f0a3bf6',1,'Field']]]
+  ['stable',['STABLE',['../classGameOfLife.html#ab9119586dc592398cd982530e3076831afcc170e6cce7f91ad0995193873ef5a7',1,'GameOfLife']]]
 ];

@@ -31,7 +31,7 @@ class GameOfLife {
 		int stable; /**< Store the game state. */
 		int generation; /**< Current generation. */
 		int lifeStability; /**< Stability generation. */
-		map<size_t, pair< int, string > > historical; /**< Keep the game history in terms of generations and fields. */
+		multimap<size_t, pair< int, string > > historical; /**< Keep the game history in terms of generations and fields. */
 		static const int DEFAULT_DIM = 10; /**< If the size is not passed to the constructor, field is built from this size.*/
 
 	public:
@@ -81,7 +81,8 @@ class GameOfLife {
 		/** Visits the history to check the stability of the game.
 		*   \return If that state has already been reached.
 		*/
-		bool isInside(size_t & pivot, string & matrixCode);
+		bool isInside(size_t & pivot /** A number (by hash) that represents the current game. */, 
+			      string & matrixCode /** The configuration of the field to be checked.  */);
 		
 		/** Count how many alive cells is around the
 		*   cell located at the position passed as arguments.
@@ -91,8 +92,18 @@ class GameOfLife {
 		int countNeighbors(const int & row, const int & col);
 
 		/** Update the field's state, based on
-		 *  Game of Life's rules.
-		 *
+		 *  Game of Life's rules:
+		 *  
+		 *  - if a cell is alive, but the number of living neighbors is less than or equal to one,
+		 *  this cell will die in the next generation;
+		 *  - if a cell is alive and has four os more living neighbors, this cell will die in the
+		 *  next generation due to overpopulation;
+		 *  - if a cell is alive with two or three neighbors, it will keep alive in the next generation;
+		 *  - if a cell is dead, so, in the next generation, it will become alive if it has three neighbors
+		 *  exactly. If it has a number of neighbors different of three, it will keep dead;
+		 *  - All births and deads happen exactly at the same time, so cells that are dying can help other
+		 *  to become alive, but can't prevent the dead of others due to overpopulation reduction; in the
+		 *  same way, cells that are dawning can't preserve or kill living cells at the previous generation.
 		 * */		
 		void update();
 		
@@ -117,7 +128,7 @@ class GameOfLife {
 		**/
 		int getGeneration() const { return generation; };
 
-		/** \return The stability generation.
+		/** \return The generation of stability.
 		**/
 		int getLifeStability() const { return lifeStability; };
 

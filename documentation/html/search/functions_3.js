@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isinside',['isInside',['../classField.html#a404555b889668199df5e5aa52270a3b1',1,'Field']]]
+  ['print',['print',['../classGameOfLife.html#a1bfc6cf715659f9a9ddb737d4d87be34',1,'GameOfLife']]]
 ];

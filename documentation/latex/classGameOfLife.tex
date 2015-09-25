@@ -1,0 +1,315 @@
+\hypertarget{classGameOfLife}{}\section{Game\+Of\+Life Class Reference}
+\label{classGameOfLife}\index{Game\+Of\+Life@{Game\+Of\+Life}}
+
+
+Class that represents the Game of Life.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Of\+Life.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \hyperlink{classGameOfLife_ab9119586dc592398cd982530e3076831aa42b4c2d9a4b12ea3bf81060bc781e43}{E\+X\+T\+I\+N\+CT} = 0, 
+\hyperlink{classGameOfLife_ab9119586dc592398cd982530e3076831afcc170e6cce7f91ad0995193873ef5a7}{S\+T\+A\+B\+LE}, 
+\hyperlink{classGameOfLife_ab9119586dc592398cd982530e3076831adb669df0cff6f0440837322bfc241081}{N\+O\+R\+M\+AL}
+ \}\begin{DoxyCompactList}\small\item\em This enum stores the three possible states of the game. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGameOfLife_a1fae1dfb9d89a62909d989397f2442f6}{Game\+Of\+Life} (const int \&\+\_\+rows=\hyperlink{classGameOfLife_a15976a2df224994b6fa2ca57242fd093}{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM}, const int \&\+\_\+cols=\hyperlink{classGameOfLife_a15976a2df224994b6fa2ca57242fd093}{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM})
+\item 
+\hyperlink{classGameOfLife_adfc1f458a6ab273c6d1de76265dfd86d}{Game\+Of\+Life} (const int \&\+\_\+rows, const int \&\+\_\+cols, const vector$<$ pair$<$ int, int $>$ $>$ \&points\+Alive)
+\item 
+\hyperlink{classGameOfLife_ab06a33fee5a200e5ef62e306aaaea9c7}{$\sim$\+Game\+Of\+Life} ()
+\item 
+void \hyperlink{classGameOfLife_ae892f218cd9b346884d625cf5a411b32}{set\+Alive} (const vector$<$ pair$<$ int, int $>$ $>$ \&points\+Alive)
+\item 
+void \hyperlink{classGameOfLife_a378dac8ab3735cddf8ece3e08eef88c7}{set\+Alive} (const int \&\+\_\+row, const int \&\+\_\+col)
+\item 
+int \hyperlink{classGameOfLife_a509bc5ca5942b09b76d3140af10e618a}{state\+Field} () const 
+\item 
+bool \hyperlink{classGameOfLife_ae00b9ea2168515d8e397dcb0c46f1560}{is\+Inside} (size\+\_\+t \&pivot, string \&matrix\+Code)
+\item 
+int \hyperlink{classGameOfLife_a1801dc503a5106b0ec5d5336057973d6}{count\+Neighbors} (const int \&row, const int \&col)
+\item 
+void \hyperlink{classGameOfLife_a14f03b541c2d1a8a5f9aaa7a1e63f514}{update} ()
+\item 
+void \hyperlink{classGameOfLife_a1bfc6cf715659f9a9ddb737d4d87be34}{print} () const 
+\item 
+string \hyperlink{classGameOfLife_a962e24b89ab41c9d214102904e1bf298}{to\+String} ()
+\item 
+int \hyperlink{classGameOfLife_a7d069e77011b08f8ffe1075eae6d72e6}{get\+Rows} () const 
+\item 
+int \hyperlink{classGameOfLife_a9393672eff631609e73b8a0b5b6817d2}{get\+Cols} () const 
+\item 
+int \hyperlink{classGameOfLife_a327b46e378f8d678dbc1492a12058c54}{get\+Generation} () const 
+\item 
+int \hyperlink{classGameOfLife_a3538ce375cb68fc0f90f4c86ad52be2e}{get\+Life\+Stability} () const 
+\item 
+bool \hyperlink{classGameOfLife_aeda28cd2f10ad35e4284b3c48b0e5072}{get\+State\+Pos} (const int \&\+\_\+row, const int \&\+\_\+col)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool $\ast$$\ast$ \hyperlink{classGameOfLife_a6e0a1d177ae3dd8c687ed766e57b3d36}{data}
+\item 
+int \hyperlink{classGameOfLife_a37d5c145e0ffc0b957988e8d5a0c910b}{rows}
+\item 
+int \hyperlink{classGameOfLife_a30e7fad7bbc05ad51404b84719b82bd2}{cols}
+\item 
+int \hyperlink{classGameOfLife_a59c0b43f3d368465d9473622fa8059f3}{stable}
+\item 
+int \hyperlink{classGameOfLife_aab1dc4078fe46596650d64ad50313555}{generation}
+\item 
+int \hyperlink{classGameOfLife_a0a05708cd58b7eadfd96d84a3641b835}{life\+Stability}
+\item 
+map$<$ size\+\_\+t, pair$<$ int, string $>$ $>$ \hyperlink{classGameOfLife_a11909babb91108b22e157efd3b2f75b8}{historical}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{classGameOfLife_a15976a2df224994b6fa2ca57242fd093}{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM} = 10
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class that represents the Game of Life. 
+
+It contains a bidimentional array of booleans, where each position represents a cell, that can be alive (true) or dead (false). Besides that, the class encapsulates all actions related to the game, including update, history storage and print methods. \begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2015 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Open Source 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Authors}
+Vinicius Campos Tinoco Ribeiro, Vitor Rodrigues Greati 
+\end{DoxyAuthor}
+
+
+\subsection{Member Enumeration Documentation}
+\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\hypertarget{classGameOfLife_ab9119586dc592398cd982530e3076831}{}\label{classGameOfLife_ab9119586dc592398cd982530e3076831}
+
+
+This enum stores the three possible states of the game. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{E\+X\+T\+I\+N\+CT@{E\+X\+T\+I\+N\+CT}!Game\+Of\+Life@{Game\+Of\+Life}}\index{Game\+Of\+Life@{Game\+Of\+Life}!E\+X\+T\+I\+N\+CT@{E\+X\+T\+I\+N\+CT}}\item[{\em 
+E\+X\+T\+I\+N\+CT\hypertarget{classGameOfLife_ab9119586dc592398cd982530e3076831aa42b4c2d9a4b12ea3bf81060bc781e43}{}\label{classGameOfLife_ab9119586dc592398cd982530e3076831aa42b4c2d9a4b12ea3bf81060bc781e43}
+}]Every cell died. \index{S\+T\+A\+B\+LE@{S\+T\+A\+B\+LE}!Game\+Of\+Life@{Game\+Of\+Life}}\index{Game\+Of\+Life@{Game\+Of\+Life}!S\+T\+A\+B\+LE@{S\+T\+A\+B\+LE}}\item[{\em 
+S\+T\+A\+B\+LE\hypertarget{classGameOfLife_ab9119586dc592398cd982530e3076831afcc170e6cce7f91ad0995193873ef5a7}{}\label{classGameOfLife_ab9119586dc592398cd982530e3076831afcc170e6cce7f91ad0995193873ef5a7}
+}]The game doesn\textquotesingle{}t change for a given frequency of updates. \index{N\+O\+R\+M\+AL@{N\+O\+R\+M\+AL}!Game\+Of\+Life@{Game\+Of\+Life}}\index{Game\+Of\+Life@{Game\+Of\+Life}!N\+O\+R\+M\+AL@{N\+O\+R\+M\+AL}}\item[{\em 
+N\+O\+R\+M\+AL\hypertarget{classGameOfLife_ab9119586dc592398cd982530e3076831adb669df0cff6f0440837322bfc241081}{}\label{classGameOfLife_ab9119586dc592398cd982530e3076831adb669df0cff6f0440837322bfc241081}
+}]The game keeps going. \end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Game\+Of\+Life@{Game\+Of\+Life}!Game\+Of\+Life@{Game\+Of\+Life}}
+\index{Game\+Of\+Life@{Game\+Of\+Life}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{Game\+Of\+Life(const int \&\+\_\+rows=\+D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+I\+M, const int \&\+\_\+cols=\+D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+I\+M)}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Of\+Life\+::\+Game\+Of\+Life (
+\begin{DoxyParamCaption}
+\item[{const int \&}]{\+\_\+rows = {\ttfamily {\bf D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM}}, }
+\item[{const int \&}]{\+\_\+cols = {\ttfamily {\bf D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classGameOfLife_a1fae1dfb9d89a62909d989397f2442f6}{}\label{classGameOfLife_a1fae1dfb9d89a62909d989397f2442f6}
+Takes the size of the field (rows and columns) and allocates memory for it, setting all cells to dead (false). \index{Game\+Of\+Life@{Game\+Of\+Life}!Game\+Of\+Life@{Game\+Of\+Life}}
+\index{Game\+Of\+Life@{Game\+Of\+Life}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{Game\+Of\+Life(const int \&\+\_\+rows, const int \&\+\_\+cols, const vector$<$ pair$<$ int, int $>$ $>$ \&points\+Alive)}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Of\+Life\+::\+Game\+Of\+Life (
+\begin{DoxyParamCaption}
+\item[{const int \&}]{\+\_\+rows, }
+\item[{const int \&}]{\+\_\+cols, }
+\item[{const vector$<$ pair$<$ int, int $>$ $>$ \&}]{points\+Alive}
+\end{DoxyParamCaption}
+)}\hypertarget{classGameOfLife_adfc1f458a6ab273c6d1de76265dfd86d}{}\label{classGameOfLife_adfc1f458a6ab273c6d1de76265dfd86d}
+Takes the size of the field (rows and columns) and a list of cells to be setted as alive. \index{Game\+Of\+Life@{Game\+Of\+Life}!````~Game\+Of\+Life@{$\sim$\+Game\+Of\+Life}}
+\index{````~Game\+Of\+Life@{$\sim$\+Game\+Of\+Life}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{$\sim$\+Game\+Of\+Life()}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Of\+Life\+::$\sim$\+Game\+Of\+Life (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classGameOfLife_ab06a33fee5a200e5ef62e306aaaea9c7}{}\label{classGameOfLife_ab06a33fee5a200e5ef62e306aaaea9c7}
+Destroys the allocated memory for the game. 
+
+\subsection{Member Function Documentation}
+\index{Game\+Of\+Life@{Game\+Of\+Life}!count\+Neighbors@{count\+Neighbors}}
+\index{count\+Neighbors@{count\+Neighbors}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{count\+Neighbors(const int \&row, const int \&col)}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Of\+Life\+::count\+Neighbors (
+\begin{DoxyParamCaption}
+\item[{const int \&}]{row, }
+\item[{const int \&}]{col}
+\end{DoxyParamCaption}
+)}\hypertarget{classGameOfLife_a1801dc503a5106b0ec5d5336057973d6}{}\label{classGameOfLife_a1801dc503a5106b0ec5d5336057973d6}
+Count how many alive cells is around the cell located at the position passed as arguments.
+
+\begin{DoxyReturn}{Returns}
+The number of alive cells around data\mbox{[}row\mbox{]}\mbox{[}col\mbox{]}. 
+\end{DoxyReturn}
+\index{Game\+Of\+Life@{Game\+Of\+Life}!get\+Cols@{get\+Cols}}
+\index{get\+Cols@{get\+Cols}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{get\+Cols() const }]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Of\+Life\+::get\+Cols (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGameOfLife_a9393672eff631609e73b8a0b5b6817d2}{}\label{classGameOfLife_a9393672eff631609e73b8a0b5b6817d2}
+\begin{DoxyReturn}{Returns}
+Number of columns. 
+\end{DoxyReturn}
+\index{Game\+Of\+Life@{Game\+Of\+Life}!get\+Generation@{get\+Generation}}
+\index{get\+Generation@{get\+Generation}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{get\+Generation() const }]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Of\+Life\+::get\+Generation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGameOfLife_a327b46e378f8d678dbc1492a12058c54}{}\label{classGameOfLife_a327b46e378f8d678dbc1492a12058c54}
+\begin{DoxyReturn}{Returns}
+The current generation. 
+\end{DoxyReturn}
+\index{Game\+Of\+Life@{Game\+Of\+Life}!get\+Life\+Stability@{get\+Life\+Stability}}
+\index{get\+Life\+Stability@{get\+Life\+Stability}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{get\+Life\+Stability() const }]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Of\+Life\+::get\+Life\+Stability (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGameOfLife_a3538ce375cb68fc0f90f4c86ad52be2e}{}\label{classGameOfLife_a3538ce375cb68fc0f90f4c86ad52be2e}
+\begin{DoxyReturn}{Returns}
+The generation of stability. 
+\end{DoxyReturn}
+\index{Game\+Of\+Life@{Game\+Of\+Life}!get\+Rows@{get\+Rows}}
+\index{get\+Rows@{get\+Rows}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{get\+Rows() const }]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Of\+Life\+::get\+Rows (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGameOfLife_a7d069e77011b08f8ffe1075eae6d72e6}{}\label{classGameOfLife_a7d069e77011b08f8ffe1075eae6d72e6}
+\begin{DoxyReturn}{Returns}
+Number of rows. 
+\end{DoxyReturn}
+\index{Game\+Of\+Life@{Game\+Of\+Life}!get\+State\+Pos@{get\+State\+Pos}}
+\index{get\+State\+Pos@{get\+State\+Pos}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{get\+State\+Pos(const int \&\+\_\+row, const int \&\+\_\+col)}]{\setlength{\rightskip}{0pt plus 5cm}bool Game\+Of\+Life\+::get\+State\+Pos (
+\begin{DoxyParamCaption}
+\item[{const int \&}]{\+\_\+row, }
+\item[{const int \&}]{\+\_\+col}
+\end{DoxyParamCaption}
+)}\hypertarget{classGameOfLife_aeda28cd2f10ad35e4284b3c48b0e5072}{}\label{classGameOfLife_aeda28cd2f10ad35e4284b3c48b0e5072}
+\begin{DoxyReturn}{Returns}
+True if the cell is alive, false if it\textquotesingle{}s dead. 
+\end{DoxyReturn}
+\index{Game\+Of\+Life@{Game\+Of\+Life}!is\+Inside@{is\+Inside}}
+\index{is\+Inside@{is\+Inside}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{is\+Inside(size\+\_\+t \&pivot, string \&matrix\+Code)}]{\setlength{\rightskip}{0pt plus 5cm}bool Game\+Of\+Life\+::is\+Inside (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t \&}]{pivot, }
+\item[{string \&}]{matrix\+Code}
+\end{DoxyParamCaption}
+)}\hypertarget{classGameOfLife_ae00b9ea2168515d8e397dcb0c46f1560}{}\label{classGameOfLife_ae00b9ea2168515d8e397dcb0c46f1560}
+Visits the history to check the stability of the game. \begin{DoxyReturn}{Returns}
+If that state has already been reached. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em pivot} & A number (by hash) that represents the current game. \\
+\hline
+{\em matrix\+Code} & The configuration of the field to be checked. \\
+\hline
+\end{DoxyParams}
+\index{Game\+Of\+Life@{Game\+Of\+Life}!print@{print}}
+\index{print@{print}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{print() const }]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Of\+Life\+::print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classGameOfLife_a1bfc6cf715659f9a9ddb737d4d87be34}{}\label{classGameOfLife_a1bfc6cf715659f9a9ddb737d4d87be34}
+Prints the field. \index{Game\+Of\+Life@{Game\+Of\+Life}!set\+Alive@{set\+Alive}}
+\index{set\+Alive@{set\+Alive}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{set\+Alive(const vector$<$ pair$<$ int, int $>$ $>$ \&points\+Alive)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Of\+Life\+::set\+Alive (
+\begin{DoxyParamCaption}
+\item[{const vector$<$ pair$<$ int, int $>$ $>$ \&}]{points\+Alive}
+\end{DoxyParamCaption}
+)}\hypertarget{classGameOfLife_ae892f218cd9b346884d625cf5a411b32}{}\label{classGameOfLife_ae892f218cd9b346884d625cf5a411b32}
+Set manually a cell to alive, taking a list of cells from a vector of pairs, where \textquotesingle{}pair.\+first\textquotesingle{} is the x value and \textquotesingle{}pair.\+second\textquotesingle{} is the y value. \index{Game\+Of\+Life@{Game\+Of\+Life}!set\+Alive@{set\+Alive}}
+\index{set\+Alive@{set\+Alive}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{set\+Alive(const int \&\+\_\+row, const int \&\+\_\+col)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Of\+Life\+::set\+Alive (
+\begin{DoxyParamCaption}
+\item[{const int \&}]{\+\_\+row, }
+\item[{const int \&}]{\+\_\+col}
+\end{DoxyParamCaption}
+)}\hypertarget{classGameOfLife_a378dac8ab3735cddf8ece3e08eef88c7}{}\label{classGameOfLife_a378dac8ab3735cddf8ece3e08eef88c7}
+Set manually a cell to alive, simply taking the row and the column value of the cell. \index{Game\+Of\+Life@{Game\+Of\+Life}!state\+Field@{state\+Field}}
+\index{state\+Field@{state\+Field}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{state\+Field() const }]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Of\+Life\+::state\+Field (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGameOfLife_a509bc5ca5942b09b76d3140af10e618a}{}\label{classGameOfLife_a509bc5ca5942b09b76d3140af10e618a}
+Verify the state of the field. \begin{DoxyReturn}{Returns}
+A state\+: S\+T\+A\+B\+LE, E\+X\+T\+I\+N\+CT, N\+O\+R\+M\+AL 
+\end{DoxyReturn}
+\index{Game\+Of\+Life@{Game\+Of\+Life}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{to\+String()}]{\setlength{\rightskip}{0pt plus 5cm}string Game\+Of\+Life\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classGameOfLife_a962e24b89ab41c9d214102904e1bf298}{}\label{classGameOfLife_a962e24b89ab41c9d214102904e1bf298}
+Makes a string representation of the game. \begin{DoxyReturn}{Returns}
+String that represents the game. 
+\end{DoxyReturn}
+\index{Game\+Of\+Life@{Game\+Of\+Life}!update@{update}}
+\index{update@{update}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{update()}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Of\+Life\+::update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classGameOfLife_a14f03b541c2d1a8a5f9aaa7a1e63f514}{}\label{classGameOfLife_a14f03b541c2d1a8a5f9aaa7a1e63f514}
+Update the field\textquotesingle{}s state, based on Game of Life\textquotesingle{}s rules\+:
+
+
+\begin{DoxyItemize}
+\item if a cell is alive, but the number of living neighbors is less than or equal to one, this cell will die in the next generation;
+\item if a cell is alive and has four os more living neighbors, this cell will die in the next generation due to overpopulation;
+\item if a cell is alive with two or three neighbors, it will keep alive in the next generation;
+\item if a cell is dead, so, in the next generation, it will become alive if it has three neighbors exactly. If it has a number of neighbors different of three, it will keep dead;
+\item All births and deads happen exactly at the same time, so cells that are dying can help other to become alive, but can\textquotesingle{}t prevent the dead of others due to overpopulation reduction; in the same way, cells that are dawning can\textquotesingle{}t preserve or kill living cells at the previous generation. 
+\end{DoxyItemize}
+
+\subsection{Member Data Documentation}
+\index{Game\+Of\+Life@{Game\+Of\+Life}!cols@{cols}}
+\index{cols@{cols}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{cols}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Of\+Life\+::cols\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGameOfLife_a30e7fad7bbc05ad51404b84719b82bd2}{}\label{classGameOfLife_a30e7fad7bbc05ad51404b84719b82bd2}
+Number of columns of the field. \index{Game\+Of\+Life@{Game\+Of\+Life}!data@{data}}
+\index{data@{data}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}bool$\ast$$\ast$ Game\+Of\+Life\+::data\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGameOfLife_a6e0a1d177ae3dd8c687ed766e57b3d36}{}\label{classGameOfLife_a6e0a1d177ae3dd8c687ed766e57b3d36}
+Represents the matrix of cells, which can have values true or false (alive or dead). \index{Game\+Of\+Life@{Game\+Of\+Life}!D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM@{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM}}
+\index{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM@{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM}]{\setlength{\rightskip}{0pt plus 5cm}const int Game\+Of\+Life\+::\+D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+IM = 10\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{classGameOfLife_a15976a2df224994b6fa2ca57242fd093}{}\label{classGameOfLife_a15976a2df224994b6fa2ca57242fd093}
+If the size is not passed to the constructor, field is built from this size. \index{Game\+Of\+Life@{Game\+Of\+Life}!generation@{generation}}
+\index{generation@{generation}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{generation}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Of\+Life\+::generation\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGameOfLife_aab1dc4078fe46596650d64ad50313555}{}\label{classGameOfLife_aab1dc4078fe46596650d64ad50313555}
+Current generation. \index{Game\+Of\+Life@{Game\+Of\+Life}!historical@{historical}}
+\index{historical@{historical}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{historical}]{\setlength{\rightskip}{0pt plus 5cm}map$<$size\+\_\+t, pair$<$ int, string $>$ $>$ Game\+Of\+Life\+::historical\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGameOfLife_a11909babb91108b22e157efd3b2f75b8}{}\label{classGameOfLife_a11909babb91108b22e157efd3b2f75b8}
+Keep the game history in terms of generations and fields. \index{Game\+Of\+Life@{Game\+Of\+Life}!life\+Stability@{life\+Stability}}
+\index{life\+Stability@{life\+Stability}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{life\+Stability}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Of\+Life\+::life\+Stability\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGameOfLife_a0a05708cd58b7eadfd96d84a3641b835}{}\label{classGameOfLife_a0a05708cd58b7eadfd96d84a3641b835}
+Stability generation. \index{Game\+Of\+Life@{Game\+Of\+Life}!rows@{rows}}
+\index{rows@{rows}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{rows}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Of\+Life\+::rows\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGameOfLife_a37d5c145e0ffc0b957988e8d5a0c910b}{}\label{classGameOfLife_a37d5c145e0ffc0b957988e8d5a0c910b}
+Number of rows of the field. \index{Game\+Of\+Life@{Game\+Of\+Life}!stable@{stable}}
+\index{stable@{stable}!Game\+Of\+Life@{Game\+Of\+Life}}
+\subsubsection[{stable}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Of\+Life\+::stable\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGameOfLife_a59c0b43f3d368465d9473622fa8059f3}{}\label{classGameOfLife_a59c0b43f3d368465d9473622fa8059f3}
+Store the game state. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Game\+Of\+Life.\+h\item 
+src/Game\+Of\+Life.\+cpp\end{DoxyCompactItemize}

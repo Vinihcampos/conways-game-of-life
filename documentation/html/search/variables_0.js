@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cols',['cols',['../classField.html#a61aa18e6c351c3d70bc815056ef81751',1,'Field']]]
+  ['cols',['cols',['../classGameOfLife.html#a30e7fad7bbc05ad51404b84719b82bd2',1,'GameOfLife']]]
 ];
