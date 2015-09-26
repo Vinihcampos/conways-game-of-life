@@ -136,6 +136,9 @@ class GameOfLife {
 		**/
 		bool getStatePos(const int & _row, const int & _col);
 
+		bool ** getField(){ return data; }
+
 };
 
+#include "../src/GameOfLife.cpp"
 #endif
