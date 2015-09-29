@@ -65,9 +65,7 @@ class Game{
 		int cellsVertical;
 
 		enum typeCells{
-			ZOMBIE = 0,
-			VINICIUS,
-			VITOR,
+			BACTERIA = 0,
 			BLANK
 		};
 
@@ -78,7 +76,7 @@ class Game{
 		width {_width}, height {_height}, cellsHorizontal {_cellsHorizontal}, cellsVertical {_cellsVertical}{
 
 			//Set avatars[zombie | vinicius | vitor ]
-			if (!texture.loadFromFile("../img/sprites_final.png"))
+			if (!texture.loadFromFile("../img/bacteria_sprite.png"))
 				cout<<"fuuu";
 			texture.setSmooth(true);
 
@@ -100,9 +98,9 @@ class Game{
 			for(int i = 0; i < cellsHorizontal; ++i){
 				for(int j = 0; j < cellsVertical; ++j){
 					if(_field[i][j]){
-						field[i][j].initializeAvatar(texture, sizeCell, i, j, VITOR, startX, startY);
+						field[i][j].initializeAvatar(texture, sizeCell, i, j, BACTERIA, startX, startY);
 					}else{
-						field[i][j].initializeAvatar(texture, sizeCell, i, j, ZOMBIE, startX, startY);
+						field[i][j].initializeAvatar(texture, sizeCell, i, j, BLANK, startX, startY);
 					}
 				}
 			}
@@ -124,9 +122,9 @@ class Game{
 				for(int j = 1; j <= cellsVertical; ++j){
 					bool state = _field[i][j];
 					if(state)
-						field[i-1][j-1].setAvatar(VITOR, sizeCell);
+						field[i-1][j-1].setAvatar(BACTERIA, sizeCell);
 					else
-						field[i-1][j-1].setAvatar(ZOMBIE, sizeCell);
+						field[i-1][j-1].setAvatar(BLANK, sizeCell);
 				}
 			}
 		}

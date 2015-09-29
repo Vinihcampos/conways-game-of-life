@@ -12,7 +12,7 @@
 /**	
 *	cd conwaygameoflife/game/lib
 *	g++ -I ../../include/ ../src/drive.cpp -c -std=c++11 -g
-*	g++ drive.o -o ../bin/drive -lsfml-graphics -lsfml-window -lsfml-system -std=c++11
+*	g++ drive.o -o ../bin/drive -lsfml-graphics -lsfml-window -lsfml-system -std=c++11 -g
 *	../bin/drive
 **/
 
@@ -169,7 +169,7 @@ int main(int argsize, char *argsi[]){
 
         window.display();
         ++count;
-        if(count >= 30){
+        if(count >= 15){
         	if(life.stateField() == GameOfLife::NORMAL){
         		life.update();
         		game.update(life.getField());
