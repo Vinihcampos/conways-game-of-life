@@ -36,14 +36,14 @@ class Avatar{
 
 			actual = _actual;
 
-			avatars.setTextureRect(sf::IntRect(128 * actual, 0, 128, 128));
+			avatars.setTextureRect(sf::IntRect(129 * actual, 0, 128, 128));
 
 			return 0;
 		}
 
 		void setAvatar(int _actual, int _size){
 			actual = _actual;
-			avatars.setTextureRect(sf::IntRect(128 * actual, 0, 128, 128));
+			avatars.setTextureRect(sf::IntRect(129 * actual, 0, 128, 128));
 		}
 
 		sf::Sprite getAvatar(){
