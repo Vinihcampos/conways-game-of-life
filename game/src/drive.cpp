@@ -93,7 +93,6 @@ int main(int argsize, char *argsi[]){
 			table[i][j] = false;
 		}
 	}
-	cout<<"matriz"<<endl;
 
 	// reading living cells	
 	int i = 0;

@@ -76,8 +76,7 @@ class Game{
 		width {_width}, height {_height}, cellsHorizontal {_cellsHorizontal}, cellsVertical {_cellsVertical}{
 
 			//Set avatars[zombie | vinicius | vitor ]
-			if (!texture.loadFromFile("../img/bacteria_sprite.png"))
-				cout<<"fuuu";
+			if (!texture.loadFromFile("../img/bacteria_sprite.png"));
 			texture.setSmooth(true);
 
 			field = new Avatar * [cellsHorizontal];
