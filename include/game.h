@@ -91,7 +91,7 @@ class Game{
 			}
 
 			//sizeCell = width/cellsVertical <= height/cellsHorizontal ? (width/cellsVertical) : (height/cellsHorizontal);
-			cout<<sizeCell<<endl;
+			//cout<<sizeCell<<endl;
 			float startX = (float) width /  2 - (sizeCell * cellsVertical)/2; 
 			float startY = (float) height / 2 - (sizeCell * cellsHorizontal)  /2;
 			for(int i = 0; i < cellsHorizontal; ++i){
@@ -114,7 +114,6 @@ class Game{
 
 		int getCellsHorizontal(){ return cellsHorizontal; }
 		int getCellsVertical(){ return cellsVertical; }
-
 
 		void update(bool ** _field){
 			for(int i = 1; i <= cellsHorizontal; ++i){
