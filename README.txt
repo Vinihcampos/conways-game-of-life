@@ -44,22 +44,50 @@ O projeto está sub-dividido em 6 pastas:
 	* bin: Possui os executáveis do projeto
 	* data: Possui arquivos que servem como entrada para a execução do programa
 	* documentation: Possui toda a documentação do projeto com doxygen
+	* game: Possui as pastas relacionadas a parte gráfica do jogo
+		* bin: Possui os executáveis do projeto(GRÁFICO)
+		* img: Possui as imagens utilizadas no jogo(GRÁFICO)
+		* lib: Possui os objetos do jogo(GRÁFICO)
+		* src: Possui o driver do projeto(GRÁFICO)
 	* include: Possui o arquivo de cabeçalho da classe GameOfLife.
 	* src: Possui o arquivo de implementação dos métodos da classe GameOfLife e o driver que é o teste do projeto. 
 	* saida: Possui os arquivos de histórico das gerações
 
-# Guia de utilização - Linux #
+# Guia de utilização(MODO TEXTO) - Linux #
 	
 	1 - Descompactar o projeto na pasta de preferência
 	1 - Abra o terminal
 	2 - Desloque-se até pasta do projeto, conwaygameoflife.
-	3 - Digite o seguinte comando de compilação: 
-		g++ -Wall -std=c++11 -I include/ src/*.cpp -o bin/<nome_do_executavel>
+	3 - Digite os seguintes comandos de compilação: 
+		g++ -Wall -std=c++11 -I include/ src/driver.cpp -o bin/<nome_do_executavel>
 		Obs: <nome_do_executavel> é o nome que deseja por para ser o executavel do projeto
-	4 - Para compilar, tem-se duas maneiras:
+	4 - Para executar, tem-se duas maneiras:
 		./bin/<nome_executavel> /data/<arquivo_de_entrada>
+		- O comando acima apenas executa o programa com a entrada de arquivos.
 		ou 
 		./bin/<nome_executavel> /data/<arquivo_de_entrada> /saida/<arquivo_de_saida>
+		- O comando acima apenas executa o programa com a entrada de arquivos e salva na pasta de saida
+
+		Obs: <arquivo_de_entrada> é um arquivo de texto com uma entrada da matriz
+			 <arquivo_de_saida> será o arquivo que armazenará o histórico de gerações
+
+# Guia de utilização(MODO GRÁFICO) - Linux #
+	
+	1 - Descompactar o projeto na pasta de preferência
+	1 - Abra o terminal
+	2 - Desloque-se até pasta do projeto, conwaygameoflife.
+	3 - Digite os seguintes comandos de compilação: 
+		cd game/lib
+		g++ -I ../../include/ ../src/driver.cpp -c -std=c++11
+		g++ driver.o -o ../bin/<nome_do_executavel> -lsfml-graphics -lsfml-window -lsfml-system -std=c++11 -g
+		cd ../bin
+		Obs: <nome_do_executavel> é o nome que deseja por para ser o executavel do projeto
+	4 - Para executar, tem-se duas maneiras:
+		./<nome_executavel> ../../data/<arquivo_de_entrada>
+		- O comando acima apenas executa o programa com a entrada de arquivos.
+		ou 
+		./bin/<nome_executavel> ../../data/<arquivo_de_entrada> ../../saida/<arquivo_de_saida>
+		- O comando acima apenas executa o programa com a entrada de arquivos e salva na pasta de saida
 
 		Obs: <arquivo_de_entrada> é um arquivo de texto com uma entrada da matriz
 			 <arquivo_de_saida> será o arquivo que armazenará o histórico de gerações
@@ -67,3 +95,18 @@ O projeto está sub-dividido em 6 pastas:
 # Erros tratados
 	* Quando não se informa o arquivo de entrada ou um caminho inválido para ele
 	* Quando não se informa um caminho válido para o arquivo de saída
+
+# Resultado no valgrind(MODO TEXTO) #
+
+	* O projeto passou no valgrind sem vazamento de memória,
+	resposta no terminal ao fim de uma execução: 
+
+	y==2595== 
+	==2595== HEAP SUMMARY:
+	==2595==     in use at exit: 0 bytes in 0 blocks
+	==2595==   total heap usage: 151 allocs, 151 frees, 13,471 bytes allocated
+	==2595== 
+	==2595== All heap blocks were freed -- no leaks are possible
+	==2595== 
+	==2595== For counts of detected and suppressed errors, rerun with: -v
+	==2595== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

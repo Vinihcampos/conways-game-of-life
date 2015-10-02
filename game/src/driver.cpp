@@ -19,7 +19,7 @@
 
 static const int WIDTH = 1000;
 static const int HEIGHT = 700;
-static const int DISCOUNT = 90;
+static const int DISCOUNT = 70;
 static const int TITLE_MENU = 0;
 static const int GAME_SCREEN_STEP = 1;
 static const int GAME_SCREEN_FULLY = 2;
@@ -119,7 +119,7 @@ int main(int argsize, char *argsi[]){
 	/****************************************************************************/
 	
 	GameOfLife life {m, n, aliveCollection};
-	Game game(WIDTH, HEIGHT, m, n, table);
+	Game game(WIDTH, HEIGHT - DISCOUNT, m, n, table);
 	
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Conway's Game of Life");
 	window.setFramerateLimit(60);
@@ -128,13 +128,16 @@ int main(int argsize, char *argsi[]){
 
 	sf::Font font;
 	// Load it from a file
-	if (!font.loadFromFile("../src/Roboto_Italic.ttf"))
+	if (!font.loadFromFile("../src/Colleged.ttf"))
 		return EXIT_FAILURE;
 
     sf::Text generation;	
     generation.setFont(font);
-	generation.setColor(sf::Color::Red);
+	generation.setColor(sf::Color::White);
 	generation.setCharacterSize(36);
+
+	sf::Vector2f position = generation.getPosition();
+	generation.setPosition(position.x, position.y + HEIGHT - 50);
 
 
 	/*****************************************************
@@ -246,8 +249,9 @@ int main(int argsize, char *argsi[]){
 
 	        		life.update();
 	        		game.update(life.getField());
-	        		if(life.stateField() != GameOfLife::NORMAL)
+	        		if(life.stateField() != GameOfLife::NORMAL){
 	        			screen = FINAL_GAME;	        		
+	        		}
 	        	}
 	        	press = false;	
             }
@@ -287,9 +291,20 @@ int main(int argsize, char *argsi[]){
         	}
             if(life.stateField() == GameOfLife::EXTINCT){
 				window.draw(spriteExtinct);
+				std::ostringstream ss; //string buffer to convert numbers to string
+				ss << "Number of generations: " << life.getGeneration();
+				generation.setString(ss.str());
+	        	window.draw(generation);
             }else{
 				window.draw(spriteStable);
+				std::ostringstream ss; //string buffer to convert numbers to string
+				ss << "Number of generations: " << life.getGeneration() - 1;
+				generation.setString(ss.str());
+	        	window.draw(generation);
 			}
+			
+
+	        
         }else if (screen == TITLE_MENU){
            	window.draw(spriteStep);
            	window.draw(spriteFully);
@@ -316,8 +331,10 @@ int main(int argsize, char *argsi[]){
 	        	}
 				count = 0;
 	        }
+	        std::ostringstream ss; //string buffer to convert numbers to string
+			ss << "Generation: " << life.getGeneration();
 
-	        generation.setString("Generation: ");
+	        generation.setString(ss.str());
 	        window.draw(generation);
         }else{
         	for(int i = 0; i < game.getCellsHorizontal(); ++i){
@@ -325,7 +342,10 @@ int main(int argsize, char *argsi[]){
 	       			window.draw(game.field[i][j].getAvatar());
 	       		}
 	       	}
-	       	generation.setString("Generation: ");
+	       	std::ostringstream ss; //string buffer to convert numbers to string
+			ss << "Generation: " << life.getGeneration();
+
+	        generation.setString(ss.str());
 	       	window.draw(generation);
         }        	
 
