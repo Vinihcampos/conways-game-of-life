@@ -47,7 +47,6 @@ int main(int argsize, char *argsi[]){
 		cerr << "Unable to open input file." << endl;
 		return 0;
 	}
-	cout << ">>> Input file (" << argsi[1] << ") opened!" << endl;
 	
 	/*-------------------------------------
 	 * Preparing for writing an output file
@@ -132,10 +131,10 @@ int main(int argsize, char *argsi[]){
 	if (!font.loadFromFile("../src/Roboto_Italic.ttf"))
 		return EXIT_FAILURE;
 
-    sf::Text finalization;	
-    finalization.setFont(font);
-	finalization.setColor(sf::Color::Red);
-	finalization.setCharacterSize(36);
+    sf::Text generation;	
+    generation.setFont(font);
+	generation.setColor(sf::Color::Red);
+	generation.setCharacterSize(36);
 
 
 	/*****************************************************
@@ -199,6 +198,8 @@ int main(int argsize, char *argsi[]){
 	int count = 0;
 	//	mouse release
 	bool press = true;
+	//	draw aux
+	bool canWrite = true;
 
 	//Run the program while the window is open
 	while(window.isOpen()){
@@ -212,7 +213,13 @@ int main(int argsize, char *argsi[]){
             
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed){
-            	window.close();
+            	//delete field;
+				for(auto i (0); i < m; ++i){
+					delete [] table[i];
+				}
+				delete [] table;
+				ofs.close();
+				window.close();
             }
 
             //Verifying if the mouse button was pressed 
@@ -230,8 +237,17 @@ int main(int argsize, char *argsi[]){
             else if(screen == GAME_SCREEN_STEP && sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && press){
          		
             	if(life.stateField() == GameOfLife::NORMAL){
+
+            		if (ofs.is_open()) {
+						ofs << "\nGeneration: " << life.getGeneration() << endl;
+						ofs << life.toString();
+						ofs << "\n";
+					}
+
 	        		life.update();
-	        		game.update(life.getField());	        		
+	        		game.update(life.getField());
+	        		if(life.stateField() != GameOfLife::NORMAL)
+	        			screen = FINAL_GAME;	        		
 	        	}
 	        	press = false;	
             }
@@ -244,6 +260,31 @@ int main(int argsize, char *argsi[]){
 
 
         if(screen == FINAL_GAME){
+        	if(canWrite){
+        		canWrite = false;
+        		if(life.stateField() == GameOfLife::EXTINCT){
+        			if (ofs.is_open()) {
+						ofs << "Extinct generation: " << life.getGeneration() << endl;
+						ofs << life.toString();
+						ofs << "----------------------------------------------\n" << endl;
+						ofs << ">>> The game was executed successfully!" << endl; 
+						ofs << ">>> Life is extinct." << endl;
+						ofs << ">>> The life was extinct at generation " << life.getGeneration() << "." << endl;
+						ofs << "\n----------------------------------------------" << endl;
+					}
+        		}else{
+        			if (ofs.is_open()) {
+						ofs << "First repeat of generation: " << life.getGeneration() << endl;
+						ofs << life.toString();
+						ofs << "----------------------------------------------\n" << endl;
+						ofs << ">>> The game was successfully executed!" << endl; 
+						ofs << ">>> The life is stable." << endl;
+						ofs << ">>> The life started to be stable in generation " << life.getLifeStability() << "." << endl;
+						ofs << ">>> Started to repeat at generation " << life.getGeneration() << "." << endl;
+						ofs << "\n----------------------------------------------" << endl;
+					}
+        		}
+        	}
             if(life.stateField() == GameOfLife::EXTINCT){
 				window.draw(spriteExtinct);
             }else{
@@ -261,32 +302,36 @@ int main(int argsize, char *argsi[]){
 	        ++count;
 	        if(count >= 15){
 	        	if(life.stateField() == GameOfLife::NORMAL){
+
+	        		if (ofs.is_open()) {
+						ofs << "\nGeneration: " << life.getGeneration() << endl;
+						ofs << life.toString();
+						ofs << "\n";
+					}
+
 	        		life.update();
 	        		game.update(life.getField());
+	        	}else{
+	        		screen = FINAL_GAME;
 	        	}
 				count = 0;
 	        }
+
+	        generation.setString("Generation: ");
+	        window.draw(generation);
         }else{
         	for(int i = 0; i < game.getCellsHorizontal(); ++i){
 	       		for(int j = 0; j < game.getCellsVertical(); ++j){
 	       			window.draw(game.field[i][j].getAvatar());
 	       		}
 	       	}
-        }
-        if(life.stateField() != GameOfLife::NORMAL)
-        	screen = FINAL_GAME;
+	       	generation.setString("Generation: ");
+	       	window.draw(generation);
+        }        	
 
         window.display();
 
 	}
-
-	//delete field;
-	for(auto i (0); i < m; ++i){
-		delete [] table[i];
-	}
-	delete [] table;
-	
-	window.close();
 
 	return 0;
 }
