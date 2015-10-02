@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['update',['update',['../classGameOfLife.html#a14f03b541c2d1a8a5f9aaa7a1e63f514',1,'GameOfLife']]]
+  ['setalive',['setAlive',['../classGameOfLife.html#ae892f218cd9b346884d625cf5a411b32',1,'GameOfLife::setAlive(const vector&lt; pair&lt; int, int &gt; &gt; &amp;pointsAlive)'],['../classGameOfLife.html#a378dac8ab3735cddf8ece3e08eef88c7',1,'GameOfLife::setAlive(const int &amp;_row, const int &amp;_col)']]],
+  ['setsize',['setSize',['../classAvatar.html#aa4cff0f42d3cd638d582b54373947ad7',1,'Avatar']]],
+  ['statefield',['stateField',['../classGameOfLife.html#a509bc5ca5942b09b76d3140af10e618a',1,'GameOfLife']]]
 ];

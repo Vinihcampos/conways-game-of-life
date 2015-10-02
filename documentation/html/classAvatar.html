@@ -92,43 +92,293 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Avatar Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class that represents a cell graphically.  
+ <a href="classAvatar.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="game_8h_source.html">game.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a53ac52afe91523b08a05e41edb883e0b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a53ac52afe91523b08a05e41edb883e0b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>setAvatar</b> (float size, int posx, int posy, int _actual, float startX, float startY)</td></tr>
-<tr class="separator:a53ac52afe91523b08a05e41edb883e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30f1705c0fe7164da51f3861bbbe83e7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30f1705c0fe7164da51f3861bbbe83e7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setActual</b> (int _actual)</td></tr>
-<tr class="separator:a30f1705c0fe7164da51f3861bbbe83e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcbefe8ab616aef752824f4dd6e86cb1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adcbefe8ab616aef752824f4dd6e86cb1"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getActual</b> ()</td></tr>
-<tr class="separator:adcbefe8ab616aef752824f4dd6e86cb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14b9eb31495b4f7db9d52c64b78f40b0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAvatar.html#a14b9eb31495b4f7db9d52c64b78f40b0">Avatar</a> ()</td></tr>
+<tr class="separator:a14b9eb31495b4f7db9d52c64b78f40b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a266b3ed1e38b77d28a0a7cabc7ca5ae2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAvatar.html#a266b3ed1e38b77d28a0a7cabc7ca5ae2">initializeAvatar</a> (sf::Texture &amp;texture, float size, int posx, int posy, int _actual, float startX, float startY)</td></tr>
+<tr class="separator:a266b3ed1e38b77d28a0a7cabc7ca5ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7befb8bda764e5cd0cc04a3a4c2c5145"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7befb8bda764e5cd0cc04a3a4c2c5145"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setAvatar</b> (int _actual, int _size)</td></tr>
+<tr class="separator:a7befb8bda764e5cd0cc04a3a4c2c5145"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5fadc3a5a9c03ced147e34553cbce53"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac5fadc3a5a9c03ced147e34553cbce53"></a>
 sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><b>getAvatar</b> ()</td></tr>
 <tr class="separator:ac5fadc3a5a9c03ced147e34553cbce53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcbefe8ab616aef752824f4dd6e86cb1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adcbefe8ab616aef752824f4dd6e86cb1"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getActual</b> ()</td></tr>
+<tr class="separator:adcbefe8ab616aef752824f4dd6e86cb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a3c7c3f25a0d5edc296636e716e6f91d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c7c3f25a0d5edc296636e716e6f91d4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSize</b> (float &amp;size)</td></tr>
-<tr class="separator:a3c7c3f25a0d5edc296636e716e6f91d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa3415318ec9f04c0b8a765c78faf4e5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa3415318ec9f04c0b8a765c78faf4e5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>move</b> (float startX, float startY, int &amp;posx, int &amp;posy, float &amp;size)</td></tr>
+<tr class="memitem:aa4cff0f42d3cd638d582b54373947ad7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAvatar.html#aa4cff0f42d3cd638d582b54373947ad7">setSize</a> (float &amp;size, sf::Texture texture)</td></tr>
+<tr class="separator:aa4cff0f42d3cd638d582b54373947ad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa3415318ec9f04c0b8a765c78faf4e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAvatar.html#aaa3415318ec9f04c0b8a765c78faf4e5">move</a> (float startX, float startY, int &amp;posx, int &amp;posy, float &amp;size)</td></tr>
 <tr class="separator:aaa3415318ec9f04c0b8a765c78faf4e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:af92a8199bf29116cbbdb34a0fcbe2273"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af92a8199bf29116cbbdb34a0fcbe2273"></a>
-sf::Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>textures</b></td></tr>
-<tr class="separator:af92a8199bf29116cbbdb34a0fcbe2273"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afee56f77454acff190044e08867ee87c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afee56f77454acff190044e08867ee87c"></a>
-sf::Sprite *&#160;</td><td class="memItemRight" valign="bottom"><b>avatars</b></td></tr>
-<tr class="separator:afee56f77454acff190044e08867ee87c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae21cdaf10a7378c2dc001cea97d832e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae21cdaf10a7378c2dc001cea97d832e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>actual</b></td></tr>
+<tr class="memitem:acad0823a51d4780f9a43e8daf6ff84bc"><td class="memItemLeft" align="right" valign="top">sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAvatar.html#acad0823a51d4780f9a43e8daf6ff84bc">avatars</a></td></tr>
+<tr class="separator:acad0823a51d4780f9a43e8daf6ff84bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae21cdaf10a7378c2dc001cea97d832e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAvatar.html#aae21cdaf10a7378c2dc001cea97d832e">actual</a></td></tr>
 <tr class="separator:aae21cdaf10a7378c2dc001cea97d832e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa92a76326cfa48f098526ddba0d674f2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAvatar.html#aa92a76326cfa48f098526ddba0d674f2">proportion</a></td></tr>
+<tr class="separator:aa92a76326cfa48f098526ddba0d674f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class that represents a cell graphically. </p>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2015 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Open Source </dd></dl>
+<dl class="section author"><dt>Authors</dt><dd>Vinicius Campos Tinoco Ribeiro, Vitor Rodrigues Greati </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a14b9eb31495b4f7db9d52c64b78f40b0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Avatar::Avatar </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Basic constructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a266b3ed1e38b77d28a0a7cabc7ca5ae2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Avatar::initializeAvatar </td>
+          <td>(</td>
+          <td class="paramtype">sf::Texture &amp;&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>posx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>posy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_actual</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>startX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>startY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set initial configurations for the graphical object. </p>
+
+</div>
+</div>
+<a class="anchor" id="aaa3415318ec9f04c0b8a765c78faf4e5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Avatar::move </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>startX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>startY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>posx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>posy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Moves the cell. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa4cff0f42d3cd638d582b54373947ad7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Avatar::setSize </td>
+          <td>(</td>
+          <td class="paramtype">float &amp;&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Texture&#160;</td>
+          <td class="paramname"><em>texture</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set size of the sprite, based on a given size and the texture. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="aae21cdaf10a7378c2dc001cea97d832e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Avatar::actual</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Current generation. </p>
+
+</div>
+</div>
+<a class="anchor" id="acad0823a51d4780f9a43e8daf6ff84bc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Sprite Avatar::avatars</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The sprite. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa92a76326cfa48f098526ddba0d674f2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Avatar::proportion</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For resizing the cell. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="game_8h_source.html">game.h</a></li>
 </ul>

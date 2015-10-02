@@ -93,55 +93,310 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Game Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class that represents the game.  
+ <a href="classGame.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="game_8h_source.html">game.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a878e46dca3d4a4b7c5be94d03e376569"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a878e46dca3d4a4b7c5be94d03e376569"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Game</b> (int _width, int _height, int _cellsVertical, int _cellsHorizontal, bool **const _field)</td></tr>
-<tr class="separator:a878e46dca3d4a4b7c5be94d03e376569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bc2cfb647c51977a50006ac433511c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a9bc2cfb647c51977a50006ac433511c7">Game</a> (int _width, int _height, int _cellsHorizontal, int _cellsVertical, bool **const _field)</td></tr>
+<tr class="separator:a9bc2cfb647c51977a50006ac433511c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab191e9914c3b3b30162fb49b02d0bd36"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab191e9914c3b3b30162fb49b02d0bd36"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getCellsHorizontal</b> ()</td></tr>
 <tr class="separator:ab191e9914c3b3b30162fb49b02d0bd36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ddb90d54f45464e9a80a9ab6501ccb1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ddb90d54f45464e9a80a9ab6501ccb1"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getCellsVertical</b> ()</td></tr>
 <tr class="separator:a6ddb90d54f45464e9a80a9ab6501ccb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6fd557aa9a11e04b8d94b6c35996a60"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6fd557aa9a11e04b8d94b6c35996a60"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (bool **_field)</td></tr>
+<tr class="memitem:af6fd557aa9a11e04b8d94b6c35996a60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#af6fd557aa9a11e04b8d94b6c35996a60">update</a> (bool **_field)</td></tr>
 <tr class="separator:af6fd557aa9a11e04b8d94b6c35996a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a0397b9eb4da1907b4de83b7e450fe1ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0397b9eb4da1907b4de83b7e450fe1ea"></a>
-<a class="el" href="classAvatar.html">Avatar</a> **&#160;</td><td class="memItemRight" valign="bottom"><b>field</b></td></tr>
+<tr class="memitem:a0397b9eb4da1907b4de83b7e450fe1ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAvatar.html">Avatar</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a0397b9eb4da1907b4de83b7e450fe1ea">field</a></td></tr>
 <tr class="separator:a0397b9eb4da1907b4de83b7e450fe1ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
 Private Types</h2></td></tr>
-<tr class="memitem:a15939429a3b6e3f068272c60a885e809"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a15939429a3b6e3f068272c60a885e809"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>typeCells</b> { <b>ZOMBIE</b> = 0, 
-<b>VINICIUS</b>, 
-<b>VITOR</b>, 
-<b>BLANK</b>
- }</td></tr>
+<tr class="memitem:a15939429a3b6e3f068272c60a885e809"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a15939429a3b6e3f068272c60a885e809">typeCells</a> { <a class="el" href="classGame.html#a15939429a3b6e3f068272c60a885e809a602b1a4e95398f98e6d7657bd8a281a3">BACTERIA</a> = 0, 
+<a class="el" href="classGame.html#a15939429a3b6e3f068272c60a885e809a2231bae51b3df1e74da8ba0400d18a91">BLANK</a>
+ }<tr class="memdesc:a15939429a3b6e3f068272c60a885e809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores two types of cells.  <a href="classGame.html#a15939429a3b6e3f068272c60a885e809">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:a15939429a3b6e3f068272c60a885e809"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a06b5a675d7c0f6a9b58d395872b1a4e7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06b5a675d7c0f6a9b58d395872b1a4e7"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>width</b></td></tr>
+<tr class="memitem:a06b5a675d7c0f6a9b58d395872b1a4e7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a06b5a675d7c0f6a9b58d395872b1a4e7">width</a></td></tr>
 <tr class="separator:a06b5a675d7c0f6a9b58d395872b1a4e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6d1743c45de5558a0ca99078df85250"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6d1743c45de5558a0ca99078df85250"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>height</b></td></tr>
+<tr class="memitem:aa6d1743c45de5558a0ca99078df85250"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#aa6d1743c45de5558a0ca99078df85250">height</a></td></tr>
 <tr class="separator:aa6d1743c45de5558a0ca99078df85250"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a022d477e012d53dde1affab23a93d8fc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a022d477e012d53dde1affab23a93d8fc"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>sizeCell</b></td></tr>
+<tr class="memitem:a022d477e012d53dde1affab23a93d8fc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a022d477e012d53dde1affab23a93d8fc">sizeCell</a></td></tr>
 <tr class="separator:a022d477e012d53dde1affab23a93d8fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17cd8aafeb1764f23847ce6b3e6d5fa7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17cd8aafeb1764f23847ce6b3e6d5fa7"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>cellsHorizontal</b></td></tr>
+<tr class="memitem:a7d3e922aa6ec275e667f86056f83927e"><td class="memItemLeft" align="right" valign="top">sf::Texture&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a7d3e922aa6ec275e667f86056f83927e">texture</a></td></tr>
+<tr class="separator:a7d3e922aa6ec275e667f86056f83927e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17cd8aafeb1764f23847ce6b3e6d5fa7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a17cd8aafeb1764f23847ce6b3e6d5fa7">cellsHorizontal</a></td></tr>
 <tr class="separator:a17cd8aafeb1764f23847ce6b3e6d5fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a456a1c459655cddde0125f3a43339277"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a456a1c459655cddde0125f3a43339277"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>cellsVertical</b></td></tr>
+<tr class="memitem:a456a1c459655cddde0125f3a43339277"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a456a1c459655cddde0125f3a43339277">cellsVertical</a></td></tr>
 <tr class="separator:a456a1c459655cddde0125f3a43339277"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class that represents the game. </p>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2015 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Open Source </dd></dl>
+<dl class="section author"><dt>Authors</dt><dd>Vinicius Campos Tinoco Ribeiro, Vitor Rodrigues Greati </dd></dl>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a class="anchor" id="a15939429a3b6e3f068272c60a885e809"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classGame.html#a15939429a3b6e3f068272c60a885e809">Game::typeCells</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores two types of cells. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a15939429a3b6e3f068272c60a885e809a602b1a4e95398f98e6d7657bd8a281a3"></a>BACTERIA&#160;</td><td class="fielddoc">
+<p>Indicates a bacteria. </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a15939429a3b6e3f068272c60a885e809a2231bae51b3df1e74da8ba0400d18a91"></a>BLANK&#160;</td><td class="fielddoc">
+<p>Indicates nothing there. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a9bc2cfb647c51977a50006ac433511c7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Game::Game </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_cellsHorizontal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_cellsVertical</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool **const&#160;</td>
+          <td class="paramname"><em>_field</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructor that sets all configurations for the game. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="af6fd557aa9a11e04b8d94b6c35996a60"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game::update </td>
+          <td>(</td>
+          <td class="paramtype">bool **&#160;</td>
+          <td class="paramname"><em>_field</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Updates the game. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a17cd8aafeb1764f23847ce6b3e6d5fa7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::cellsHorizontal</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Number of horizontal cells. </p>
+
+</div>
+</div>
+<a class="anchor" id="a456a1c459655cddde0125f3a43339277"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::cellsVertical</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Number of vertical cells. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0397b9eb4da1907b4de83b7e450fe1ea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classAvatar.html">Avatar</a>** Game::field</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The field of cells (matrix). </p>
+
+</div>
+</div>
+<a class="anchor" id="aa6d1743c45de5558a0ca99078df85250"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::height</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Window height. </p>
+
+</div>
+</div>
+<a class="anchor" id="a022d477e012d53dde1affab23a93d8fc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Game::sizeCell</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Size of a cell. </p>
+
+</div>
+</div>
+<a class="anchor" id="a7d3e922aa6ec275e667f86056f83927e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Texture Game::texture</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The texture of the game. </p>
+
+</div>
+</div>
+<a class="anchor" id="a06b5a675d7c0f6a9b58d395872b1a4e7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Game::width</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Window width. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="game_8h_source.html">game.h</a></li>
 </ul>

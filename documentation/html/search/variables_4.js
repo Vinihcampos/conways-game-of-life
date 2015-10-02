@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lifestability',['lifeStability',['../classGameOfLife.html#a0a05708cd58b7eadfd96d84a3641b835',1,'GameOfLife']]]
+  ['generation',['generation',['../classGameOfLife.html#aab1dc4078fe46596650d64ad50313555',1,'GameOfLife']]]
 ];

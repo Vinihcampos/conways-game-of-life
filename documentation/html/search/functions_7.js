@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7egameoflife',['~GameOfLife',['../classGameOfLife.html#ab06a33fee5a200e5ef62e306aaaea9c7',1,'GameOfLife']]]
+  ['tostring',['toString',['../classGameOfLife.html#a962e24b89ab41c9d214102904e1bf298',1,'GameOfLife']]]
 ];

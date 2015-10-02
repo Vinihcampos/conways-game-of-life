@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tostring',['toString',['../classGameOfLife.html#a962e24b89ab41c9d214102904e1bf298',1,'GameOfLife']]]
+  ['normal',['NORMAL',['../classGameOfLife.html#ab9119586dc592398cd982530e3076831adb669df0cff6f0440837322bfc241081',1,'GameOfLife']]]
 ];

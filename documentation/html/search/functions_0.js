@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['countneighbors',['countNeighbors',['../classGameOfLife.html#a1801dc503a5106b0ec5d5336057973d6',1,'GameOfLife']]]
+  ['avatar',['Avatar',['../classAvatar.html#a14b9eb31495b4f7db9d52c64b78f40b0',1,'Avatar']]]
 ];

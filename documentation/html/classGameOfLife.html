@@ -94,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Class that represents the Game of Life.  
+<p>Class that represents the <a class="el" href="classGame.html" title="Class that represents the game. ">Game</a> of Life.  
  <a href="classGameOfLife.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="GameOfLife_8h_source.html">GameOfLife.h</a>&gt;</code></p>
@@ -142,6 +142,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3538ce375cb68fc0f90f4c86ad52be2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeda28cd2f10ad35e4284b3c48b0e5072"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameOfLife.html#aeda28cd2f10ad35e4284b3c48b0e5072">getStatePos</a> (const int &amp;_row, const int &amp;_col)</td></tr>
 <tr class="separator:aeda28cd2f10ad35e4284b3c48b0e5072"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af73aadcce781aa58ce28eb23c64f6597"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af73aadcce781aa58ce28eb23c64f6597"></a>
+bool **&#160;</td><td class="memItemRight" valign="bottom"><b>getField</b> ()</td></tr>
+<tr class="separator:af73aadcce781aa58ce28eb23c64f6597"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -157,8 +160,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:aab1dc4078fe46596650d64ad50313555"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a05708cd58b7eadfd96d84a3641b835"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameOfLife.html#a0a05708cd58b7eadfd96d84a3641b835">lifeStability</a></td></tr>
 <tr class="separator:a0a05708cd58b7eadfd96d84a3641b835"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11909babb91108b22e157efd3b2f75b8"><td class="memItemLeft" align="right" valign="top">map&lt; size_t, pair&lt; int, string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameOfLife.html#a11909babb91108b22e157efd3b2f75b8">historical</a></td></tr>
-<tr class="separator:a11909babb91108b22e157efd3b2f75b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3288a6c2face420e667f9ca31c302e00"><td class="memItemLeft" align="right" valign="top">multimap&lt; size_t, pair&lt; int, string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameOfLife.html#a3288a6c2face420e667f9ca31c302e00">historical</a></td></tr>
+<tr class="separator:a3288a6c2face420e667f9ca31c302e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
@@ -166,7 +169,7 @@ Static Private Attributes</h2></td></tr>
 <tr class="separator:a15976a2df224994b6fa2ca57242fd093"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class that represents the Game of Life. </p>
+<div class="textblock"><p>Class that represents the <a class="el" href="classGame.html" title="Class that represents the game. ">Game</a> of Life. </p>
 <p>It contains a bidimentional array of booleans, where each position represents a cell, that can be alive (true) or dead (false). Besides that, the class encapsulates all actions related to the game, including update, history storage and print methods. </p><dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2015 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Open Source </dd></dl>
@@ -580,7 +583,7 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Update the field's state, based on Game of Life's rules:</p>
+<p>Update the field's state, based on <a class="el" href="classGame.html" title="Class that represents the game. ">Game</a> of Life's rules:</p>
 <ul>
 <li>if a cell is alive, but the number of living neighbors is less than or equal to one, this cell will die in the next generation;</li>
 <li>if a cell is alive and has four os more living neighbors, this cell will die in the next generation due to overpopulation;</li>
@@ -676,7 +679,7 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a11909babb91108b22e157efd3b2f75b8"></a>
+<a class="anchor" id="a3288a6c2face420e667f9ca31c302e00"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -684,7 +687,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">map&lt;size_t, pair&lt; int, string &gt; &gt; GameOfLife::historical</td>
+          <td class="memname">multimap&lt;size_t, pair&lt; int, string &gt; &gt; GameOfLife::historical</td>
         </tr>
       </table>
   </td>

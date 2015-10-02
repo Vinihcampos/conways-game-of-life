@@ -1,42 +1,121 @@
 \hypertarget{classAvatar}{}\section{Avatar Class Reference}
 \label{classAvatar}\index{Avatar@{Avatar}}
+
+
+Class that represents a cell graphically.  
+
+
+
+
+{\ttfamily \#include $<$game.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-int {\bfseries set\+Avatar} (float size, int posx, int posy, int \+\_\+actual, float startX, float startY)\hypertarget{classAvatar_a53ac52afe91523b08a05e41edb883e0b}{}\label{classAvatar_a53ac52afe91523b08a05e41edb883e0b}
-
+\hyperlink{classAvatar_a14b9eb31495b4f7db9d52c64b78f40b0}{Avatar} ()
 \item 
-void {\bfseries set\+Actual} (int \+\_\+actual)\hypertarget{classAvatar_a30f1705c0fe7164da51f3861bbbe83e7}{}\label{classAvatar_a30f1705c0fe7164da51f3861bbbe83e7}
-
+int \hyperlink{classAvatar_a266b3ed1e38b77d28a0a7cabc7ca5ae2}{initialize\+Avatar} (sf\+::\+Texture \&texture, float size, int posx, int posy, int \+\_\+actual, float startX, float startY)
 \item 
-int {\bfseries get\+Actual} ()\hypertarget{classAvatar_adcbefe8ab616aef752824f4dd6e86cb1}{}\label{classAvatar_adcbefe8ab616aef752824f4dd6e86cb1}
+void {\bfseries set\+Avatar} (int \+\_\+actual, int \+\_\+size)\hypertarget{classAvatar_a7befb8bda764e5cd0cc04a3a4c2c5145}{}\label{classAvatar_a7befb8bda764e5cd0cc04a3a4c2c5145}
 
 \item 
 sf\+::\+Sprite {\bfseries get\+Avatar} ()\hypertarget{classAvatar_ac5fadc3a5a9c03ced147e34553cbce53}{}\label{classAvatar_ac5fadc3a5a9c03ced147e34553cbce53}
+
+\item 
+int {\bfseries get\+Actual} ()\hypertarget{classAvatar_adcbefe8ab616aef752824f4dd6e86cb1}{}\label{classAvatar_adcbefe8ab616aef752824f4dd6e86cb1}
 
 \end{DoxyCompactItemize}
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void {\bfseries set\+Size} (float \&size)\hypertarget{classAvatar_a3c7c3f25a0d5edc296636e716e6f91d4}{}\label{classAvatar_a3c7c3f25a0d5edc296636e716e6f91d4}
-
+void \hyperlink{classAvatar_aa4cff0f42d3cd638d582b54373947ad7}{set\+Size} (float \&size, sf\+::\+Texture texture)
 \item 
-void {\bfseries move} (float startX, float startY, int \&posx, int \&posy, float \&size)\hypertarget{classAvatar_aaa3415318ec9f04c0b8a765c78faf4e5}{}\label{classAvatar_aaa3415318ec9f04c0b8a765c78faf4e5}
-
+void \hyperlink{classAvatar_aaa3415318ec9f04c0b8a765c78faf4e5}{move} (float startX, float startY, int \&posx, int \&posy, float \&size)
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-sf\+::\+Texture $\ast$ {\bfseries textures}\hypertarget{classAvatar_af92a8199bf29116cbbdb34a0fcbe2273}{}\label{classAvatar_af92a8199bf29116cbbdb34a0fcbe2273}
-
+sf\+::\+Sprite \hyperlink{classAvatar_acad0823a51d4780f9a43e8daf6ff84bc}{avatars}
 \item 
-sf\+::\+Sprite $\ast$ {\bfseries avatars}\hypertarget{classAvatar_afee56f77454acff190044e08867ee87c}{}\label{classAvatar_afee56f77454acff190044e08867ee87c}
-
+int \hyperlink{classAvatar_aae21cdaf10a7378c2dc001cea97d832e}{actual}
 \item 
-int {\bfseries actual}\hypertarget{classAvatar_aae21cdaf10a7378c2dc001cea97d832e}{}\label{classAvatar_aae21cdaf10a7378c2dc001cea97d832e}
-
+float \hyperlink{classAvatar_aa92a76326cfa48f098526ddba0d674f2}{proportion}
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Class that represents a cell graphically. 
+
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2015 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Open Source 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Authors}
+Vinicius Campos Tinoco Ribeiro, Vitor Rodrigues Greati 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Avatar@{Avatar}!Avatar@{Avatar}}
+\index{Avatar@{Avatar}!Avatar@{Avatar}}
+\subsubsection[{Avatar()}]{\setlength{\rightskip}{0pt plus 5cm}Avatar\+::\+Avatar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\hypertarget{classAvatar_a14b9eb31495b4f7db9d52c64b78f40b0}{}\label{classAvatar_a14b9eb31495b4f7db9d52c64b78f40b0}
+Basic constructor. 
+
+\subsection{Member Function Documentation}
+\index{Avatar@{Avatar}!initialize\+Avatar@{initialize\+Avatar}}
+\index{initialize\+Avatar@{initialize\+Avatar}!Avatar@{Avatar}}
+\subsubsection[{initialize\+Avatar(sf\+::\+Texture \&texture, float size, int posx, int posy, int \+\_\+actual, float start\+X, float start\+Y)}]{\setlength{\rightskip}{0pt plus 5cm}int Avatar\+::initialize\+Avatar (
+\begin{DoxyParamCaption}
+\item[{sf\+::\+Texture \&}]{texture, }
+\item[{float}]{size, }
+\item[{int}]{posx, }
+\item[{int}]{posy, }
+\item[{int}]{\+\_\+actual, }
+\item[{float}]{startX, }
+\item[{float}]{startY}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classAvatar_a266b3ed1e38b77d28a0a7cabc7ca5ae2}{}\label{classAvatar_a266b3ed1e38b77d28a0a7cabc7ca5ae2}
+Set initial configurations for the graphical object. \index{Avatar@{Avatar}!move@{move}}
+\index{move@{move}!Avatar@{Avatar}}
+\subsubsection[{move(float start\+X, float start\+Y, int \&posx, int \&posy, float \&size)}]{\setlength{\rightskip}{0pt plus 5cm}void Avatar\+::move (
+\begin{DoxyParamCaption}
+\item[{float}]{startX, }
+\item[{float}]{startY, }
+\item[{int \&}]{posx, }
+\item[{int \&}]{posy, }
+\item[{float \&}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classAvatar_aaa3415318ec9f04c0b8a765c78faf4e5}{}\label{classAvatar_aaa3415318ec9f04c0b8a765c78faf4e5}
+Moves the cell. \index{Avatar@{Avatar}!set\+Size@{set\+Size}}
+\index{set\+Size@{set\+Size}!Avatar@{Avatar}}
+\subsubsection[{set\+Size(float \&size, sf\+::\+Texture texture)}]{\setlength{\rightskip}{0pt plus 5cm}void Avatar\+::set\+Size (
+\begin{DoxyParamCaption}
+\item[{float \&}]{size, }
+\item[{sf\+::\+Texture}]{texture}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}\hypertarget{classAvatar_aa4cff0f42d3cd638d582b54373947ad7}{}\label{classAvatar_aa4cff0f42d3cd638d582b54373947ad7}
+Set size of the sprite, based on a given size and the texture. 
+
+\subsection{Member Data Documentation}
+\index{Avatar@{Avatar}!actual@{actual}}
+\index{actual@{actual}!Avatar@{Avatar}}
+\subsubsection[{actual}]{\setlength{\rightskip}{0pt plus 5cm}int Avatar\+::actual\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classAvatar_aae21cdaf10a7378c2dc001cea97d832e}{}\label{classAvatar_aae21cdaf10a7378c2dc001cea97d832e}
+Current generation. \index{Avatar@{Avatar}!avatars@{avatars}}
+\index{avatars@{avatars}!Avatar@{Avatar}}
+\subsubsection[{avatars}]{\setlength{\rightskip}{0pt plus 5cm}sf\+::\+Sprite Avatar\+::avatars\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classAvatar_acad0823a51d4780f9a43e8daf6ff84bc}{}\label{classAvatar_acad0823a51d4780f9a43e8daf6ff84bc}
+The sprite. \index{Avatar@{Avatar}!proportion@{proportion}}
+\index{proportion@{proportion}!Avatar@{Avatar}}
+\subsubsection[{proportion}]{\setlength{\rightskip}{0pt plus 5cm}float Avatar\+::proportion\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classAvatar_aa92a76326cfa48f098526ddba0d674f2}{}\label{classAvatar_aa92a76326cfa48f098526ddba0d674f2}
+For resizing the cell. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

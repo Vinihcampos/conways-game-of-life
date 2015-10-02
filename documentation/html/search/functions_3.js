@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['print',['print',['../classGameOfLife.html#a1bfc6cf715659f9a9ddb737d4d87be34',1,'GameOfLife']]]
+  ['initializeavatar',['initializeAvatar',['../classAvatar.html#a266b3ed1e38b77d28a0a7cabc7ca5ae2',1,'Avatar']]],
+  ['isinside',['isInside',['../classGameOfLife.html#ae00b9ea2168515d8e397dcb0c46f1560',1,'GameOfLife']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['update',['update',['../classGameOfLife.html#a14f03b541c2d1a8a5f9aaa7a1e63f514',1,'GameOfLife']]]
+  ['print',['print',['../classGameOfLife.html#a1bfc6cf715659f9a9ddb737d4d87be34',1,'GameOfLife']]],
+  ['proportion',['proportion',['../classAvatar.html#aa92a76326cfa48f098526ddba0d674f2',1,'Avatar']]]
 ];

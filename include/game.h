@@ -6,27 +6,46 @@
 
 using namespace std;
 
+/** 
+ *  \brief Class that represents a cell graphically.
+ *  \version 1.0
+ *  \date 2015
+ *  \copyright Open Source
+ *  \authors Vinicius Campos Tinoco Ribeiro, Vitor Rodrigues Greati
+ */
 class Avatar{
 	
 	private:
-		sf::Sprite avatars;
-		int actual;
-		float proportion;
-
+		sf::Sprite avatars; /**< The sprite.  */
+		int actual; /**<Current generation.  */
+		float proportion; /**< For resizing the cell. */
+	
+		/**
+		 * Set size of the sprite, based on a given size and the texture.
+		 * */
 		void setSize(float & size, sf::Texture texture){
 			sf::Vector2f scale = avatars.getScale();
 			proportion = size/texture.getSize().y;
 			avatars.setScale(proportion, proportion);
 		}
 
+		/**
+		 * Moves the cell.
+		 * */
 		void move(float startX, float startY, int & posx, int & posy, float & size){
 			avatars.setPosition(startX + size * posy, startY + size * posx);
 			//cout<<"["<<posx<<"]["<<posy<<"]: "<<avatars.getPosition().x<<", "<<avatars.getPosition().y<<endl;			
 		}
 
 	public:
+		/**
+		 * Basic constructor.
+		 * */
 		explicit Avatar(){}
 
+		/**
+		 * Set initial configurations for the graphical object.
+		 * */
 		int initializeAvatar(sf::Texture & texture, float size, int posx, int posy, int _actual, float startX, float startY){
 
 			avatars.setTexture(texture);
@@ -54,24 +73,36 @@ class Avatar{
 		
 };
 
+/** 
+ *  \brief Class that represents the game.
+ *  \version 1.0
+ *  \date 2015
+ *  \copyright Open Source
+ *  \authors Vinicius Campos Tinoco Ribeiro, Vitor Rodrigues Greati
+ */
 class Game{
 
 	private:
-		int width;
-		int height;
-		float sizeCell;
-		sf::Texture texture;
-		int cellsHorizontal;
-		int cellsVertical;
+		int width; /**< Window width. */
+		int height; /**< Window height. */
+		float sizeCell; /**< Size of a cell. */
+		sf::Texture texture; /**< The texture of the game. */
+		int cellsHorizontal; /**< Number of horizontal cells. */
+		int cellsVertical; /**< Number of vertical cells. */
+		
 
+		/** \brief Stores two types of cells. */
 		enum typeCells{
-			BACTERIA = 0,
-			BLANK
+			BACTERIA = 0, /**< Indicates a bacteria. */
+			BLANK /**< Indicates nothing there. */
 		};
 
 	public:
-		Avatar ** field;
+		Avatar ** field; /**< The field of cells (matrix). */
 
+		/**
+		 * Constructor that sets all configurations for the game.
+		 * */
 		Game(int _width, int _height, int _cellsHorizontal, int _cellsVertical, bool ** const _field) : 
 		width {_width}, height {_height}, cellsHorizontal {_cellsHorizontal}, cellsVertical {_cellsVertical}{
 
@@ -114,7 +145,10 @@ class Game{
 
 		int getCellsHorizontal(){ return cellsHorizontal; }
 		int getCellsVertical(){ return cellsVertical; }
-
+		
+		/**
+		 * Updates the game.
+		 * */
 		void update(bool ** _field){
 			for(int i = 1; i <= cellsHorizontal; ++i){
 				for(int j = 1; j <= cellsVertical; ++j){
@@ -128,7 +162,5 @@ class Game{
 		}
 
 };
-
-
 
 #endif

@@ -1,10 +1,18 @@
 \hypertarget{classGame}{}\section{Game Class Reference}
 \label{classGame}\index{Game@{Game}}
+
+
+Class that represents the game.  
+
+
+
+
+{\ttfamily \#include $<$game.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Game} (int \+\_\+width, int \+\_\+height, int \+\_\+cells\+Vertical, int \+\_\+cells\+Horizontal, bool $\ast$$\ast$const \+\_\+field)\hypertarget{classGame_a878e46dca3d4a4b7c5be94d03e376569}{}\label{classGame_a878e46dca3d4a4b7c5be94d03e376569}
-
+\hyperlink{classGame_a9bc2cfb647c51977a50006ac433511c7}{Game} (int \+\_\+width, int \+\_\+height, int \+\_\+cells\+Horizontal, int \+\_\+cells\+Vertical, bool $\ast$$\ast$const \+\_\+field)
 \item 
 int {\bfseries get\+Cells\+Horizontal} ()\hypertarget{classGame_ab191e9914c3b3b30162fb49b02d0bd36}{}\label{classGame_ab191e9914c3b3b30162fb49b02d0bd36}
 
@@ -12,44 +20,120 @@ int {\bfseries get\+Cells\+Horizontal} ()\hypertarget{classGame_ab191e9914c3b3b3
 int {\bfseries get\+Cells\+Vertical} ()\hypertarget{classGame_a6ddb90d54f45464e9a80a9ab6501ccb1}{}\label{classGame_a6ddb90d54f45464e9a80a9ab6501ccb1}
 
 \item 
-void {\bfseries update} (bool $\ast$$\ast$\+\_\+field)\hypertarget{classGame_af6fd557aa9a11e04b8d94b6c35996a60}{}\label{classGame_af6fd557aa9a11e04b8d94b6c35996a60}
-
+void \hyperlink{classGame_af6fd557aa9a11e04b8d94b6c35996a60}{update} (bool $\ast$$\ast$\+\_\+field)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classAvatar}{Avatar} $\ast$$\ast$ {\bfseries field}\hypertarget{classGame_a0397b9eb4da1907b4de83b7e450fe1ea}{}\label{classGame_a0397b9eb4da1907b4de83b7e450fe1ea}
-
+\hyperlink{classAvatar}{Avatar} $\ast$$\ast$ \hyperlink{classGame_a0397b9eb4da1907b4de83b7e450fe1ea}{field}
 \end{DoxyCompactItemize}
 \subsection*{Private Types}
 \begin{DoxyCompactItemize}
 \item 
-enum {\bfseries type\+Cells} \{ {\bfseries Z\+O\+M\+B\+IE} = 0, 
-{\bfseries V\+I\+N\+I\+C\+I\+US}, 
-{\bfseries V\+I\+T\+OR}, 
-{\bfseries B\+L\+A\+NK}
- \}\hypertarget{classGame_a15939429a3b6e3f068272c60a885e809}{}\label{classGame_a15939429a3b6e3f068272c60a885e809}
-
+enum \hyperlink{classGame_a15939429a3b6e3f068272c60a885e809}{type\+Cells} \{ \hyperlink{classGame_a15939429a3b6e3f068272c60a885e809a602b1a4e95398f98e6d7657bd8a281a3}{B\+A\+C\+T\+E\+R\+IA} = 0, 
+\hyperlink{classGame_a15939429a3b6e3f068272c60a885e809a2231bae51b3df1e74da8ba0400d18a91}{B\+L\+A\+NK}
+ \}\begin{DoxyCompactList}\small\item\em Stores two types of cells. \end{DoxyCompactList}
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-int {\bfseries width}\hypertarget{classGame_a06b5a675d7c0f6a9b58d395872b1a4e7}{}\label{classGame_a06b5a675d7c0f6a9b58d395872b1a4e7}
-
+int \hyperlink{classGame_a06b5a675d7c0f6a9b58d395872b1a4e7}{width}
 \item 
-int {\bfseries height}\hypertarget{classGame_aa6d1743c45de5558a0ca99078df85250}{}\label{classGame_aa6d1743c45de5558a0ca99078df85250}
-
+int \hyperlink{classGame_aa6d1743c45de5558a0ca99078df85250}{height}
 \item 
-float {\bfseries size\+Cell}\hypertarget{classGame_a022d477e012d53dde1affab23a93d8fc}{}\label{classGame_a022d477e012d53dde1affab23a93d8fc}
-
+float \hyperlink{classGame_a022d477e012d53dde1affab23a93d8fc}{size\+Cell}
 \item 
-int {\bfseries cells\+Horizontal}\hypertarget{classGame_a17cd8aafeb1764f23847ce6b3e6d5fa7}{}\label{classGame_a17cd8aafeb1764f23847ce6b3e6d5fa7}
-
+sf\+::\+Texture \hyperlink{classGame_a7d3e922aa6ec275e667f86056f83927e}{texture}
 \item 
-int {\bfseries cells\+Vertical}\hypertarget{classGame_a456a1c459655cddde0125f3a43339277}{}\label{classGame_a456a1c459655cddde0125f3a43339277}
-
+int \hyperlink{classGame_a17cd8aafeb1764f23847ce6b3e6d5fa7}{cells\+Horizontal}
+\item 
+int \hyperlink{classGame_a456a1c459655cddde0125f3a43339277}{cells\+Vertical}
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Class that represents the game. 
+
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2015 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Open Source 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Authors}
+Vinicius Campos Tinoco Ribeiro, Vitor Rodrigues Greati 
+\end{DoxyAuthor}
+
+
+\subsection{Member Enumeration Documentation}
+\index{Game@{Game}!type\+Cells@{type\+Cells}}
+\index{type\+Cells@{type\+Cells}!Game@{Game}}
+\subsubsection[{type\+Cells}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Game\+::type\+Cells}\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGame_a15939429a3b6e3f068272c60a885e809}{}\label{classGame_a15939429a3b6e3f068272c60a885e809}
+
+
+Stores two types of cells. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{B\+A\+C\+T\+E\+R\+IA@{B\+A\+C\+T\+E\+R\+IA}!Game@{Game}}\index{Game@{Game}!B\+A\+C\+T\+E\+R\+IA@{B\+A\+C\+T\+E\+R\+IA}}\item[{\em 
+B\+A\+C\+T\+E\+R\+IA\hypertarget{classGame_a15939429a3b6e3f068272c60a885e809a602b1a4e95398f98e6d7657bd8a281a3}{}\label{classGame_a15939429a3b6e3f068272c60a885e809a602b1a4e95398f98e6d7657bd8a281a3}
+}]Indicates a bacteria. \index{B\+L\+A\+NK@{B\+L\+A\+NK}!Game@{Game}}\index{Game@{Game}!B\+L\+A\+NK@{B\+L\+A\+NK}}\item[{\em 
+B\+L\+A\+NK\hypertarget{classGame_a15939429a3b6e3f068272c60a885e809a2231bae51b3df1e74da8ba0400d18a91}{}\label{classGame_a15939429a3b6e3f068272c60a885e809a2231bae51b3df1e74da8ba0400d18a91}
+}]Indicates nothing there. \end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\subsubsection[{Game(int \+\_\+width, int \+\_\+height, int \+\_\+cells\+Horizontal, int \+\_\+cells\+Vertical, bool $\ast$$\ast$const \+\_\+field)}]{\setlength{\rightskip}{0pt plus 5cm}Game\+::\+Game (
+\begin{DoxyParamCaption}
+\item[{int}]{\+\_\+width, }
+\item[{int}]{\+\_\+height, }
+\item[{int}]{\+\_\+cells\+Horizontal, }
+\item[{int}]{\+\_\+cells\+Vertical, }
+\item[{bool $\ast$$\ast$const}]{\+\_\+field}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGame_a9bc2cfb647c51977a50006ac433511c7}{}\label{classGame_a9bc2cfb647c51977a50006ac433511c7}
+Constructor that sets all configurations for the game. 
+
+\subsection{Member Function Documentation}
+\index{Game@{Game}!update@{update}}
+\index{update@{update}!Game@{Game}}
+\subsubsection[{update(bool $\ast$$\ast$\+\_\+field)}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+::update (
+\begin{DoxyParamCaption}
+\item[{bool $\ast$$\ast$}]{\+\_\+field}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGame_af6fd557aa9a11e04b8d94b6c35996a60}{}\label{classGame_af6fd557aa9a11e04b8d94b6c35996a60}
+Updates the game. 
+
+\subsection{Member Data Documentation}
+\index{Game@{Game}!cells\+Horizontal@{cells\+Horizontal}}
+\index{cells\+Horizontal@{cells\+Horizontal}!Game@{Game}}
+\subsubsection[{cells\+Horizontal}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+::cells\+Horizontal\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGame_a17cd8aafeb1764f23847ce6b3e6d5fa7}{}\label{classGame_a17cd8aafeb1764f23847ce6b3e6d5fa7}
+Number of horizontal cells. \index{Game@{Game}!cells\+Vertical@{cells\+Vertical}}
+\index{cells\+Vertical@{cells\+Vertical}!Game@{Game}}
+\subsubsection[{cells\+Vertical}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+::cells\+Vertical\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGame_a456a1c459655cddde0125f3a43339277}{}\label{classGame_a456a1c459655cddde0125f3a43339277}
+Number of vertical cells. \index{Game@{Game}!field@{field}}
+\index{field@{field}!Game@{Game}}
+\subsubsection[{field}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Avatar}$\ast$$\ast$ Game\+::field}\hypertarget{classGame_a0397b9eb4da1907b4de83b7e450fe1ea}{}\label{classGame_a0397b9eb4da1907b4de83b7e450fe1ea}
+The field of cells (matrix). \index{Game@{Game}!height@{height}}
+\index{height@{height}!Game@{Game}}
+\subsubsection[{height}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+::height\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGame_aa6d1743c45de5558a0ca99078df85250}{}\label{classGame_aa6d1743c45de5558a0ca99078df85250}
+Window height. \index{Game@{Game}!size\+Cell@{size\+Cell}}
+\index{size\+Cell@{size\+Cell}!Game@{Game}}
+\subsubsection[{size\+Cell}]{\setlength{\rightskip}{0pt plus 5cm}float Game\+::size\+Cell\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGame_a022d477e012d53dde1affab23a93d8fc}{}\label{classGame_a022d477e012d53dde1affab23a93d8fc}
+Size of a cell. \index{Game@{Game}!texture@{texture}}
+\index{texture@{texture}!Game@{Game}}
+\subsubsection[{texture}]{\setlength{\rightskip}{0pt plus 5cm}sf\+::\+Texture Game\+::texture\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGame_a7d3e922aa6ec275e667f86056f83927e}{}\label{classGame_a7d3e922aa6ec275e667f86056f83927e}
+The texture of the game. \index{Game@{Game}!width@{width}}
+\index{width@{width}!Game@{Game}}
+\subsubsection[{width}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+::width\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classGame_a06b5a675d7c0f6a9b58d395872b1a4e7}{}\label{classGame_a06b5a675d7c0f6a9b58d395872b1a4e7}
+Window width. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
