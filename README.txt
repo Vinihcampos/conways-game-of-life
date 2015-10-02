@@ -72,7 +72,7 @@ O projeto está sub-dividido em 6 pastas:
 			 <arquivo_de_saida> será o arquivo que armazenará o histórico de gerações
 
 # Guia de utilização(MODO GRÁFICO) - Linux #
-	
+	0 - É preciso ter o sfml instalado (Siga as intruções do site http://www.sfml-dev.org/)
 	1 - Descompactar o projeto na pasta de preferência
 	1 - Abra o terminal
 	2 - Desloque-se até pasta do projeto, conwaygameoflife.
